@@ -44,7 +44,7 @@
               App Login
             </a>
             <span>•</span>
-            <button @click="openTypeform" class="hover:text-white transition-colors">
+            <button class="hover:text-white transition-colors" @click="openTypeform">
               Survey
             </button>
           </div>

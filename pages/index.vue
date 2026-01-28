@@ -18,7 +18,7 @@
 
         <!-- Primary CTA - Take Survey -->
         <div class="mb-8">
-          <button @click="openTypeform" class="btn-secondary text-lg px-12 py-4 mb-4">
+          <button class="btn-secondary text-lg px-12 py-4 mb-4" @click="openTypeform">
             Take Our Market Research Survey
           </button>
           <p class="text-sm text-gray-500">
@@ -104,7 +104,7 @@
             Ready to Get Started?
           </h3>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button @click="openTypeform" class="btn-secondary">
+            <button class="btn-secondary" @click="openTypeform">
               Take the Survey
             </button>
             <a href="https://myrecruitingcompass.com/signup" class="btn-outline">
@@ -123,8 +123,6 @@
 </template>
 
 <script setup>
-import CompassIcon from '~/components/icons/CompassIcon.vue'
-
 // Typeform integration - will need your form ID
 const typeformId = useRuntimeConfig().public.typeformFormId || 'YOUR_FORM_ID_HERE'
 
