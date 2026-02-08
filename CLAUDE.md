@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **TheRecruitingCompass Landing Site** is a static marketing website built with Nuxt 3 and Vue 3. It drives user sign-ups for the main recruiting compass application and collects market research data via Typeform integration. The site targets high school baseball players and their families with family-focused messaging.
 
 **Key Characteristics:**
-- Static Site Generation (SSG) deployed to Netlify
+- Static Site Generation (SSG) deployed to Vercel
 - Single-page landing site (only `/pages/index.vue`)
 - Mobile responsive with Tailwind CSS custom design system
 - TypeScript with strict type checking
@@ -68,19 +68,19 @@ npm run preview          # Preview production build locally
 - **`tailwind.config.cjs`** — Design tokens: primary blue theme, baseball orange accents, custom spacing/border-radius
 - **`package.json`** — Dependencies and npm scripts
 - **`.env.example`** — Template for environment variables (Typeform Form ID, domain URLs, analytics)
-- **`netlify.toml`** — Netlify deployment config with security headers (HSTS, CSP, XSS protection), Node 20 runtime
-- **`.gitlab-ci.yml`** — GitLab CI validation pipeline (linting on merge requests)
+- **`.github/workflows/`** — GitHub Actions: CI (test/lint/type-check), staging auto-deploy on `develop`, manual production deploy
 
 ### Data Flow & External Integrations
 1. **Typeform Integration** — Form ID injected via `NUXT_PUBLIC_TYPEFORM_FORM_ID` at build time
 2. **Cross-Domain CTAs** — Links to `myrecruitingcompass.com` (main app) and `blog.therecruitingcompass.com` configured in `.env`
-3. **Static Deployment** — Built as HTML/CSS/JS, served via Netlify CDN for fast loading
+3. **Static Deployment** — Built as HTML/CSS/JS, served via Vercel for fast loading
 
 ### Build & Deployment Pipeline
 - **Local:** Nuxt dev server with HMR
-- **CI/CD:** GitLab CI runs linting on merge requests (non-blocking with `allow_failure: true`)
-- **Production:** Push to `main` → automatic Netlify build and deploy
-- **Output:** `.output/public/` directory deployed as static site
+- **CI/CD:** GitHub Actions run type-check, lint, and build on push/PR; see `.github/workflows/`
+- **Staging:** Push to `develop` → test then auto-deploy to Vercel staging
+- **Production:** Manual "Deploy to Production" workflow deploys to Vercel production (with confirmation)
+- **Output:** Static site built and deployed via Vercel
 
 ### Design System & Styling
 - **Colors:** Tailwind customization in `tailwind.config.cjs` defines primary blue, baseball orange, and custom grays
@@ -103,11 +103,8 @@ npm run preview          # Preview production build locally
 - **Runtime public vars** — Prefixed with `NUXT_PUBLIC_` to be accessible in the browser
 - See `.env.example` for complete list
 
-### Security Headers (Netlify)
-- HSTS enforced (max-age=31536000)
-- Content Security Policy implemented
-- XSS and frame-attack protections enabled
-- MIME type sniffing prevented
+### Security Headers
+- Configure in Vercel (project settings or `vercel.json`): HSTS, CSP, X-Frame-Options, X-Content-Type-Options, etc.
 
 ### SEO & Meta Tags
 - Configured in `nuxt.config.ts` with app-wide defaults
@@ -126,7 +123,7 @@ npm run preview          # Preview production build locally
 - **Feature branches** — Create branches for changes; never push directly to `main`
 - **Conventional commits** — Use `feat:`, `fix:`, `docs:`, `style:`, `refactor:` prefixes in imperative mood
 - **Pre-commit validation** — Run `npm run lint:fix && npm run format && npm run type-check` before committing
-- **Automatic deployment** — Merging to `main` triggers Netlify build and deploy
+- **Deployment** — Staging: push to `develop`. Production: run "Deploy to Production" workflow in GitHub Actions (see `docs/VERCEL_SETUP.md`).
 
 ---
 
@@ -135,4 +132,4 @@ npm run preview          # Preview production build locally
 - **Type errors** — Run `npm run type-check` and address all errors before commit
 - **Build failures** — Check `.env` file has correct Typeform Form ID and domain URLs
 - **Style issues** — Check `tailwind.config.cjs` for missing utilities; ensure Tailwind scans all component files
-- **Deployment issues** — Check `netlify.toml` for build configuration; verify Node 20 is available
+- **Deployment issues** — Check `docs/VERCEL_SETUP.md` and GitHub Actions secrets (VERCEL_TOKEN, VERCEL_PROJECT_ID_*); verify Node 20 in workflow

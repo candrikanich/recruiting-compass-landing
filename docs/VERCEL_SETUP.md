@@ -35,7 +35,7 @@ Create **two** Vercel projects (same GitHub repo, different project IDs).
 4. **Framework Preset:** Nuxt
 5. Deploy once, then copy the **Project ID** from Settings → General
 
-**Environment variables:** In each Vercel project (staging and prod), go to **Settings → Environment Variables** and add the same vars you use for Netlify (e.g. `TYPEFORM_FORM_ID`, `NUXT_PUBLIC_SITE_URL`, `NUXT_PUBLIC_APP_URL` from `.env.example`). They're needed at build time when the workflow runs `vercel deploy`.
+**Environment variables:** In each Vercel project (staging and prod), go to **Settings → Environment Variables** and add the vars from `.env.example` (e.g. `TYPEFORM_FORM_ID`, `NUXT_PUBLIC_SITE_URL`, `NUXT_PUBLIC_APP_URL`). They're needed at build time when the workflow runs `vercel deploy`.
 
 You can turn off “Automatically deploy from Git” for both if you want **only** GitHub Actions to deploy (recommended so staging/prod stay in sync with the workflows).
 

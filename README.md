@@ -77,7 +77,7 @@ The site is configured for:
 
 ## Deployment
 
-This site is designed to be deployed to Netlify or similar static hosting.
+This site is deployed to **Vercel** via GitHub Actions. Push to `develop` for staging; use the "Deploy to Production" workflow for production. See `docs/VERCEL_SETUP.md` for setup.
 
 ### Environment Variables Required
 
