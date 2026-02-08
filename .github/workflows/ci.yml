@@ -1,10 +1,8 @@
-# Validate main branch (e.g. after merge from develop)
+# Validate main branch after merge (e.g. from develop). PRs are validated by Test & Verify.
 name: CI
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:

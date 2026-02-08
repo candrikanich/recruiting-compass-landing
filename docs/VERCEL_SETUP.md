@@ -52,9 +52,10 @@ Add:
 | Secret | Value |
 |--------|--------|
 | `VERCEL_TOKEN` | [Vercel Account → Tokens](https://vercel.com/account/tokens) – create a token (e.g. “GitHub Actions”) |
-| `VERCEL_ORG_ID` | [Vercel Account → Overview](https://vercel.com/account) – Team ID / Org ID |
 | `VERCEL_PROJECT_ID_STAGING` | Project ID of **recruiting-compass-landing-staging** |
 | `VERCEL_PROJECT_ID_PROD` | Project ID of **recruiting-compass-landing-prod** |
+
+For a **personal account** you do not need `VERCEL_ORG_ID`. For a **Vercel team**, add secret `VERCEL_ORG_ID` with your **team** ID (`team_xxx` from Team Settings); do not use your personal account ID or the CLI will error ("You cannot set your Personal Account as the scope").
 
 Optional (Slack): add `SLACK_WEBHOOK_URL` for deploy notifications. If not set, Slack steps are no-ops (`continue-on-error: true`).
 
