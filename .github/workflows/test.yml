@@ -7,41 +7,63 @@ on:
     branches: [develop, main]
 
 jobs:
-  verify:
-    name: Verify Code Quality
+  code-quality:
+    name: Code Quality (Lint & Types)
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
+      - run: npm ci
+      - run: npx nuxi prepare
+      - run: npm run type-check
+      - run: npm run lint
+      - run: npm run build
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Prepare Nuxt
-        run: npx nuxi prepare
-
-      - name: Type check
-        run: npm run type-check
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Build
-        run: npm run build
+  deploy-staging:
+    name: Deploy to Staging
+    needs: code-quality
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g vercel
+      - run: |
+          vercel deploy \
+            --token="${{ secrets.VERCEL_TOKEN }}" \
+            --scope="${{ secrets.VERCEL_ORG_ID }}"
+        env:
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_STAGING }}
+      - name: Notify Slack on Success
+        if: success()
+        continue-on-error: true
+        uses: slackapi/slack-github-action@v2
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            {"text":"✅ Landing Staging auto-deployed","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"*✅ Landing Auto Deploy to Staging Success*\n*Commit:* ${{ github.sha }}"}}]}
+      - name: Notify Slack on Deploy Failure
+        if: failure()
+        continue-on-error: true
+        uses: slackapi/slack-github-action@v2
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            {"text":"❌ Landing Staging deploy failed","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"*❌ Landing Deploy to Staging Failed*\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Details>"}}]}
 
   notify-slack-on-failure:
     name: Notify Slack on Failure
     runs-on: ubuntu-latest
-    needs: verify
-    if: always() && (needs.verify.result == 'failure' || needs.verify.result == 'cancelled')
-
+    needs: code-quality
+    if: always() && (needs.code-quality.result == 'failure' || needs.code-quality.result == 'cancelled')
     steps:
       - name: Send Slack notification
         continue-on-error: true

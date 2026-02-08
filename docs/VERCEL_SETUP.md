@@ -94,7 +94,7 @@ Configure DNS (CNAME/A/AAAA) as shown in Vercel.
 
 ## 6. How to Deploy
 
-- **Staging:** push to `develop` → Test & Verify runs → on success, Auto Deploy to Staging runs.
+- **Staging:** push to `develop` → Test & Verify runs (Code Quality then Deploy to Staging on success).
 - **Production:** in GitHub **Actions** tab, run **“Deploy to Production”** → enter `DEPLOY` when prompted → approve if you use required reviewers.
 
 ---
@@ -103,9 +103,8 @@ Configure DNS (CNAME/A/AAAA) as shown in Vercel.
 
 | File | Trigger | Purpose |
 |------|---------|---------|
-| `test.yml` | Push to develop, PR to develop/main | Type-check, lint, build |
+| `test.yml` | Push to develop, PR to develop/main | Code Quality (lint & types); on push to develop, deploy to staging |
 | `ci.yml` | Push/PR to main | Same checks on main |
-| `staging-auto-deploy.yml` | Push to develop | Test + deploy to staging |
 | `deploy-prod.yml` | Manual (workflow_dispatch) | Deploy to production |
 
 After creating the two Vercel projects and the four secrets, the pipeline is ready to use.
