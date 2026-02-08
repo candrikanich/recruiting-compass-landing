@@ -30,9 +30,11 @@ jobs:
         with:
           node-version: "20"
       - run: npm install -g vercel
-      - run: vercel deploy --prod --token="${{ secrets.VERCEL_TOKEN }}"
+      - run: |
+          vercel deploy --prod \
+            --token="${{ secrets.VERCEL_TOKEN }}" \
+            --scope="${{ secrets.VERCEL_ORG_ID }}"
         env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_STAGING }}
       - name: Slack Notification - Success
         if: success()

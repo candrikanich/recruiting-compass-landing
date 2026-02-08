@@ -36,8 +36,8 @@ jobs:
   notify-slack-on-failure:
     name: Notify Slack on Failure
     runs-on: ubuntu-latest
-    if: failure()
     needs: verify
+    if: always() && (needs.verify.result == 'failure' || needs.verify.result == 'cancelled')
 
     steps:
       - name: Send Slack notification
