@@ -31,7 +31,7 @@ jobs:
           node-version: "20"
       - run: npm install -g vercel
       - run: |
-          vercel deploy --prod \
+          vercel deploy \
             --token="${{ secrets.VERCEL_TOKEN }}" \
             --scope="${{ secrets.VERCEL_ORG_ID }}"
         env:
