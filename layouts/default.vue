@@ -29,7 +29,7 @@
       <slot />
     </main>
 
-    <footer class="bg-gray-900 text-white py-12">
+    <footer v-if="!isHomePage" class="bg-gray-900 text-white py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <div class="flex items-center justify-center mb-4">
@@ -56,6 +56,9 @@
 
 <script setup>
 import CompassIcon from '~/components/icons/CompassIcon.vue'
+
+const route = useRoute()
+const isHomePage = computed(() => route.path === '/')
 
 const openTypeform = () => {
   const typeformId = useRuntimeConfig().public.typeformFormId || 'YOUR_FORM_ID_HERE'
