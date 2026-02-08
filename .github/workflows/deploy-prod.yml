@@ -44,6 +44,7 @@ jobs:
             --token="${{ secrets.VERCEL_TOKEN }}"
         env:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PROD }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
       - name: Slack Notification - Success
         if: success()
