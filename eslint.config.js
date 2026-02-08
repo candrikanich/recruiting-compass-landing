@@ -1,13 +1,23 @@
 import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import tsParser from '@typescript-eslint/parser'
 
 export default [
   js.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
   eslintConfigPrettier,
   {
-    ignores: ['node_modules', '.nuxt', '.output', 'dist']
+    ignores: ['node_modules', '.nuxt', '.output', 'dist', 'design']
+  },
+  {
+    files: ['**/*.vue'],
+    languageOptions: {
+      parserOptions: {
+        parser: tsParser,
+        extraFileExtensions: ['.vue']
+      }
+    }
   },
   {
     files: ['**/*.{js,mjs,cjs,vue}'],
@@ -24,7 +34,13 @@ export default [
         definePageMeta: true,
         defineNuxtConfig: true,
         defineNuxtPlugin: true,
-        defineNuxtMiddleware: true
+        defineNuxtMiddleware: true,
+        computed: true,
+        ref: true,
+        onMounted: true,
+        reactive: true,
+        watch: true,
+        nextTick: true
       }
     },
     rules: {
