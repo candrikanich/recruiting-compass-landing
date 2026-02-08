@@ -3,11 +3,20 @@
 
 
     <!-- Hero Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <section class="py-20 px-4 sm:px-6 lg:px-8 overflow-visible">
       <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+        <h1 class="hero-headline text-4xl md:text-6xl font-bold text-gray-900 mb-6">
           Navigate Your
-          <span class="text-primary-600"> Baseball Journey</span>
+          <span class="text-primary-600 inline-block overflow-hidden align-bottom">
+            <span class="word-flip-wrapper inline-block">
+              <Transition name="flip" mode="out-in">
+                <span :key="sportWord" class="word-flip-word block text-center">
+                  {{ sportWord }}
+                </span>
+              </Transition>
+            </span>
+          </span>
+          Recruiting Journey
         </h1>
         
         <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
@@ -122,7 +131,37 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+// Sport word rotator (flipbook / flip-clock style)
+const SPORTS = [
+  'Baseball',
+  'Football',
+  'Basketball',
+  'Volleyball',
+  'Soccer',
+  'Tennis',
+  'Lacrosse',
+  'College',
+] as const;
+
+const sportIndex = ref(0)
+const sportWord = computed(() => SPORTS[sportIndex.value])
+
+let sportInterval: ReturnType<typeof setInterval> | null = null
+onMounted(() => {
+  sportInterval = setInterval(() => {
+    if (sportIndex.value >= SPORTS.length - 1) {
+      if (sportInterval) clearInterval(sportInterval)
+      sportInterval = null
+      return
+    }
+    sportIndex.value = sportIndex.value + 1
+  }, 1800)
+})
+onUnmounted(() => {
+  if (sportInterval) clearInterval(sportInterval)
+})
+
 // Typeform integration - will need your form ID
 const typeformId = useRuntimeConfig().public.typeformFormId || 'YOUR_FORM_ID_HERE'
 
@@ -142,3 +181,43 @@ useHead({
   ]
 })
 </script>
+
+<style scoped>
+.hero-headline {
+  line-height: 1.3;
+  padding-bottom: 0.2em;
+  overflow: visible;
+}
+
+.word-flip-wrapper {
+  perspective: 12rem;
+  min-width: 18ch; /* avoid layout shift for "College Recruiting" */
+}
+
+.word-flip-word {
+  transform-origin: center top;
+  backface-visibility: hidden;
+}
+
+/* Flip-clock style: out = top flips up, in = next flips down into place */
+.flip-enter-active,
+.flip-leave-active {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.flip-leave-to {
+  transform: rotateX(-90deg);
+  opacity: 0;
+}
+
+.flip-enter-from {
+  transform: rotateX(90deg);
+  opacity: 0;
+}
+
+.flip-enter-to,
+.flip-leave-from {
+  transform: rotateX(0);
+  opacity: 1;
+}
+</style>
