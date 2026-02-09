@@ -3,8 +3,6 @@ name: Test & Verify
 on:
   push:
     branches: [develop]
-  pull_request:
-    branches: [develop, main]
 
 jobs:
   code-quality:
