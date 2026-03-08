@@ -1,5 +1,21 @@
 <template>
-  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+  <svg class="w-[72px] h-[72px]" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g transform="rotate(10, 50, 50)">
+      <circle cx="50" cy="50" r="38" fill="none" stroke="#C4A46B" stroke-width="3" />
+      <g transform="translate(50, 50) rotate(45)">
+        <rect x="-32" y="-32" width="64" height="64" fill="#2D5A27" rx="4" />
+        <line x1="-32" y1="0" x2="-8" y2="0" stroke="#F5F5F0" stroke-width="2" />
+        <line x1="0" y1="-32" x2="0" y2="-8" stroke="#F5F5F0" stroke-width="2" />
+        <rect x="-28" y="-4" width="8" height="8" fill="#F5F5F0" rx="1" />
+        <rect x="-4" y="-28" width="8" height="8" fill="#F5F5F0" rx="1" />
+      </g>
+      <line x1="5" y1="50" x2="95" y2="50" stroke="#F5F5F0" stroke-width="2" />
+      <line x1="46" y1="62" x2="54" y2="62" stroke="#F5F5F0" stroke-width="2" />
+      <line x1="46" y1="70" x2="54" y2="70" stroke="#F5F5F0" stroke-width="2" />
+      <line x1="46" y1="78" x2="54" y2="78" stroke="#F5F5F0" stroke-width="2" />
+      <line x1="46" y1="86" x2="54" y2="86" stroke="#F5F5F0" stroke-width="2" />
+      <polygon points="50,18 44,28 50,24 56,28" fill="#C4A46B" />
+      <circle cx="50" cy="50" r="6" fill="#8B6914" stroke="#F5F5F0" stroke-width="2" />
+    </g>
   </svg>
 </template>

@@ -3,11 +3,8 @@
     <header class="sticky top-0 z-50 bg-white shadow-sm">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-          <!-- Logo Placeholder -->
-          <div class="flex items-center">
-            <CompassIcon class="w-8 h-8 text-primary-600" />
-            <span class="ml-2 text-xl font-bold text-gray-900">The Recruiting Compass</span>
-          </div>
+          <!-- Brand -->
+          <BrandHorizontal />
           
           <!-- CTA Buttons -->
           <div class="hidden md:flex space-x-4">
@@ -33,8 +30,7 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <div class="flex items-center justify-center mb-4">
-            <CompassIcon class="w-6 h-6 text-primary-600" />
-            <span class="ml-2 text-lg font-semibold">The Recruiting Compass</span>
+            <BrandHorizontal />
           </div>
           <p class="text-gray-400 mb-4">
             Navigate your baseball journey with confidence
@@ -55,7 +51,7 @@
 </template>
 
 <script setup>
-import CompassIcon from '~/components/icons/CompassIcon.vue'
+import BrandHorizontal from '~/components/icons/BrandHorizontal.vue'
 
 const route = useRoute()
 const isHomePage = computed(() => route.path === '/')

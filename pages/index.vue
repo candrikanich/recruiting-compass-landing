@@ -8,16 +8,8 @@
         <div class="hero-blob hero-blob-3" />
       </div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <div class="fade-in mb-8 flex justify-center items-center gap-4">
-          <CompassIcon class="w-20 h-20 text-green-400" />
-          <div class="text-left">
-            <h2 class="text-3xl sm:text-4xl font-bold text-white">
-              The Recruiting Compass
-            </h2>
-            <p class="text-sm text-green-300 tracking-wide">
-              find your path • make your move
-            </p>
-          </div>
+        <div class="fade-in mb-8 flex justify-center">
+          <BrandHorizontal light class="h-32 w-auto" />
         </div>
         <h1 class="hero-headline text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight fade-in delay-1">
           Navigate Your Path to
@@ -424,9 +416,8 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div class="col-span-1 md:col-span-2">
-            <div class="flex items-center gap-2 mb-4">
-              <CompassIcon class="w-8 h-8 text-green-400" />
-              <span class="text-xl font-bold text-white">The Recruiting Compass</span>
+            <div class="mb-4">
+              <BrandHorizontal light class="h-20 w-auto" />
             </div>
             <p class="text-gray-400 mb-4 max-w-md">
               Navigate your path to college athletic success with confidence, clarity, and expert guidance.
@@ -478,7 +469,7 @@
 </template>
 
 <script setup lang="ts">
-import CompassIcon from '~/components/icons/CompassIcon.vue'
+import BrandHorizontal from '~/components/icons/BrandHorizontal.vue'
 import {
   ArrowRightIcon,
   TargetIcon,
