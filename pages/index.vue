@@ -215,8 +215,8 @@
             </div>
             <div class="bg-white rounded-lg overflow-hidden border-4 border-gray-700">
               <img
-                :src="webSlides[webSlide].src"
-                :alt="webSlides[webSlide].alt"
+                :src="currentWebSlide.src"
+                :alt="currentWebSlide.alt"
                 class="w-full h-auto transition-opacity duration-300"
                 loading="lazy"
               >
@@ -266,8 +266,8 @@
               <div class="absolute top-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl z-10" />
               <div class="bg-white rounded-[2.5rem] overflow-hidden relative aspect-[9/19.5]">
                 <img
-                  :src="iosSlides[iosSlide].src"
-                  :alt="iosSlides[iosSlide].alt"
+                  :src="currentIosSlide.src"
+                  :alt="currentIosSlide.alt"
                   class="w-full h-full object-cover object-top transition-opacity duration-300"
                   loading="lazy"
                 >
@@ -587,6 +587,8 @@ const howItWorksSteps = [
 const appTab = ref<'web' | 'ios'>('web')
 const webSlide = ref(0)
 const iosSlide = ref(0)
+const currentWebSlide = computed(() => webSlides[webSlide.value]!)
+const currentIosSlide = computed(() => iosSlides[iosSlide.value]!)
 const webSlides = [
   { src: '/images/dashboard-web.png', alt: 'Recruiting dashboard overview', title: 'Your Recruiting Command Center', description: 'See your entire recruiting journey at a glance — schools, coaches, interactions, and progress all in one place.' },
   { src: '/images/dashboard-schools.png', alt: 'Schools list and search', title: 'Track & Evaluate Target Schools', description: 'Search, filter, and manage your school list with fit scores, division filters, and status tracking.' },
