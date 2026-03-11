@@ -122,7 +122,7 @@
           >
           <div class="absolute inset-0 bg-gradient-to-t from-green-900/80 to-transparent flex items-end">
             <div class="p-8 text-white">
-              <h3 class="text-3xl font-bold mb-2">Your Dream School is Waiting</h3>
+              <h3 class="text-3xl font-bold mb-2">The journey to your dream program starts here</h3>
               <p class="text-lg text-green-100">Let us help you get there with confidence and clarity.</p>
             </div>
           </div>
@@ -213,78 +213,110 @@
               <div class="w-3 h-3 rounded-full bg-yellow-500" />
               <div class="w-3 h-3 rounded-full bg-green-500" />
             </div>
-            <div class="bg-white rounded-lg overflow-hidden border-4 border-gray-700 relative">
+            <div class="bg-white rounded-lg overflow-hidden border-4 border-gray-700">
               <img
-                src="https://images.unsplash.com/photo-1665470909939-959569b20021?w=1080&q=80"
-                alt="Web App Dashboard"
-                class="w-full h-auto"
+                :src="webSlides[webSlide].src"
+                :alt="webSlides[webSlide].alt"
+                class="w-full h-auto transition-opacity duration-300"
                 loading="lazy"
               >
-              <div class="absolute inset-0 flex items-center justify-center bg-green-900/80 backdrop-blur-sm">
-                <div class="text-center p-8">
-                  <MonitorIcon class="w-16 h-16 text-white mx-auto mb-4" />
-                  <h3 class="text-2xl font-bold text-white mb-2">Web App Screenshot Coming Soon</h3>
-                  <p class="text-green-100">Full-featured dashboard with recruiting timeline, coach contacts, and progress tracking</p>
-                </div>
-              </div>
             </div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h4 class="font-semibold text-white mb-2">Complete Dashboard View</h4>
-              <p class="text-green-100 text-sm">See your entire recruiting journey at a glance with comprehensive analytics and insights</p>
+          <!-- Carousel controls -->
+          <div class="flex items-center justify-center gap-4 mt-6">
+            <button
+              type="button"
+              class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              @click="webSlide = (webSlide - 1 + webSlides.length) % webSlides.length"
+            >
+              ‹
+            </button>
+            <div class="flex gap-2">
+              <button
+                v-for="(_, i) in webSlides"
+                :key="i"
+                type="button"
+                :class="['w-2 h-2 rounded-full transition-colors', i === webSlide ? 'bg-white' : 'bg-white/30']"
+                @click="webSlide = i"
+              />
             </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h4 class="font-semibold text-white mb-2">Manage Multiple Prospects</h4>
-              <p class="text-green-100 text-sm">Track conversations with dozens of coaches across different programs simultaneously</p>
-            </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h4 class="font-semibold text-white mb-2">Upload & Share Documents</h4>
-              <p class="text-green-100 text-sm">Easily upload highlight videos, transcripts, and share them instantly with coaches</p>
+            <button
+              type="button"
+              class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              @click="webSlide = (webSlide + 1) % webSlides.length"
+            >
+              ›
+            </button>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div
+              v-for="(slide, i) in webSlides"
+              :key="i"
+              :class="['bg-white/10 backdrop-blur-sm rounded-xl p-6 border transition-colors cursor-pointer', i === webSlide ? 'border-white/50 bg-white/20' : 'border-white/20 hover:border-white/40']"
+              @click="webSlide = i"
+            >
+              <h4 class="font-semibold text-white mb-2">{{ slide.title }}</h4>
+              <p class="text-green-100 text-sm">{{ slide.description }}</p>
             </div>
           </div>
         </div>
-        <div v-else class="relative flex justify-center">
-          <div class="relative max-w-sm">
+        <div v-else class="flex flex-col items-center">
+          <div class="relative max-w-sm w-full">
             <div class="bg-gray-900 rounded-[3rem] p-3 shadow-2xl border-8 border-gray-800">
               <div class="absolute top-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl z-10" />
               <div class="bg-white rounded-[2.5rem] overflow-hidden relative aspect-[9/19.5]">
                 <img
-                  src="https://images.unsplash.com/photo-1758411898021-ef0dadaaa295?w=1080&q=80"
-                  alt="iOS App Interface"
-                  class="w-full h-full object-cover"
+                  :src="iosSlides[iosSlide].src"
+                  :alt="iosSlides[iosSlide].alt"
+                  class="w-full h-full object-cover object-top transition-opacity duration-300"
                   loading="lazy"
                 >
-                <div class="absolute inset-0 flex items-center justify-center bg-green-900/80 backdrop-blur-sm">
-                  <div class="text-center p-8">
-                    <SmartphoneIcon class="w-16 h-16 text-white mx-auto mb-4" />
-                    <h3 class="text-2xl font-bold text-white mb-2">iOS App Screenshot Coming Soon</h3>
-                    <p class="text-green-100 text-sm">Stay connected on the go with push notifications and instant updates</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 w-full">
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h4 class="font-semibold text-white mb-2">On-the-Go Access</h4>
-              <p class="text-green-100 text-sm">Check your recruiting status between classes, at practice, or during tournaments</p>
+          <!-- Carousel controls -->
+          <div class="flex items-center justify-center gap-4 mt-6">
+            <button
+              type="button"
+              class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              @click="iosSlide = (iosSlide - 1 + iosSlides.length) % iosSlides.length"
+            >
+              ‹
+            </button>
+            <div class="flex gap-2">
+              <button
+                v-for="(_, i) in iosSlides"
+                :key="i"
+                type="button"
+                :class="['w-2 h-2 rounded-full transition-colors', i === iosSlide ? 'bg-white' : 'bg-white/30']"
+                @click="iosSlide = i"
+              />
             </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h4 class="font-semibold text-white mb-2">Push Notifications</h4>
-              <p class="text-green-100 text-sm">Never miss a deadline, coach response, or important recruiting opportunity</p>
-            </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h4 class="font-semibold text-white mb-2">Quick Updates</h4>
-              <p class="text-green-100 text-sm">Log conversations, update stats, and mark tasks complete in seconds</p>
+            <button
+              type="button"
+              class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              @click="iosSlide = (iosSlide + 1) % iosSlides.length"
+            >
+              ›
+            </button>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 w-full">
+            <div
+              v-for="(slide, i) in iosSlides"
+              :key="i"
+              :class="['bg-white/10 backdrop-blur-sm rounded-xl p-6 border transition-colors cursor-pointer', i === iosSlide ? 'border-white/50 bg-white/20' : 'border-white/20 hover:border-white/40']"
+              @click="iosSlide = i"
+            >
+              <h4 class="font-semibold text-white mb-2">{{ slide.title }}</h4>
+              <p class="text-green-100 text-sm">{{ slide.description }}</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="py-20 sm:py-32 bg-white">
+    <!-- Testimonials (hidden until real testimonials are available) -->
+    <section v-if="false" id="testimonials" class="py-20 sm:py-32 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
@@ -423,13 +455,10 @@
               Navigate your path to college athletic success with confidence, clarity, and expert guidance.
             </p>
             <div class="flex gap-4">
-              <a href="#" class="hover:text-green-400 transition-colors" aria-label="Instagram">
-                <InstagramIcon class="w-5 h-5" />
-              </a>
-              <a href="#" class="hover:text-green-400 transition-colors" aria-label="Twitter">
+              <a href="https://x.com/recruitCompass" target="_blank" rel="noopener noreferrer" class="hover:text-green-400 transition-colors" aria-label="Twitter / X">
                 <TwitterIcon class="w-5 h-5" />
               </a>
-              <a href="#" class="hover:text-green-400 transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61583735402026" target="_blank" rel="noopener noreferrer" class="hover:text-green-400 transition-colors" aria-label="Facebook">
                 <FacebookIcon class="w-5 h-5" />
               </a>
             </div>
@@ -439,7 +468,7 @@
             <ul class="space-y-2">
               <li><a href="#features" class="hover:text-green-400 transition-colors">Features</a></li>
               <li><a href="#how-it-works" class="hover:text-green-400 transition-colors">How It Works</a></li>
-              <li><a href="#testimonials" class="hover:text-green-400 transition-colors">Testimonials</a></li>
+
               <li><a href="#faq" class="hover:text-green-400 transition-colors">FAQ</a></li>
             </ul>
           </div>
@@ -458,9 +487,9 @@
         <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
           <p>&copy; 2026 The Recruiting Compass. All rights reserved.</p>
           <p class="mt-2">
-            <a href="#" class="hover:text-green-400 transition-colors">Privacy Policy</a>
+            <NuxtLink to="/legal/privacy" class="hover:text-green-400 transition-colors">Privacy Policy</NuxtLink>
             <span class="mx-1">•</span>
-            <a href="#" class="hover:text-green-400 transition-colors">Terms of Service</a>
+            <NuxtLink to="/legal/terms" class="hover:text-green-400 transition-colors">Terms of Service</NuxtLink>
           </p>
         </div>
       </div>
@@ -490,14 +519,13 @@ import {
   GiftIcon,
   ClockIcon,
   MailIcon,
-  InstagramIcon,
   TwitterIcon,
   FacebookIcon,
 } from '~/components/landing-icons'
 
 const typeformId = useRuntimeConfig().public.typeformFormId || 'YOUR_FORM_ID_HERE'
 const openTypeform = () => {
-  window.open(`https://form.typeform.com/to/${typeformId}`, '_blank')
+  window.open(`https://alphabet.typeform.com/to/${typeformId}`, '_blank')
 }
 
 function scrollToSection (id: string) {
@@ -544,7 +572,7 @@ const features = [
   { icon: BarChartIcon, title: 'Athletic & Academic Progress Tracker', description: 'Monitor your stats, GPA, test scores, and see how you stack up against college program requirements.', forWho: 'For Players' },
   { icon: FileCheckIcon, title: 'Document Management', description: 'Store and organize highlight videos, transcripts, test scores, and athletic resumes. Share them instantly with coaches.', forWho: 'For Players & Parents' },
   { icon: MessageSquareIcon, title: 'Expert Guidance & Resources', description: 'Access expert tips, sample emails, NCAA rules explained simply, and answers to your toughest questions.', forWho: 'For Parents' },
-  { icon: BellIcon, title: 'Opportunity Alerts', description: 'Get notified about camps, showcases, and recruiting events that match your profile and goals.', forWho: 'For Players' },
+  { icon: BellIcon, title: 'Smart Action Items', description: 'Always know your next move. Prioritized tasks surface what matters most right now — no guessing, no missed steps.', forWho: 'For Players & Parents' },
   { icon: CheckCircleIcon, title: 'Task Management System', description: 'Break down the recruiting process into manageable steps. Check off tasks and watch your progress grow.', forWho: 'For Players & Parents' },
 ]
 
@@ -557,6 +585,18 @@ const howItWorksSteps = [
 
 // App showcase tab
 const appTab = ref<'web' | 'ios'>('web')
+const webSlide = ref(0)
+const iosSlide = ref(0)
+const webSlides = [
+  { src: '/images/dashboard-web.png', alt: 'Recruiting dashboard overview', title: 'Your Recruiting Command Center', description: 'See your entire recruiting journey at a glance — schools, coaches, interactions, and progress all in one place.' },
+  { src: '/images/dashboard-schools.png', alt: 'Schools list and search', title: 'Track & Evaluate Target Schools', description: 'Search, filter, and manage your school list with fit scores, division filters, and status tracking.' },
+  { src: '/images/dashboard-timeline.png', alt: 'Recruiting timeline and milestones', title: 'Your 4-Year Recruiting Roadmap', description: 'Stay on track with a phase-by-phase timeline, prioritized action items, and milestone progress.' },
+]
+const iosSlides = [
+  { src: '/images/dashboard-ios.png', alt: 'iOS dashboard overview', title: 'Your Dashboard, Always On Hand', description: 'Check coaches, schools, interactions, and offers at a glance — wherever you are.' },
+  { src: '/images/ios-timeline.png', alt: 'iOS recruiting timeline', title: 'Stay On Track, Phase by Phase', description: 'Follow your year-by-year roadmap and check off tasks as you go — right from your phone.' },
+  { src: '/images/ios-schools.png', alt: 'iOS schools list', title: 'Manage Your School List On the Go', description: 'Filter, favorite, and track your target schools between classes or at the field.' },
+]
 
 // Testimonials
 const testimonials = [

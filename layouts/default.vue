@@ -6,18 +6,6 @@
           <!-- Brand -->
           <BrandHorizontal />
           
-          <!-- CTA Buttons -->
-          <div class="hidden md:flex space-x-4">
-            <a href="https://blog.therecruitingcompass.com" class="text-gray-600 hover:text-primary-600 transition-colors">
-              Blog
-            </a>
-            <a href="https://myrecruitingcompass.com/login" class="text-gray-600 hover:text-primary-600 transition-colors">
-              Login
-            </a>
-            <a href="https://myrecruitingcompass.com/signup" class="btn-primary text-sm">
-              Get Started
-            </a>
-          </div>
         </div>
       </nav>
     </header>
@@ -58,6 +46,6 @@ const isHomePage = computed(() => route.path === '/')
 
 const openTypeform = () => {
   const typeformId = useRuntimeConfig().public.typeformFormId || 'YOUR_FORM_ID_HERE'
-  window.open(`https://form.typeform.com/to/${typeformId}`, '_blank')
+  window.open(`https://alphabet.typeform.com/to/${typeformId}`, '_blank')
 }
 </script>
