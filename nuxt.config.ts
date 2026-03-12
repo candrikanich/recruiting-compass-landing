@@ -51,11 +51,9 @@ export default defineNuxtConfig({
 
   // Runtime configuration
   runtimeConfig: {
-    // Private keys (only available on server-side)
-    typeformFormId: process.env.TYPEFORM_FORM_ID,
-    
     // Public keys (exposed to client-side)
     public: {
+      typeformFormId: process.env.TYPEFORM_FORM_ID,
       typeformUrl: 'https://form.typeform.com/to/'
     }
   }
