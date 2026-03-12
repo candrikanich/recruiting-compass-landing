@@ -523,9 +523,9 @@ import {
   FacebookIcon,
 } from '~/components/landing-icons'
 
-const typeformId = useRuntimeConfig().public.typeformFormId || 'YOUR_FORM_ID_HERE'
+const { typeformFormId, typeformUrl } = useRuntimeConfig().public
 const openTypeform = () => {
-  window.open(`https://alphabet.typeform.com/to/${typeformId}`, '_blank')
+  window.open(`${typeformUrl}${typeformFormId}`, '_blank')
 }
 
 function scrollToSection (id: string) {
