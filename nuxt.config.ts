@@ -54,7 +54,7 @@ export default defineNuxtConfig({
     // Public keys (exposed to client-side)
     public: {
       typeformFormId: process.env.TYPEFORM_FORM_ID,
-      typeformUrl: 'https://form.typeform.com/to/'
+      typeformUrl: 'https://alphabet.typeform.com/to/'
     }
   }
 })
