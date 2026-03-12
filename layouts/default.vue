@@ -45,7 +45,7 @@ const route = useRoute()
 const isHomePage = computed(() => route.path === '/')
 
 const openTypeform = () => {
-  const typeformId = useRuntimeConfig().public.typeformFormId || 'YOUR_FORM_ID_HERE'
-  window.open(`https://alphabet.typeform.com/to/${typeformId}`, '_blank')
+  const { typeformFormId, typeformUrl } = useRuntimeConfig().public
+  window.open(`${typeformUrl}${typeformFormId}`, '_blank')
 }
 </script>
