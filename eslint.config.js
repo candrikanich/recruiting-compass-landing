@@ -1,26 +1,26 @@
-import js from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
-import eslintConfigPrettier from 'eslint-config-prettier'
-import tsParser from '@typescript-eslint/parser'
+import js from "@eslint/js";
+import pluginVue from "eslint-plugin-vue";
+import eslintConfigPrettier from "eslint-config-prettier";
+import tsParser from "@typescript-eslint/parser";
 
 export default [
   js.configs.recommended,
-  ...pluginVue.configs['flat/recommended'],
+  ...pluginVue.configs["flat/recommended"],
   eslintConfigPrettier,
   {
-    ignores: ['node_modules', '.nuxt', '.output', 'dist', 'design']
+    ignores: ["node_modules", ".nuxt", ".output", "dist", "design"],
   },
   {
-    files: ['**/*.vue'],
+    files: ["**/*.vue"],
     languageOptions: {
       parserOptions: {
         parser: tsParser,
-        extraFileExtensions: ['.vue']
-      }
-    }
+        extraFileExtensions: [".vue"],
+      },
+    },
   },
   {
-    files: ['**/*.{js,mjs,cjs,vue}'],
+    files: ["**/*.{js,mjs,cjs,vue}"],
     languageOptions: {
       globals: {
         useHead: true,
@@ -40,24 +40,25 @@ export default [
         onMounted: true,
         reactive: true,
         watch: true,
-        nextTick: true
-      }
+        nextTick: true,
+        $fetch: true,
+      },
     },
     rules: {
-      'vue/multi-word-component-names': 'off'
-    }
+      "vue/multi-word-component-names": "off",
+    },
   },
   {
-    files: ['**/*.cjs'],
+    files: ["**/*.cjs"],
     languageOptions: {
-      sourceType: 'commonjs',
+      sourceType: "commonjs",
       globals: {
         module: true,
         exports: true,
         require: true,
         __dirname: true,
-        __filename: true
-      }
-    }
-  }
-]
+        __filename: true,
+      },
+    },
+  },
+];
