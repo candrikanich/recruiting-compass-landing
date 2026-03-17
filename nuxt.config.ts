@@ -1,18 +1,18 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  
+
   // Compatibility date
-  compatibilityDate: '2026-01-10',
-  
+  compatibilityDate: "2026-01-10",
+
   // Static site generation
   nitro: {
     prerender: {
-      routes: ['/']
-    }
+      routes: ["/"],
+    },
   },
 
   // CSS configuration
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
 
   // PostCSS configuration
   postcss: {
@@ -25,36 +25,69 @@ export default defineNuxtConfig({
   // App configuration
   app: {
     head: {
-      title: 'The Recruiting Compass - Navigate Your College Athletics Journey',
+      title: "The Recruiting Compass - Navigate Your College Athletics Journey",
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.' },
-        { name: 'keywords', content: 'baseball recruiting, college baseball, high school baseball, recruiting tracker, baseball scholarship' },
-        { name: 'author', content: 'The Recruiting Compass' },
-        { property: 'og:title', content: 'The Recruiting Compass - Navigate Your College Athletics Journey' },
-        { property: 'og:description', content: 'Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.' },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://therecruitingcompass.com' },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'The Recruiting Compass - Navigate Your College Athletics Journey' },
-        { name: 'twitter:description', content: 'Helping high school baseball players and their families navigate the college recruiting process.' }
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          name: "description",
+          content:
+            "Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.",
+        },
+        {
+          name: "keywords",
+          content:
+            "baseball recruiting, college baseball, high school baseball, recruiting tracker, baseball scholarship",
+        },
+        { name: "author", content: "The Recruiting Compass" },
+        {
+          property: "og:title",
+          content:
+            "The Recruiting Compass - Navigate Your College Athletics Journey",
+        },
+        {
+          property: "og:description",
+          content:
+            "Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.",
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://therecruitingcompass.com" },
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:title",
+          content:
+            "The Recruiting Compass - Navigate Your College Athletics Journey",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "Helping high school baseball players and their families navigate the college recruiting process.",
+        },
       ],
       link: [
-        { rel: 'icon', href: '/favicon.ico' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600&family=Source+Sans+3:wght@400&display=swap', rel: 'stylesheet' }
-      ]
-    }
+        { rel: "icon", href: "/favicon.ico" },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "",
+        },
+        {
+          href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600&family=Source+Sans+3:wght@400&display=swap",
+          rel: "stylesheet",
+        },
+      ],
+    },
   },
 
   // Runtime configuration
   runtimeConfig: {
+    resendApiKey: "", // injected from NUXT_RESEND_API_KEY
+    resendAudienceId: "", // injected from NUXT_RESEND_AUDIENCE_ID
     // Public keys (exposed to client-side)
     public: {
       typeformFormId: process.env.TYPEFORM_FORM_ID,
-      typeformUrl: 'https://alphabet.typeform.com/to/'
-    }
-  }
-})
+      typeformUrl: "https://alphabet.typeform.com/to/",
+    },
+  },
+});
