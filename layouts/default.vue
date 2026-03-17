@@ -21,7 +21,7 @@
             <BrandHorizontal />
           </div>
           <p class="text-gray-400 mb-4">
-            Navigate your baseball journey with confidence
+            Navigate your College Athletics journey with confidence
           </p>
           <div class="flex justify-center space-x-6 text-sm text-gray-400">
             <a href="https://myrecruitingcompass.com" class="hover:text-white transition-colors">
