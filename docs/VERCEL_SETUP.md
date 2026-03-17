@@ -4,11 +4,11 @@ This guide sets up the same deploy flow as the web app: **develop** → test the
 
 ## Pipeline Overview
 
-| Branch / Action | Result |
-|-----------------|--------|
-| Push to **develop** | Run Test & Verify → if pass, deploy to **Staging** |
-| PR **develop → main** | Run Test & Verify only |
-| **Manual** "Deploy to Production" workflow | Deploy to **Production** (with confirmation) |
+| Branch / Action                            | Result                                             |
+| ------------------------------------------ | -------------------------------------------------- |
+| Push to **develop**                        | Run Test & Verify → if pass, deploy to **Staging** |
+| PR **develop → main**                      | Run Test & Verify only                             |
+| **Manual** "Deploy to Production" workflow | Deploy to **Production** (with confirmation)       |
 
 You still need to **create the Vercel projects** and add **GitHub secrets**. Steps below.
 
@@ -49,12 +49,12 @@ In the **recruiting-compass-landing** repo:
 
 Add:
 
-| Secret | Value |
-|--------|--------|
-| `VERCEL_TOKEN` | [Vercel Account → Tokens](https://vercel.com/account/tokens) – create a token (e.g. “GitHub Actions”) |
-| `VERCEL_ORG_ID` | **Required.** Team: use **Team ID** (`team_xxxx` from Team Settings). Personal: use your **Vercel username** (profile slug). |
-| `VERCEL_PROJECT_ID_STAGING` | Project ID of **recruiting-compass-landing-staging** |
-| `VERCEL_PROJECT_ID_PROD` | Project ID of **recruiting-compass-landing-prod** |
+| Secret                      | Value                                                                                                                        |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `VERCEL_TOKEN`              | [Vercel Account → Tokens](https://vercel.com/account/tokens) – create a token (e.g. “GitHub Actions”)                        |
+| `VERCEL_ORG_ID`             | **Required.** Team: use **Team ID** (`team_xxxx` from Team Settings). Personal: use your **Vercel username** (profile slug). |
+| `VERCEL_PROJECT_ID_STAGING` | Project ID of **recruiting-compass-landing-staging**                                                                         |
+| `VERCEL_PROJECT_ID_PROD`    | Project ID of **recruiting-compass-landing-prod**                                                                            |
 
 Optional (Slack): add `SLACK_WEBHOOK_URL` for deploy notifications. If not set, Slack steps are no-ops (`continue-on-error: true`).
 
@@ -101,10 +101,10 @@ Configure DNS (CNAME/A/AAAA) as shown in Vercel.
 
 ## Workflows in This Repo
 
-| File | Trigger | Purpose |
-|------|---------|---------|
-| `test.yml` | Push to develop, PR to develop/main | Code Quality (lint & types); on push to develop, deploy to staging |
-| `ci.yml` | Push/PR to main | Same checks on main |
-| `deploy-prod.yml` | Manual (workflow_dispatch) | Deploy to production |
+| File              | Trigger                             | Purpose                                                            |
+| ----------------- | ----------------------------------- | ------------------------------------------------------------------ |
+| `test.yml`        | Push to develop, PR to develop/main | Code Quality (lint & types); on push to develop, deploy to staging |
+| `ci.yml`          | Push/PR to main                     | Same checks on main                                                |
+| `deploy-prod.yml` | Manual (workflow_dispatch)          | Deploy to production                                               |
 
 After creating the two Vercel projects and the four secrets, the pipeline is ready to use.

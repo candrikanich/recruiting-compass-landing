@@ -5,19 +5,22 @@ const steps = [
   {
     icon: UserPlus,
     title: "Create Your Profile",
-    description: "Tell us about your sport, academic achievements, and recruiting goals. Takes just 5 minutes.",
+    description:
+      "Tell us about your sport, academic achievements, and recruiting goals. Takes just 5 minutes.",
     step: "01",
   },
   {
     icon: Route,
     title: "Follow Your Custom Roadmap",
-    description: "Get your personalized recruiting timeline with actionable steps, deadlines, and expert guidance.",
+    description:
+      "Get your personalized recruiting timeline with actionable steps, deadlines, and expert guidance.",
     step: "02",
   },
   {
     icon: Trophy,
     title: "Sign with Confidence",
-    description: "Track your progress, manage coach relationships, and make informed decisions that lead to success.",
+    description:
+      "Track your progress, manage coach relationships, and make informed decisions that lead to success.",
     step: "03",
   },
 ];
@@ -43,9 +46,11 @@ export function HowItWorks() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
           {/* Connection lines for desktop */}
-          <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-green-300 via-emerald-400 to-teal-300" 
-               style={{ width: 'calc(100% - 200px)', left: '100px' }} />
-          
+          <div
+            className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-green-300 via-emerald-400 to-teal-300"
+            style={{ width: "calc(100% - 200px)", left: "100px" }}
+          />
+
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -65,7 +70,9 @@ export function HowItWorks() {
                     <Icon className="w-10 h-10 text-white" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  {step.title}
+                </h3>
                 <p className="text-gray-600">{step.description}</p>
               </motion.div>
             );

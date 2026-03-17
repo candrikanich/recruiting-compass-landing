@@ -93,8 +93,9 @@ export function Hero({ onSurveyClick }: HeroProps) {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl sm:text-2xl text-green-100 mb-12 max-w-3xl mx-auto"
         >
-          The all-in-one platform that guides student-athletes and parents through every step
-          of the college recruiting journey—from first contact to signing day.
+          The all-in-one platform that guides student-athletes and parents
+          through every step of the college recruiting journey—from first
+          contact to signing day.
         </motion.p>
 
         <motion.div
@@ -114,7 +115,9 @@ export function Hero({ onSurveyClick }: HeroProps) {
             variant="outline"
             className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-green-950 px-8 py-6 text-lg rounded-full transition-all duration-300"
             onClick={() => {
-              document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
+              document
+                .getElementById("features")
+                ?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Learn More

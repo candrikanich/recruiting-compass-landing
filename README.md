@@ -5,17 +5,20 @@ Marketing landing site for the baseball recruiting tracker application.
 ## Quick Start
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Configure environment:**
+
    ```bash
    cp .env.example .env
    # Edit .env with your Typeform form ID
    ```
 
 3. **Run development server:**
+
    ```bash
    npm run dev
    ```
@@ -57,6 +60,7 @@ landing/
 ### Domain Configuration
 
 The site is configured for:
+
 - **Landing Site**: `therecruitingcompass.com` (this site)
 - **App**: `myrecruitingcompass.com` (main application)
 

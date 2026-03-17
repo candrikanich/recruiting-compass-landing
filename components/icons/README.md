@@ -10,7 +10,7 @@ This directory contains reusable SVG icon components for the landing site.
 </template>
 
 <script setup>
-import CompassIcon from '~/components/icons/CompassIcon.vue'
+import CompassIcon from "~/components/icons/CompassIcon.vue";
 </script>
 ```
 

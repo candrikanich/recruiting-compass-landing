@@ -32,8 +32,8 @@ export function SurveyCTA({ onSurveyClick }: SurveyCTAProps) {
               Help Us Build Your Perfect Recruiting Tool
             </h2>
             <p className="text-xl sm:text-2xl text-green-100 mb-8">
-              Take our 3-minute survey and shape the future of The Recruiting Compass.
-              Plus, unlock exclusive benefits!
+              Take our 3-minute survey and shape the future of The Recruiting
+              Compass. Plus, unlock exclusive benefits!
             </p>
           </motion.div>
 
@@ -47,17 +47,27 @@ export function SurveyCTA({ onSurveyClick }: SurveyCTAProps) {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
               <Gift className="w-10 h-10 text-green-300 mx-auto mb-3" />
               <h3 className="font-semibold text-white mb-2">Early Access</h3>
-              <p className="text-green-100 text-sm">Be the first to use the app before public launch</p>
+              <p className="text-green-100 text-sm">
+                Be the first to use the app before public launch
+              </p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
               <Clock className="w-10 h-10 text-green-300 mx-auto mb-3" />
-              <h3 className="font-semibold text-white mb-2">Exclusive Discounts</h3>
-              <p className="text-green-100 text-sm">Special pricing for early survey participants</p>
+              <h3 className="font-semibold text-white mb-2">
+                Exclusive Discounts
+              </h3>
+              <p className="text-green-100 text-sm">
+                Special pricing for early survey participants
+              </p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
               <Users className="w-10 h-10 text-green-300 mx-auto mb-3" />
-              <h3 className="font-semibold text-white mb-2">Shape the Product</h3>
-              <p className="text-green-100 text-sm">Your feedback directly influences our features</p>
+              <h3 className="font-semibold text-white mb-2">
+                Shape the Product
+              </h3>
+              <p className="text-green-100 text-sm">
+                Your feedback directly influences our features
+              </p>
             </div>
           </motion.div>
 
