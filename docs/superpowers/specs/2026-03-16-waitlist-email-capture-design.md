@@ -23,12 +23,12 @@ The widget sits inside the hero section (`/pages/index.vue`), below the existing
 
 The component manages its own state machine:
 
-| State | UI |
-|---|---|
-| `idle` | Email input + "Notify Me" button |
-| `loading` | Button shows spinner, input disabled |
-| `success` | Form replaced with "✅ You're on the list! We'll email you the moment we launch." |
-| `error` | Inline error message below the input (see Error Handling table for message text); form remains active and clears the error on next submit attempt |
+| State     | UI                                                                                                                                                |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `idle`    | Email input + "Notify Me" button                                                                                                                  |
+| `loading` | Button shows spinner, input disabled                                                                                                              |
+| `success` | Form replaced with "✅ You're on the list! We'll email you the moment we launch."                                                                 |
+| `error`   | Inline error message below the input (see Error Handling table for message text); form remains active and clears the error on next submit attempt |
 
 The `error` state is recoverable — the user can edit their email and retry without a page reload.
 
@@ -59,9 +59,10 @@ Deployed as a Vercel serverless function alongside the static site. Vercel auto-
 ### Validation
 
 Uses Zod to validate the request body:
+
 - `email`: required, valid email format
 
-Returns `400` with `{ error: "Invalid email address" }` if validation fails.
+Returns `400` with `{ error: "Please enter a valid email address." }` if validation fails.
 
 ### Logic
 
@@ -73,16 +74,19 @@ Returns `400` with `{ error: "Invalid email address" }` if validation fails.
 ### Response
 
 **Success (200):**
+
 ```json
 { "success": true }
 ```
 
 **Validation error (400):**
+
 ```json
-{ "error": "Invalid email address" }
+{ "error": "Please enter a valid email address." }
 ```
 
 **Server error (500):**
+
 ```json
 { "error": "Something went wrong. Please try again." }
 ```
@@ -91,9 +95,9 @@ Returns `400` with `{ error: "Invalid email address" }` if validation fails.
 
 ## Environment Variables
 
-| Variable | Scope | Purpose |
-|---|---|---|
-| `NUXT_RESEND_API_KEY` | Server-only | Authenticates Resend API calls |
+| Variable                  | Scope       | Purpose                                             |
+| ------------------------- | ----------- | --------------------------------------------------- |
+| `NUXT_RESEND_API_KEY`     | Server-only | Authenticates Resend API calls                      |
 | `NUXT_RESEND_AUDIENCE_ID` | Server-only | Identifies which Resend Audience to add contacts to |
 
 Both variables are server-side only — no `NUXT_PUBLIC_` prefix. Never exposed to the client.
@@ -111,6 +115,7 @@ runtimeConfig: {
 ```
 
 Must also be added to:
+
 - `.env` (local development, using `NUXT_RESEND_API_KEY` and `NUXT_RESEND_AUDIENCE_ID` naming convention)
 - `.env.example` (documentation)
 - Vercel project environment variables (staging + production)
@@ -119,13 +124,13 @@ Must also be added to:
 
 ## Error Handling
 
-| Scenario | Behaviour |
-|---|---|
+| Scenario                            | Behaviour                                                                |
+| ----------------------------------- | ------------------------------------------------------------------------ |
 | Empty or whitespace email submitted | Inline error: "Please enter a valid email address." (server returns 400) |
-| Invalid email format | Inline error: "Please enter a valid email address." (server returns 400) |
-| Duplicate email | Treated as success — UI shows confirmation state |
-| Resend API failure | Inline error: "Something went wrong. Please try again." |
-| Network error or non-JSON response | Inline error: "Something went wrong. Please try again." |
+| Invalid email format                | Inline error: "Please enter a valid email address." (server returns 400) |
+| Duplicate email                     | Treated as success — UI shows confirmation state                         |
+| Resend API failure                  | Inline error: "Something went wrong. Please try again."                  |
+| Network error or non-JSON response  | Inline error: "Something went wrong. Please try again."                  |
 
 ---
 
