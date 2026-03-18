@@ -4,19 +4,22 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const testimonials = [
   {
-    quote: "As a parent, I felt completely lost in the recruiting process. The Recruiting Compass gave us a clear path forward and peace of mind that we weren't missing critical steps.",
+    quote:
+      "As a parent, I felt completely lost in the recruiting process. The Recruiting Compass gave us a clear path forward and peace of mind that we weren't missing critical steps.",
     author: "Jennifer M.",
     role: "Parent of D1 Soccer Recruit",
     rating: 5,
   },
   {
-    quote: "Having everything in one place—my stats, coach contacts, deadlines—was a game changer. I signed with my dream school and I know this app helped me get there.",
+    quote:
+      "Having everything in one place—my stats, coach contacts, deadlines—was a game changer. I signed with my dream school and I know this app helped me get there.",
     author: "Marcus T.",
     role: "Baseball Player, Class of 2025",
     rating: 5,
   },
   {
-    quote: "The timeline feature alone is worth it. We knew exactly what to do and when to do it. No more guessing or panicking about whether we were on track.",
+    quote:
+      "The timeline feature alone is worth it. We knew exactly what to do and when to do it. No more guessing or panicking about whether we were on track.",
     author: "David & Sarah K.",
     role: "Parents of Track & Field Athlete",
     rating: 5,
@@ -38,7 +41,8 @@ export function Testimonials() {
             Trusted by Families Like Yours
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Join hundreds of student-athletes and parents who found clarity in their recruiting journey
+            Join hundreds of student-athletes and parents who found clarity in
+            their recruiting journey
           </p>
         </motion.div>
 
@@ -66,7 +70,9 @@ export function Testimonials() {
               </div>
               <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
               <div>
-                <div className="font-semibold text-gray-900">{testimonial.author}</div>
+                <div className="font-semibold text-gray-900">
+                  {testimonial.author}
+                </div>
                 <div className="text-sm text-gray-600">{testimonial.role}</div>
               </div>
             </motion.div>
@@ -92,7 +98,8 @@ export function Testimonials() {
                 Your Success Story Starts Here
               </h3>
               <p className="text-xl text-green-100">
-                Every great athlete's journey begins with a single step. Take yours today.
+                Every great athlete's journey begins with a single step. Take
+                yours today.
               </p>
             </div>
           </div>

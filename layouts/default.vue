@@ -5,7 +5,6 @@
         <div class="flex justify-between items-center h-16">
           <!-- Brand -->
           <BrandHorizontal />
-          
         </div>
       </nav>
     </header>
@@ -24,11 +23,17 @@
             Navigate your College Athletics journey with confidence
           </p>
           <div class="flex justify-center space-x-6 text-sm text-gray-400">
-            <a href="https://myrecruitingcompass.com" class="hover:text-white transition-colors">
+            <a
+              href="https://myrecruitingcompass.com"
+              class="hover:text-white transition-colors"
+            >
               App Login
             </a>
             <span>•</span>
-            <button class="hover:text-white transition-colors" @click="openTypeform">
+            <button
+              class="hover:text-white transition-colors"
+              @click="openTypeform"
+            >
               Survey
             </button>
           </div>
@@ -39,13 +44,13 @@
 </template>
 
 <script setup>
-import BrandHorizontal from '~/components/icons/BrandHorizontal.vue'
+import BrandHorizontal from "~/components/icons/BrandHorizontal.vue";
 
-const route = useRoute()
-const isHomePage = computed(() => route.path === '/')
+const route = useRoute();
+const isHomePage = computed(() => route.path === "/");
 
 const openTypeform = () => {
-  const { typeformFormId, typeformUrl } = useRuntimeConfig().public
-  window.open(`${typeformUrl}${typeformFormId}`, '_blank')
-}
+  const { typeformFormId, typeformUrl } = useRuntimeConfig().public;
+  window.open(`${typeformUrl}${typeformFormId}`, "_blank");
+};
 </script>

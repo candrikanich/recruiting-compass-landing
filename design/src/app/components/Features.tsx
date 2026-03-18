@@ -1,13 +1,13 @@
 import { motion } from "motion/react";
-import { 
-  CheckCircle2, 
-  Calendar, 
-  Users, 
-  Target, 
-  BarChart3, 
+import {
+  CheckCircle2,
+  Calendar,
+  Users,
+  Target,
+  BarChart3,
   MessageSquare,
   FileCheck,
-  Bell
+  Bell,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -15,49 +15,57 @@ const features = [
   {
     icon: Target,
     title: "Personalized Recruiting Roadmap",
-    description: "Get a custom timeline based on your sport, grade level, and goals. Never miss a critical deadline or opportunity.",
+    description:
+      "Get a custom timeline based on your sport, grade level, and goals. Never miss a critical deadline or opportunity.",
     forWho: "For Players & Parents",
   },
   {
     icon: Users,
     title: "Coach Communication Hub",
-    description: "Track all your interactions with college coaches in one place. Know who you've contacted, when, and what's next.",
+    description:
+      "Track all your interactions with college coaches in one place. Know who you've contacted, when, and what's next.",
     forWho: "For Players",
   },
   {
     icon: Calendar,
     title: "Smart Scheduling & Reminders",
-    description: "Automated reminders for campus visits, showcase events, and NCAA compliance deadlines. Stay ahead of the game.",
+    description:
+      "Automated reminders for campus visits, showcase events, and NCAA compliance deadlines. Stay ahead of the game.",
     forWho: "For Parents",
   },
   {
     icon: BarChart3,
     title: "Athletic & Academic Progress Tracker",
-    description: "Monitor your stats, GPA, test scores, and see how you stack up against college program requirements.",
+    description:
+      "Monitor your stats, GPA, test scores, and see how you stack up against college program requirements.",
     forWho: "For Players",
   },
   {
     icon: FileCheck,
     title: "Document Management",
-    description: "Store and organize highlight videos, transcripts, test scores, and athletic resumes. Share them instantly with coaches.",
+    description:
+      "Store and organize highlight videos, transcripts, test scores, and athletic resumes. Share them instantly with coaches.",
     forWho: "For Players & Parents",
   },
   {
     icon: MessageSquare,
     title: "Expert Guidance & Resources",
-    description: "Access expert tips, sample emails, NCAA rules explained simply, and answers to your toughest questions.",
+    description:
+      "Access expert tips, sample emails, NCAA rules explained simply, and answers to your toughest questions.",
     forWho: "For Parents",
   },
   {
     icon: Bell,
     title: "Opportunity Alerts",
-    description: "Get notified about camps, showcases, and recruiting events that match your profile and goals.",
+    description:
+      "Get notified about camps, showcases, and recruiting events that match your profile and goals.",
     forWho: "For Players",
   },
   {
     icon: CheckCircle2,
     title: "Task Management System",
-    description: "Break down the recruiting process into manageable steps. Check off tasks and watch your progress grow.",
+    description:
+      "Break down the recruiting process into manageable steps. Check off tasks and watch your progress grow.",
     forWho: "For Players & Parents",
   },
 ];
@@ -77,8 +85,8 @@ export function Features() {
             Everything You Need in One Place
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stop juggling spreadsheets, emails, and sticky notes. The Recruiting Compass brings
-            clarity and confidence to your recruiting journey.
+            Stop juggling spreadsheets, emails, and sticky notes. The Recruiting
+            Compass brings clarity and confidence to your recruiting journey.
           </p>
         </motion.div>
 
@@ -97,8 +105,12 @@ export function Features() {
                 <div className="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 mb-3 text-sm">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 mb-3 text-sm">
+                  {feature.description}
+                </p>
                 <span className="inline-block text-xs font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">
                   {feature.forWho}
                 </span>
@@ -122,8 +134,12 @@ export function Features() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 to-transparent flex items-end">
             <div className="p-8 text-white">
-              <h3 className="text-3xl font-bold mb-2">Your Dream School is Waiting</h3>
-              <p className="text-lg text-green-100">Let us help you get there with confidence and clarity.</p>
+              <h3 className="text-3xl font-bold mb-2">
+                Your Dream School is Waiting
+              </h3>
+              <p className="text-lg text-green-100">
+                Let us help you get there with confidence and clarity.
+              </p>
             </div>
           </div>
         </motion.div>

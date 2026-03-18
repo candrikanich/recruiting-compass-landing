@@ -40,7 +40,8 @@ function StatItem({ value, label, delay }: StatItemProps) {
       className="text-center"
     >
       <div className="text-4xl sm:text-5xl font-bold text-green-600 mb-2">
-        {count}{suffix}
+        {count}
+        {suffix}
       </div>
       <div className="text-gray-600">{label}</div>
     </motion.div>
@@ -67,10 +68,26 @@ export function Stats() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-          <StatItem value="180000+" label="High School Athletes Annually" delay={0.1} />
-          <StatItem value="480000+" label="College Athletic Opportunities" delay={0.2} />
-          <StatItem value="3+" label="Years Average Recruiting Timeline" delay={0.3} />
-          <StatItem value="90%" label="Feel Overwhelmed Without Guidance" delay={0.4} />
+          <StatItem
+            value="180000+"
+            label="High School Athletes Annually"
+            delay={0.1}
+          />
+          <StatItem
+            value="480000+"
+            label="College Athletic Opportunities"
+            delay={0.2}
+          />
+          <StatItem
+            value="3+"
+            label="Years Average Recruiting Timeline"
+            delay={0.3}
+          />
+          <StatItem
+            value="90%"
+            label="Feel Overwhelmed Without Guidance"
+            delay={0.4}
+          />
         </div>
       </div>
     </div>
