@@ -26,7 +26,8 @@
     "zod": "^4.3.6"
   },
   "overrides": {
-    "serialize-javascript": "^7.0.4"
+    "serialize-javascript": "^7.0.4",
+    "h3-next": "npm:h3@^2.0.1-rc.18"
   },
   "devDependencies": {
     "@nuxt/test-utils": "^4.0.0",
