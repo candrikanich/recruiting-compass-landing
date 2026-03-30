@@ -261,13 +261,43 @@ Ship the structure with 5-8 articles across 3-4 categories. The goal is a workin
 
 ## Visual Identity
 
-**Own look, not the landing site.** Athletic / sports-field aesthetic:
-- **Color palette:** field green (natural grass tones, not turf neon), white field lines as design motif
-- **Typography:** strong, sporty — legible and authoritative for a knowledge base
-- **Category icons:** SVG icon per category, displayed on article cards and the hub grid
-- **Article hero images:** dynamically sourced from a free stock photo service (Unsplash API or Pexels API) based on article topic — curated URL stored in frontmatter `heroImage` field, with category-specific fallback
+**Own look, not the landing site.** Athletic / sports-field aesthetic — consistent with the main app's visual language.
 
-> **Palette specifics TBD** — see Open Questions.
+### Color Palette
+
+Pulled directly from the app at `myrecruitingcompass.com`. Use Tailwind's emerald scale:
+
+| Role | Tailwind Token | Computed |
+|---|---|---|
+| Background / primary | `emerald-600` | `oklch(0.596 0.145 163.225)` |
+| Gradient start | `emerald-500` | `oklch(0.696 0.17 162.48)` |
+| Gradient end | `emerald-700` | `oklch(0.508 0.118 165.612)` |
+| CTA / links | `blue-600` | same as app |
+| Surface (cards) | `white/10` | glassmorphism over green |
+| Text on green | `white` | — |
+| Text on white | `slate-900` | — |
+
+**Field lines motif** — the app already uses this pattern; carry it into the resources site:
+```css
+background: repeating-linear-gradient(
+  0deg,
+  transparent,
+  transparent 20px,
+  rgba(255,255,255,0.15) 20px,
+  rgba(255,255,255,0.15) 22px
+);
+```
+
+Use on hero sections and category hub backgrounds for the athletic field feel.
+
+### Typography
+- Legible, strong — authoritative for a knowledge base
+- Body content on white/light backgrounds for readability (articles are long reads)
+- Green used for header/hero areas, not article body backgrounds
+
+### Category Icons
+- One SVG icon per category (8 total), displayed on hub tiles and article cards
+- Sport/athletics-themed but not baseball-only
 
 ---
 
@@ -278,27 +308,34 @@ Two types of imagery:
 ### Category Icons
 - One SVG icon per category (8 total)
 - Used on: hub grid tiles, article cards, article page header badge
-- Design to feel sport/athletics-themed but not baseball-only
+- Sport/athletics-themed, not baseball-only
 
 ### Article Hero Images
-- **Source:** free stock photo service with API (Unsplash or Pexels — both free, attribution-friendly)
-- **Approach:** curate a `heroImage` URL per article at write time, store in frontmatter
+- **Source:** Unsplash (free, attribution required in attribution metadata — no UI attribution needed for editorial use)
+- **Approach:** curate a `heroImage` URL at write time, store in frontmatter as a permanent Unsplash CDN URL with size params
 - **Fallback:** if `heroImage` is absent, show the category's default hero image
-- **OG image:** `ogImage` field in frontmatter; if absent, auto-generate from `heroImage` + title overlay, or use category default OG
+- **OG image:** if `ogImage` is absent, fall back to `heroImage`; if that's also absent, use category default OG
 
 ```yaml
-# Additional frontmatter fields:
-heroImage: https://images.unsplash.com/photo-[id]?w=1200   # sourced at write time
-# ogImage falls back to heroImage if absent
+# Additional frontmatter fields (add to schema):
+heroImage: https://images.unsplash.com/photo-[id]?w=1200&q=80
+# ogImage falls back to heroImage, then category default
 ```
 
-> **Stock image service choice TBD** — see Open Questions.
+---
+
+## Draft Articles
+
+Articles with `draft: true` in frontmatter are:
+- Deployed (exist in the repo and on Vercel)
+- Excluded from category listings
+- Excluded from the XML sitemap
+- Directly accessible by URL (for preview/proofreading)
+
+Add `draft: true` to the frontmatter schema as an optional boolean, defaulting to `false`.
 
 ---
 
 ## Open Questions
 
-- [ ] **Newsletter platform** — which service for email capture? (ConvertKit, Beehiiv, Mailchimp, Resend, etc.) Determines how the signup form integrates and where subscribers land.
-- [ ] **Stock image service** — Unsplash API or Pexels API? Both are free. Unsplash requires attribution. Pexels has no attribution requirement but is smaller catalog.
-- [ ] **Green palette specifics** — natural grass green (muted, like `#2d6a2d`) or something more designed? Want to confirm before scaffolding Tailwind tokens.
-- [ ] **Draft flag** — include `draft: true` in frontmatter to let you deploy work-in-progress articles that are excluded from listings and sitemap? (Recommended yes — low cost, prevents "oops" publishes.)
+- [ ] **Newsletter platform** — which service for email capture? (ConvertKit, Beehiiv, Mailchimp, Resend, etc.) This determines the form integration. Decide before building `ResourceCTA.vue`.
