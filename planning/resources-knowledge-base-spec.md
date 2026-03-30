@@ -219,11 +219,18 @@ Each August (after NCAA publishes updated recruiting calendars):
 
 ## CTA Strategy
 
-Every article ends with a `<ResourceCTA />` component. Two variants:
+Every article ends with a `<ResourceCTA />` component. Two jobs:
+
+1. **Email newsletter capture** — collect emails for ongoing recruiting content / NCAA news updates
+2. **App CTA** — drive signups to the main Recruiting Compass app
+
+Two app variants controlled by a single prop:
 - **Waitlist CTA** — while the app is in beta: "Ready to build your recruiting profile? Join the waitlist."
 - **App CTA** — post-launch: "Create your free Recruiting Compass profile and track your recruiting journey."
 
-The component accepts a `variant` prop. Switch globally when the app launches.
+The component accepts a `variant` prop (`waitlist | app`). Switch globally when the app launches.
+
+> **Newsletter platform TBD** — see Open Questions.
 
 ---
 
@@ -252,9 +259,46 @@ Ship the structure with 5-8 articles across 3-4 categories. The goal is a workin
 
 ---
 
+## Visual Identity
+
+**Own look, not the landing site.** Athletic / sports-field aesthetic:
+- **Color palette:** field green (natural grass tones, not turf neon), white field lines as design motif
+- **Typography:** strong, sporty — legible and authoritative for a knowledge base
+- **Category icons:** SVG icon per category, displayed on article cards and the hub grid
+- **Article hero images:** dynamically sourced from a free stock photo service (Unsplash API or Pexels API) based on article topic — curated URL stored in frontmatter `heroImage` field, with category-specific fallback
+
+> **Palette specifics TBD** — see Open Questions.
+
+---
+
+## Image Strategy
+
+Two types of imagery:
+
+### Category Icons
+- One SVG icon per category (8 total)
+- Used on: hub grid tiles, article cards, article page header badge
+- Design to feel sport/athletics-themed but not baseball-only
+
+### Article Hero Images
+- **Source:** free stock photo service with API (Unsplash or Pexels — both free, attribution-friendly)
+- **Approach:** curate a `heroImage` URL per article at write time, store in frontmatter
+- **Fallback:** if `heroImage` is absent, show the category's default hero image
+- **OG image:** `ogImage` field in frontmatter; if absent, auto-generate from `heroImage` + title overlay, or use category default OG
+
+```yaml
+# Additional frontmatter fields:
+heroImage: https://images.unsplash.com/photo-[id]?w=1200   # sourced at write time
+# ogImage falls back to heroImage if absent
+```
+
+> **Stock image service choice TBD** — see Open Questions.
+
+---
+
 ## Open Questions
 
-- [ ] What's the visual identity for the resource center? Identical to the landing site, or its own feel?
-- [ ] Who generates OG images? Static pre-made per article, or dynamic via Vercel OG / Satori?
-- [ ] Should articles support a `draft: true` flag for work-in-progress content that deploys but isn't listed?
-- [ ] Is there a newsletter signup CTA in addition to the app CTA? (Connects knowledge base to email marketing)
+- [ ] **Newsletter platform** — which service for email capture? (ConvertKit, Beehiiv, Mailchimp, Resend, etc.) Determines how the signup form integrates and where subscribers land.
+- [ ] **Stock image service** — Unsplash API or Pexels API? Both are free. Unsplash requires attribution. Pexels has no attribution requirement but is smaller catalog.
+- [ ] **Green palette specifics** — natural grass green (muted, like `#2d6a2d`) or something more designed? Want to confirm before scaffolding Tailwind tokens.
+- [ ] **Draft flag** — include `draft: true` in frontmatter to let you deploy work-in-progress articles that are excluded from listings and sitemap? (Recommended yes — low cost, prevents "oops" publishes.)
