@@ -336,6 +336,24 @@ Add `draft: true` to the frontmatter schema as an optional boolean, defaulting t
 
 ---
 
+## Newsletter Integration
+
+**Platform: Beehiiv**
+
+Email capture in `ResourceCTA.vue` posts to Beehiiv's embed/API. Integration options:
+- **Embed form** (simplest) — Beehiiv provides an iframe/HTML snippet; drop into the CTA component
+- **API** (cleaner UX) — POST email to Beehiiv's subscriber API from a Nuxt server route, stay on-page
+
+Recommend the API approach so the form feels native and we can show inline success/error states without a page redirect.
+
+Beehiiv requires:
+- `NUXT_BEEHIIV_PUBLICATION_ID` — your publication ID
+- `NUXT_BEEHIIV_API_KEY` — server-side only (not `NUXT_PUBLIC_`)
+
+> Set these up in Beehiiv dashboard before wiring the component.
+
+---
+
 ## Open Questions
 
-- [ ] **Newsletter platform** — which service for email capture? (ConvertKit, Beehiiv, Mailchimp, Resend, etc.) This determines the form integration. Decide before building `ResourceCTA.vue`.
+None. Spec is fully locked.
