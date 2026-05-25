@@ -395,7 +395,7 @@
 
 <script setup lang="ts">
 // UPDATE THIS DATE WHENEVER TERMS ARE MODIFIED
-useHead({ title: "Terms and Conditions — The Recruiting Compass" });
+useHead({ title: "Terms and Conditions" });
 </script>
 
 <style scoped>

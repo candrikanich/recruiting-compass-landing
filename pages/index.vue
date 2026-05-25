@@ -270,8 +270,11 @@
               <img
                 :src="currentWebSlide.src"
                 :alt="currentWebSlide.alt"
+                width="1266"
+                height="880"
                 class="w-full h-auto transition-opacity duration-300"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -337,8 +340,11 @@
                 <img
                   :src="currentIosSlide.src"
                   :alt="currentIosSlide.alt"
+                  width="1206"
+                  height="2622"
                   class="w-full h-full object-cover object-top transition-opacity duration-300"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -701,8 +707,11 @@ const SPORTS = computed(() => {
   const shuffled = [...BASE_SPORTS].sort(() => Math.random() - 0.5);
   return [...shuffled, "College Athletic"];
 });
-const displayedSport = ref("");
-const showCursor = ref(true);
+// Seed with "Baseball" so prerendered/crawled HTML contains the primary
+// keyword in the H1; the typewriter (onMounted, client-only) takes over after.
+const displayedSport = ref("Baseball ");
+// Cursor hidden during SSR so prerendered H1 reads cleanly; enabled on mount.
+const showCursor = ref(false);
 
 // Stats counter animation
 const stat1 = ref(0);
@@ -711,6 +720,7 @@ const stat3 = ref(0);
 const stat4 = ref(0);
 const targets = { stat1: 180000, stat2: 480000, stat3: 3, stat4: 90 };
 onMounted(() => {
+  showCursor.value = true;
   let sportIdx = 0;
   let charIdx = 0;
   let deleting = false;
@@ -862,21 +872,21 @@ const currentWebSlide = computed(() => webSlides[webSlide.value]!);
 const currentIosSlide = computed(() => iosSlides[iosSlide.value]!);
 const webSlides = [
   {
-    src: "/images/dashboard-web.png",
+    src: "/images/dashboard-web.webp",
     alt: "Recruiting dashboard overview",
     title: "Your Recruiting Command Center",
     description:
       "See your entire recruiting journey at a glance — schools, coaches, interactions, and progress all in one place.",
   },
   {
-    src: "/images/dashboard-schools.png",
+    src: "/images/dashboard-schools.webp",
     alt: "Schools list and search",
     title: "Track & Evaluate Target Schools",
     description:
       "Search, filter, and manage your school list with fit scores, division filters, and status tracking.",
   },
   {
-    src: "/images/dashboard-timeline.png",
+    src: "/images/dashboard-timeline.webp",
     alt: "Recruiting timeline and milestones",
     title: "Your 4-Year Recruiting Roadmap",
     description:
@@ -885,21 +895,21 @@ const webSlides = [
 ];
 const iosSlides = [
   {
-    src: "/images/dashboard-ios.png",
+    src: "/images/dashboard-ios.webp",
     alt: "iOS dashboard overview",
     title: "Your Dashboard, Always On Hand",
     description:
       "Check coaches, schools, interactions, and offers at a glance — wherever you are.",
   },
   {
-    src: "/images/ios-timeline.png",
+    src: "/images/ios-timeline.webp",
     alt: "iOS recruiting timeline",
     title: "Stay On Track, Phase by Phase",
     description:
       "Follow your year-by-year roadmap and check off tasks as you go — right from your phone.",
   },
   {
-    src: "/images/ios-schools.png",
+    src: "/images/ios-schools.webp",
     alt: "iOS schools list",
     title: "Manage Your School List On the Go",
     description:
@@ -978,16 +988,35 @@ const faqs = [
 ];
 
 useHead({
-  title:
-    "The Recruiting Compass - Navigate Your Path to College Athletic Success",
+  // Site name is auto-appended by @nuxtjs/seo's title template — don't repeat it.
+  title: "Baseball Recruiting Platform for Players & Parents",
   meta: [
     {
       name: "description",
       content:
-        "The all-in-one platform that guides student-athletes and parents through every step of the college recruiting journey—from first contact to signing day.",
+        "The all-in-one platform that guides high school baseball players and parents through every step of the college recruiting journey—from first contact to signing day.",
     },
   ],
 });
+
+// JSON-LD structured data — FAQ rich results + software application identity
+useSchemaOrg([
+  defineSoftwareApp({
+    name: "The Recruiting Compass",
+    description:
+      "All-in-one college recruiting platform that guides high school baseball players and their families through every step of the recruiting journey.",
+    applicationCategory: "SportsApplication",
+    operatingSystem: "Web, iOS",
+    offers: {
+      price: "0",
+      priceCurrency: "USD",
+    },
+  }),
+  defineWebPage({ "@type": ["WebPage", "FAQPage"] }),
+  ...faqs.map((faq) =>
+    defineQuestion({ name: faq.question, acceptedAnswer: faq.answer }),
+  ),
+]);
 </script>
 
 <style scoped>

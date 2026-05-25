@@ -358,7 +358,7 @@
 
 <script setup lang="ts">
 // UPDATE THIS DATE WHENEVER THE PRIVACY POLICY IS MODIFIED
-useHead({ title: "Privacy Policy — The Recruiting Compass" });
+useHead({ title: "Privacy Policy" });
 </script>
 
 <style scoped>
