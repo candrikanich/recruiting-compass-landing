@@ -1,14 +1,58 @@
+import { defineOrganization } from "nuxt-schema-org/schema";
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
   // Compatibility date
   compatibilityDate: "2026-01-10",
 
+  // SEO modules (@nuxtjs/seo bundles robots, sitemap, og-image, schema-org)
+  modules: ["@nuxtjs/seo", "@nuxt/image"],
+
+  // Site-wide SEO foundation — drives canonical URLs, sitemap, robots, schema
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || "https://therecruitingcompass.com",
+    name: "The Recruiting Compass",
+    description:
+      "Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.",
+    defaultLocale: "en",
+  },
+
+  // Organization identity for JSON-LD structured data
+  schemaOrg: {
+    identity: defineOrganization({
+      name: "The Recruiting Compass",
+      url: "https://therecruitingcompass.com",
+      logo: "/images/logo.svg",
+      sameAs: [],
+    }),
+  },
+
+  // Dynamic OG generation disabled — we ship a static social card
+  // (/og-image.png) referenced via app.head. Avoids the satori/resvg native
+  // dependency chain, which is the right call for a single landing page.
+  ogImage: {
+    enabled: false,
+  },
+
   // Static site generation
   nitro: {
     prerender: {
-      routes: ["/"],
+      crawlLinks: true,
+      routes: ["/", "/legal/privacy", "/legal/terms"],
+      // /resources is a Vercel rewrite to a separate deployment, not a Nuxt
+      // route — don't try to prerender or crawl it.
+      ignore: ["/resources"],
     },
+  },
+
+  // /resources is served by the resources app (own sitemap); keep it out of
+  // this site's sitemap and skip link-checking it (it 404s at build time).
+  sitemap: {
+    exclude: ["/resources", "/resources/**"],
+  },
+  linkChecker: {
+    excludeLinks: ["/resources", "/resources/**"],
   },
 
   // CSS configuration
@@ -25,7 +69,7 @@ export default defineNuxtConfig({
   // App configuration
   app: {
     head: {
-      title: "The Recruiting Compass - Navigate Your College Athletics Journey",
+      title: "Navigate Your College Athletics Journey",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -33,11 +77,6 @@ export default defineNuxtConfig({
           name: "description",
           content:
             "Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.",
-        },
-        {
-          name: "keywords",
-          content:
-            "baseball recruiting, college baseball, high school baseball, recruiting tracker, baseball scholarship",
         },
         { name: "author", content: "The Recruiting Compass" },
         {
@@ -51,8 +90,22 @@ export default defineNuxtConfig({
             "Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.",
         },
         { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://therecruitingcompass.com" },
+        {
+          property: "og:image",
+          content: "https://therecruitingcompass.com/og-image.png",
+        },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        {
+          property: "og:image:alt",
+          content:
+            "The Recruiting Compass — navigate your path to baseball recruiting success",
+        },
         { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:image",
+          content: "https://therecruitingcompass.com/og-image.png",
+        },
         {
           name: "twitter:title",
           content:

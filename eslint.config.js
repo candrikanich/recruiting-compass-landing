@@ -42,6 +42,12 @@ export default [
         watch: true,
         nextTick: true,
         $fetch: true,
+        useSchemaOrg: true,
+        defineSoftwareApp: true,
+        defineWebPage: true,
+        defineQuestion: true,
+        defineOrganization: true,
+        defineOgImage: true,
       },
     },
     rules: {
