@@ -40,7 +40,19 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ["/", "/legal/privacy", "/legal/terms"],
+      // /resources is a Vercel rewrite to a separate deployment, not a Nuxt
+      // route — don't try to prerender or crawl it.
+      ignore: ["/resources"],
     },
+  },
+
+  // /resources is served by the resources app (own sitemap); keep it out of
+  // this site's sitemap and skip link-checking it (it 404s at build time).
+  sitemap: {
+    exclude: ["/resources", "/resources/**"],
+  },
+  linkChecker: {
+    excludeLinks: ["/resources", "/resources/**"],
   },
 
   // CSS configuration
