@@ -1,26 +1,22 @@
 ## Current Session
 
-**Status:** SEO work merged to origin/main (PR #24). BLOCKED on Vercel production deploy.
-**Branch:** main (in sync with origin/main @ aa37577)
-**Build:** pass (local + CI green)
-**Type-check:** pass (added vue-tsc devDep — nuxi typecheck needs it in CI)
-**CI:** "Lint, Type Check & Build" green (only required check)
+**Status:** SHIPPED — SEO live on production. All loose ends tied up.
+**Branch:** main (in sync with origin/main @ 96daebb)
+**Build/CI/Type-check:** all green
+**Live:** https://therecruitingcompass.com serving SEO build (verified: H1, canonical, og:image, JSON-LD, sitemap, robots all good).
 
-### BLOCKER — Vercel production deploy errors
-- Every prod/preview deploy since fcec655 returns instant ERROR, zero build logs, generic "project-configuration" docs URL. One deploy (fcec655) succeeded between two errors → rate-limit / account-level signature, NOT code (CI build passes).
-- Live site (https://www.therecruitingcompass.com) serves OLD pre-SEO build — SEO title/H1 NOT live yet.
-- Last failed prod deploy: dpl_8swRoSQoW4kwTHjHGPpB6waihPaD (merge aa37577).
-- NEXT: open inspectorUrl in Vercel dashboard for the human-readable error (API hides it); check Hobby plan deploy limit; redeploy once limit window clears. Do NOT spam redeploys.
-
-### Done this session
-- Node 22 pinned (engines.node + .nvmrc)
-- .npmrc legacy-peer-deps=true (fixed npm ci ERESOLVE: nuxt-og-image wants tailwindcss@^4)
-- vue-tsc@^2.2.10 devDep (fixed CI nuxi typecheck)
+### Shipped this session
+- PR #24: SEO foundation + Node 22 pin (engines.node + .nvmrc) + .npmrc legacy-peer-deps + vue-tsc devDep
+- PR #25: reverted 3765aca (premature /resources integration) — its vercel.json had invalid `$comment` that blocked ALL real deploys
+- Ran manual "Deploy to Production" workflow → recruiting-compass-landing-production (the project owning the apex domain). SEO now live.
 - nuxt-seo skill doc fixed (defineFAQPage removed in v6 → defineQuestion + FAQPage type)
-- Deleted stale feat/seo-improvements (local) + merged chore/seo-finalize (local+remote)
 
-### Set aside
-- stash@{0}: resources-hub nav links + vercel.json /resources rewrite (Task 15, NOT ready — points at nonexistent RESOURCES_DEPLOYMENT_HOST). Restore when resources app deployed.
-- Dependabot: 44 vulns on default branch (20 high) — separate PR needed.
-- planning/resources-knowledge-base branch: 1 commit ahead origin, WIP scaffold spec.
-**Handoff:** `planning/handoff-2026-03-31-resources-scaffold.md`
+### Vercel topology (learned)
+- 3 landing projects: `recruiting-compass-landing` (NO real domain, auto-deploys on push, errors = noise), `recruiting-compass-landing-production` (apex + www, MANUAL deploy via deploy-prod.yml), `recruiting-compass-landing-staging` (push to develop).
+- "project-configuration" Vercel error with empty build logs = invalid vercel.json, NOT rate limit.
+
+### Open (separate, not blocking)
+- No-suffix `recruiting-compass-landing` project: auto-deploys + errors on every push, serves no real domain → disconnect its GitHub integration or delete to stop red-X noise on PRs.
+- Dependabot: 44 vulns on default branch (20 high) — own PR.
+- planning/resources-knowledge-base: WIP scaffold, 1 commit ahead origin. Resources app repo not created. When ready, re-apply 3765aca.
+- Post-deploy: submit sitemap to Google Search Console.
