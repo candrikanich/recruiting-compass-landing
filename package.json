@@ -4,6 +4,9 @@
   "description": "Landing page for baseball recruiting tracker marketing site",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
