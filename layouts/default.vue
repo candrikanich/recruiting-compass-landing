@@ -5,15 +5,6 @@
         <div class="flex justify-between items-center h-16">
           <!-- Brand -->
           <BrandHorizontal />
-
-          <!-- Plain anchor, not NuxtLink: /resources is a Vercel rewrite to a
-               separate deployment, so it needs a full browser navigation. -->
-          <a
-            href="/resources"
-            class="text-sm font-medium text-gray-600 hover:text-green-600 transition-colors"
-          >
-            Resources
-          </a>
         </div>
       </nav>
     </header>
@@ -37,10 +28,6 @@
               class="hover:text-white transition-colors"
             >
               App Login
-            </a>
-            <span>•</span>
-            <a href="/resources" class="hover:text-white transition-colors">
-              Resources
             </a>
             <span>•</span>
             <button
