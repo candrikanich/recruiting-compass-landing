@@ -2,7 +2,7 @@
   <div class="min-h-screen">
     <!-- Hero -->
     <section
-      class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-950 via-green-900 to-emerald-900"
+      class="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-950 via-green-900 to-emerald-900"
     >
       <div class="absolute inset-0 overflow-hidden">
         <div class="hero-blob hero-blob-1" />
@@ -13,15 +13,17 @@
         class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center"
       >
         <div class="fade-in mb-8 flex justify-center">
-          <BrandHorizontal light class="h-32 w-auto" />
+          <BrandHorizontal
+            light
+            class="h-auto w-64 sm:w-80 lg:w-[26rem] max-w-full"
+          />
         </div>
         <h1
-          class="hero-headline text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight fade-in delay-1"
+          class="hero-headline text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight fade-in delay-1 text-balance"
         >
           Navigate Your Path to
-          <br />
           <span
-            class="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent"
+            class="block bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent"
           >
             {{ displayedSport
             }}<span
@@ -34,7 +36,7 @@
           </span>
         </h1>
         <p
-          class="text-xl sm:text-2xl text-green-100 mb-12 max-w-3xl mx-auto fade-in delay-2"
+          class="text-lg sm:text-2xl text-green-100 mb-12 max-w-3xl mx-auto fade-in delay-2"
         >
           The all-in-one platform that guides student-athletes and parents
           through every step of the college recruiting journey—from first
@@ -45,15 +47,15 @@
         >
           <button
             type="button"
-            class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
+            class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
             @click="openTypeform"
           >
-            Take Our Survey & Get Early Access
+            Take the Survey
             <ArrowRightIcon class="ml-2 w-5 h-5" />
           </button>
           <button
             type="button"
-            class="inline-flex items-center justify-center border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-green-950 px-8 py-6 text-lg font-semibold rounded-full transition-all duration-300"
+            class="inline-flex items-center justify-center border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-green-950 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full transition-all duration-300"
             @click="scrollToSection('features')"
           >
             Learn More
@@ -69,7 +71,7 @@
     </section>
 
     <!-- Stats -->
-    <section class="bg-gray-50 py-16 sm:py-24">
+    <section class="bg-gray-50 py-14 sm:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -111,7 +113,7 @@
     </section>
 
     <!-- Features -->
-    <section id="features" class="py-20 sm:py-32 bg-white">
+    <section id="features" class="py-14 sm:py-32 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
@@ -170,7 +172,7 @@
     <!-- How It Works -->
     <section
       id="how-it-works"
-      class="py-20 sm:py-32 bg-gradient-to-br from-green-50 to-emerald-50"
+      class="py-14 sm:py-32 bg-gradient-to-br from-green-50 to-emerald-50"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
@@ -214,7 +216,7 @@
 
     <!-- App Showcase -->
     <section
-      class="py-20 sm:py-32 bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900"
+      class="py-14 sm:py-32 bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
@@ -458,7 +460,7 @@
     </section>
 
     <!-- Survey CTA -->
-    <section class="relative py-20 sm:py-32 overflow-hidden">
+    <section class="relative py-14 sm:py-32 overflow-hidden">
       <div class="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1659081443046-268bee889587?w=1920&q=80"
@@ -472,7 +474,7 @@
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center">
           <h2
-            class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
+            class="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
           >
             Help Us Build Your Perfect Recruiting Tool
           </h2>
@@ -525,7 +527,7 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-20 sm:py-32 bg-gray-50">
+    <section id="faq" class="py-14 sm:py-32 bg-gray-50">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
@@ -568,7 +570,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div class="col-span-1 md:col-span-2">
             <div class="mb-4">
-              <BrandHorizontal light class="h-20 w-auto" />
+              <BrandHorizontal light class="h-auto w-56 max-w-full" />
             </div>
             <p class="text-gray-400 mb-4 max-w-md">
               Navigate your path to college athletic success with confidence,
