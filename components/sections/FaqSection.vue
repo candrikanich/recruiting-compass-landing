@@ -1,42 +1,44 @@
 <template>
-  <div class="min-h-screen">
-    <HeroSection />
-    <StatsSection />
-    <FeaturesSection />
-    <HowItWorksSection />
-    <PlayerParentSection />
-    <AppShowcaseSection />
-    <SportsGridSection />
-    <FeatureHighlightsSection />
-    <FaqSection />
-    <CtaSection />
-    <FooterSection />
-  </div>
+  <section id="faq" class="py-14 sm:py-32 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-xl text-gray-600">
+          Everything you need to know about The Recruiting Compass
+        </p>
+      </div>
+      <div class="space-y-4">
+        <div
+          v-for="(faq, index) in faqs"
+          :key="index"
+          class="bg-white rounded-lg border border-gray-200 overflow-hidden"
+        >
+          <button
+            type="button"
+            class="w-full px-6 py-4 text-left font-semibold text-gray-900 flex justify-between items-center hover:bg-gray-50 transition-colors"
+            @click="faqOpen === index ? (faqOpen = -1) : (faqOpen = index)"
+          >
+            {{ faq.question }}
+            <span class="text-green-600 text-2xl leading-none">{{
+              faqOpen === index ? "−" : "+"
+            }}</span>
+          </button>
+          <div
+            v-show="faqOpen === index"
+            class="px-6 pb-4 text-gray-600 border-t border-gray-100 pt-2"
+          >
+            {{ faq.answer }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import HeroSection from "~/components/sections/HeroSection.vue";
-import StatsSection from "~/components/sections/StatsSection.vue";
-import FeaturesSection from "~/components/sections/FeaturesSection.vue";
-import HowItWorksSection from "~/components/sections/HowItWorksSection.vue";
-import PlayerParentSection from "~/components/sections/PlayerParentSection.vue";
-import AppShowcaseSection from "~/components/sections/AppShowcaseSection.vue";
-import SportsGridSection from "~/components/sections/SportsGridSection.vue";
-import FeatureHighlightsSection from "~/components/sections/FeatureHighlightsSection.vue";
-import FaqSection from "~/components/sections/FaqSection.vue";
-import CtaSection from "~/components/sections/CtaSection.vue";
-import FooterSection from "~/components/sections/FooterSection.vue";
-
-useHead({
-  title: "College Recruiting Platform for Student Athletes & Parents",
-  meta: [
-    {
-      name: "description",
-      content:
-        "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — from first contact to signing day. Free for student athletes and families.",
-    },
-  ],
-});
+const faqOpen = ref<number>(-1);
 
 const faqs = [
   {
@@ -90,22 +92,4 @@ const faqs = [
       "Most platforms are either expensive recruiting services that do the work for you, or simple spreadsheets. The Recruiting Compass is a management tool — it gives you the structure, templates, calendars, and tracking to run your own recruiting process effectively. You stay in control.",
   },
 ];
-
-useSchemaOrg([
-  defineSoftwareApp({
-    name: "The Recruiting Compass",
-    description:
-      "All-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting with tools built for student athletes and their families.",
-    applicationCategory: "SportsApplication",
-    operatingSystem: "Web, iOS",
-    offers: {
-      price: "0",
-      priceCurrency: "USD",
-    },
-  }),
-  defineWebPage({ "@type": ["WebPage", "FAQPage"] }),
-  ...faqs.map((faq) =>
-    defineQuestion({ name: faq.question, acceptedAnswer: faq.answer }),
-  ),
-]);
 </script>
