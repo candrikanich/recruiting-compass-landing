@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     url: process.env.NUXT_PUBLIC_SITE_URL || "https://therecruitingcompass.com",
     name: "The Recruiting Compass",
     description:
-      "Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.",
+      "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — free for student athletes and families.",
     defaultLocale: "en",
   },
 
@@ -57,25 +57,25 @@ export default defineNuxtConfig({
   // App configuration
   app: {
     head: {
-      title: "Navigate Your College Athletics Journey",
+      title: "College Recruiting Platform for 19 Sports",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "description",
           content:
-            "Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.",
+            "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — free for student athletes and families.",
         },
         { name: "author", content: "The Recruiting Compass" },
         {
           property: "og:title",
           content:
-            "The Recruiting Compass - Navigate Your College Athletics Journey",
+            "The Recruiting Compass — College Recruiting Platform for 19 Sports",
         },
         {
           property: "og:description",
           content:
-            "Helping high school baseball players and their families navigate the college recruiting process with confidence and clarity.",
+            "Track schools, manage coach relationships, and navigate NCAA recruiting — free for student athletes and families. 19 sports. No recruiting service required.",
         },
         { property: "og:type", content: "website" },
         {
@@ -87,7 +87,7 @@ export default defineNuxtConfig({
         {
           property: "og:image:alt",
           content:
-            "The Recruiting Compass — navigate your path to baseball recruiting success",
+            "The Recruiting Compass — college recruiting platform for student athletes and families",
         },
         { name: "twitter:card", content: "summary_large_image" },
         {
@@ -97,12 +97,12 @@ export default defineNuxtConfig({
         {
           name: "twitter:title",
           content:
-            "The Recruiting Compass - Navigate Your College Athletics Journey",
+            "The Recruiting Compass — College Recruiting Platform for 19 Sports",
         },
         {
           name: "twitter:description",
           content:
-            "Helping high school baseball players and their families navigate the college recruiting process.",
+            "Track schools, manage coach relationships, and navigate NCAA recruiting — free for student athletes and families.",
         },
       ],
       link: [
