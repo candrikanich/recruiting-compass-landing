@@ -43,23 +43,26 @@
       <div
         class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in delay-3"
       >
-        <a
-          href="https://myrecruitingcompass.com/signup"
+        <button
+          type="button"
           class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
+          @click="openTypeform"
         >
-          Get Started Free
+          Take the Survey
           <ArrowRightIcon class="ml-2 w-5 h-5" />
-        </a>
+        </button>
         <a
-          href="https://myrecruitingcompass.com/login"
+          href="#features"
           class="inline-flex items-center justify-center border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-green-950 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full transition-all duration-300"
         >
-          Sign In
+          Learn More
         </a>
       </div>
 
-      <p class="mt-16 text-green-200 text-sm fade-in delay-4">
-        Available on Web &amp; iOS
+      <WaitlistForm class="fade-in delay-4" />
+
+      <p class="mt-16 text-green-200 text-sm fade-in delay-5">
+        Available on Web &amp; iOS &bull; Coming Spring 2026
       </p>
     </div>
   </section>
@@ -67,7 +70,13 @@
 
 <script setup lang="ts">
 import BrandHorizontal from "~/components/icons/BrandHorizontal.vue";
+import WaitlistForm from "~/components/WaitlistForm.vue";
 import { ArrowRightIcon } from "~/components/landing-icons";
+
+const { typeformFormId, typeformUrl } = useRuntimeConfig().public;
+const openTypeform = () => {
+  window.open(`${typeformUrl}${typeformFormId}`, "_blank");
+};
 
 const BASE_SPORTS = [
   "Baseball",
@@ -201,6 +210,9 @@ onMounted(() => {
 }
 .fade-in.delay-4 {
   animation-delay: 1s;
+}
+.fade-in.delay-5 {
+  animation-delay: 1.4s;
 }
 @keyframes fadeInUp {
   from {

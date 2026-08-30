@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "Is The Recruiting Compass free?",
     answer:
-      "Yes. The core platform is free for student athletes and their families.",
+      "We're still finalizing our pricing, but we're committed to making The Recruiting Compass accessible to all families. Early survey participants will receive exclusive discounts and beta access. Take our survey to learn more!",
   },
   {
     question: "What sports do you support?",
@@ -75,6 +75,11 @@ const faqs = [
     question: "Is my data private?",
     answer:
       "Your recruiting data is private to you and your family. Your public profile is only visible when you share the link — it's not indexed or searchable. We don't sell your data.",
+  },
+  {
+    question: "When will the app be available?",
+    answer:
+      "We're launching in Spring 2026 with both web and iOS versions. Join our survey to get early access and be among the first to experience the platform.",
   },
   {
     question: "What's the difference between the web app and the iOS app?",
