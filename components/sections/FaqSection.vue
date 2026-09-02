@@ -42,9 +42,9 @@ const faqOpen = ref<number>(-1);
 
 const faqs = [
   {
-    question: "Is The Recruiting Compass free?",
+    question: "How much does The Recruiting Compass cost?",
     answer:
-      "We're still finalizing our pricing, but we're committed to making The Recruiting Compass accessible to all families. Early survey participants will receive exclusive discounts and beta access. Take our survey to learn more!",
+      "We're still finalizing pricing. Our goal is to keep The Recruiting Compass accessible to every family. Sign up now to lock in early-adopter benefits when pricing is announced.",
   },
   {
     question: "What sports do you support?",

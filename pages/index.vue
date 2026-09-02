@@ -33,16 +33,16 @@ useHead({
     {
       name: "description",
       content:
-        "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — from first contact to signing day. Free for student athletes and families.",
+        "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — from first contact to signing day. Built for student athletes and their families.",
     },
   ],
 });
 
 const faqs = [
   {
-    question: "Is The Recruiting Compass free?",
+    question: "How much does The Recruiting Compass cost?",
     answer:
-      "Yes. The core platform is free for student athletes and their families.",
+      "We're still finalizing pricing. Our goal is to keep The Recruiting Compass accessible to every family. Sign up now to lock in early-adopter benefits when pricing is announced.",
   },
   {
     question: "What sports do you support?",
