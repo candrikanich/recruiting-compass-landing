@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     url: process.env.NUXT_PUBLIC_SITE_URL || "https://therecruitingcompass.com",
     name: "The Recruiting Compass",
     description:
-      "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — free for student athletes and families.",
+      "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — built for student athletes and their families.",
     defaultLocale: "en",
   },
 
@@ -64,7 +64,7 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — free for student athletes and families.",
+            "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — built for student athletes and their families.",
         },
         { name: "author", content: "The Recruiting Compass" },
         {
@@ -75,7 +75,7 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content:
-            "Track schools, manage coach relationships, and navigate NCAA recruiting — free for student athletes and families. 19 sports. No recruiting service required.",
+            "Track schools, manage coach relationships, and navigate NCAA recruiting — built for student athletes and their families. 19 sports. No recruiting service required.",
         },
         { property: "og:type", content: "website" },
         {
@@ -102,7 +102,7 @@ export default defineNuxtConfig({
         {
           name: "twitter:description",
           content:
-            "Track schools, manage coach relationships, and navigate NCAA recruiting — free for student athletes and families.",
+            "Track schools, manage coach relationships, and navigate NCAA recruiting — built for student athletes and their families.",
         },
       ],
       link: [
