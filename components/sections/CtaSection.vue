@@ -35,9 +35,9 @@
             class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
           >
             <ClockIcon class="w-10 h-10 text-green-300 mx-auto mb-3" />
-            <h3 class="font-semibold text-white mb-2">Exclusive Discounts</h3>
+            <h3 class="font-semibold text-white mb-2">Free for Life</h3>
             <p class="text-green-100 text-sm">
-              Special pricing for early survey participants
+              Founding families keep full access free, forever. No card required.
             </p>
           </div>
           <div
