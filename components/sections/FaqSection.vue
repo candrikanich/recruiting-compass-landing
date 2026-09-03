@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "How much does The Recruiting Compass cost?",
     answer:
-      "We're still finalizing pricing. Our goal is to keep The Recruiting Compass accessible to every family. Sign up now to lock in early-adopter benefits when pricing is announced.",
+      "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. After the founding window closes, new families get a 30-day free trial, then $99/year or $12.99/month for the whole family.",
   },
   {
     question: "What sports do you support?",
