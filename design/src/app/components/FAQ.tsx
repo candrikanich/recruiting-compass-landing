@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "When will the app be available?",
     answer:
-      "We're launching in Spring 2026 with both web and iOS versions. Join our survey to get early access and be among the first to experience the platform.",
+      "We're launching in Fall 2026 on Web, iPhone, and iPad. Join our survey to get early access and be among the first to experience the platform.",
   },
   {
     question: "How is this different from working with a recruiting service?",
