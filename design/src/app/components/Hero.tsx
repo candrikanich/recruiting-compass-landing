@@ -130,7 +130,7 @@ export function Hero({ onSurveyClick }: HeroProps) {
           transition={{ duration: 1, delay: 1 }}
           className="mt-16 text-green-200 text-sm"
         >
-          <p>Available on Web & iOS • Coming Spring 2026</p>
+          <p>Available on Web, iPhone & iPad • Coming Fall 2026</p>
         </motion.div>
       </div>
     </div>

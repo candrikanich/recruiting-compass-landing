@@ -62,7 +62,7 @@
       <WaitlistForm class="fade-in delay-4" />
 
       <p class="mt-16 text-green-200 text-sm fade-in delay-5">
-        Available on Web &amp; iOS &bull; Coming Spring 2026
+        Available on Web, iPhone &amp; iPad &bull; Coming Fall 2026
       </p>
     </div>
   </section>
