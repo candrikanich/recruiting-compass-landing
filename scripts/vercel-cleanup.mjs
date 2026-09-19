@@ -34,12 +34,27 @@ function parseArgs(argv) {
     const arg = argv[i];
     if (arg === "--project") opts.project = argv[++i];
     else if (arg === "--team") opts.team = argv[++i];
-    else if (arg === "--keep") opts.keep = Number(argv[++i]);
-    else if (arg === "--older-than") opts.olderThanDays = Number(argv[++i]);
+    else if (arg === "--keep") opts.keep = requirePositiveInt(argv[++i], "--keep");
+    else if (arg === "--older-than")
+      opts.olderThanDays = requirePositiveNum(argv[++i], "--older-than");
     else if (arg === "--execute") opts.execute = true;
     else throw new Error(`Unknown arg: ${arg}`);
   }
   return opts;
+}
+
+function requirePositiveInt(raw, flag) {
+  const n = Number(raw);
+  if (!Number.isInteger(n) || n < 0)
+    throw new Error(`${flag} requires a non-negative integer, got: ${raw}`);
+  return n;
+}
+
+function requirePositiveNum(raw, flag) {
+  const n = Number(raw);
+  if (!Number.isFinite(n) || n < 0)
+    throw new Error(`${flag} requires a non-negative number, got: ${raw}`);
+  return n;
 }
 
 function requireToken() {
@@ -97,8 +112,16 @@ async function fetchAllDeployments(token, teamId, projectId) {
 }
 
 async function fetchAliasedDeploymentIds(token, teamId) {
-  const { aliases } = await vercelFetch(token, "/v4/aliases?limit=100", teamId);
-  return new Set(aliases.map((a) => a.deploymentId));
+  const ids = [];
+  let from;
+  for (;;) {
+    const path = `/v4/aliases?limit=100${from ? `&from=${from}` : ""}`;
+    const data = await vercelFetch(token, path, teamId);
+    ids.push(...data.aliases.map((a) => a.deploymentId));
+    if (!data.pagination?.next) break;
+    from = data.pagination.next;
+  }
+  return new Set(ids);
 }
 
 function groupByBranch(deployments) {
