@@ -27,6 +27,7 @@ import FaqSection from "~/components/sections/FaqSection.vue";
 import CtaSection from "~/components/sections/CtaSection.vue";
 import FooterSection from "~/components/sections/FooterSection.vue";
 import { faqs } from "~/data/faqs";
+import { iosLive, appStoreUrl } from "~/data/site";
 
 useHead({
   title: "College Recruiting: Athletes & Parents",
@@ -46,6 +47,7 @@ useSchemaOrg([
       "All-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting with tools built for student athletes and their families.",
     applicationCategory: "SportsApplication",
     operatingSystem: "Web, iOS",
+    ...(iosLive && { downloadUrl: appStoreUrl("schema") }),
   }),
   defineWebPage({ "@type": ["WebPage", "FAQPage"] }),
   ...faqs.map((faq) =>
