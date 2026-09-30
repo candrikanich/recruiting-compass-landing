@@ -1,11 +1,44 @@
 <template>
   <section class="relative py-14 sm:py-32 overflow-hidden">
     <div class="absolute inset-0">
-      <img
-        src="https://images.unsplash.com/photo-1659081443046-268bee889587?w=1920&q=80"
-        alt="Student athlete success"
-        class="w-full h-full object-cover"
-      />
+      <picture>
+        <source
+          type="image/avif"
+          srcset="
+            /images/cta-hero-640.avif   640w,
+            /images/cta-hero-1024.avif 1024w,
+            /images/cta-hero-1600.avif 1600w,
+            /images/cta-hero-1920.avif 1920w
+          "
+          sizes="100vw"
+        />
+        <source
+          type="image/webp"
+          srcset="
+            /images/cta-hero-640.webp   640w,
+            /images/cta-hero-1024.webp 1024w,
+            /images/cta-hero-1600.webp 1600w,
+            /images/cta-hero-1920.webp 1920w
+          "
+          sizes="100vw"
+        />
+        <img
+          src="/images/cta-hero-1920.jpg"
+          srcset="
+            /images/cta-hero-640.jpg   640w,
+            /images/cta-hero-1024.jpg 1024w,
+            /images/cta-hero-1600.jpg 1600w,
+            /images/cta-hero-1920.jpg 1920w
+          "
+          sizes="100vw"
+          width="1920"
+          height="1280"
+          alt="Student athlete success"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
       <div
         class="absolute inset-0 bg-gradient-to-r from-green-900/95 to-emerald-900/95"
       />

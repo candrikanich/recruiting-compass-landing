@@ -44,6 +44,14 @@ export default defineNuxtConfig({
     enabled: false,
   },
 
+  // Prod HTML embedded a build ID whose /_payload.json and /_nuxt/builds/meta
+  // files 404'd (NUXT_E5002). Single static page: inline the payload and skip
+  // the build manifest so nothing depends on build-ID-matched side files.
+  experimental: {
+    appManifest: false,
+    payloadExtraction: false,
+  },
+
   // Self-hosted at build time. Weights are the ones the templates use
   // (font-medium/semibold/bold/extrabold plus the 400 body default); Poppins and
   // Source Sans 3 only appear in the inline brand SVG, so they're declared here

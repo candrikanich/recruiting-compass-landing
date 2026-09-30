@@ -53,15 +53,27 @@
           <div
             class="bg-white rounded-lg overflow-hidden border-4 border-gray-700"
           >
-            <img
-              :src="currentWebSlide.src"
-              :alt="currentWebSlide.alt"
-              width="1266"
-              height="880"
-              class="w-full h-auto transition-opacity duration-300"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source
+                type="image/avif"
+                :srcset="slideSrcset(currentWebSlide, 'avif')"
+                sizes="(min-width: 1280px) 1100px, 94vw"
+              />
+              <source
+                type="image/webp"
+                :srcset="slideSrcset(currentWebSlide, 'webp')"
+                sizes="(min-width: 1280px) 1100px, 94vw"
+              />
+              <img
+                :src="`/images/${currentWebSlide.name}.webp`"
+                :alt="currentWebSlide.alt"
+                width="1266"
+                height="880"
+                class="w-full h-auto transition-opacity duration-300"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
         <!-- Carousel controls -->
@@ -69,27 +81,35 @@
           <button
             type="button"
             class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Previous slide"
             @click="
               webSlide = (webSlide - 1 + webSlides.length) % webSlides.length
             "
           >
             ‹
           </button>
-          <div class="flex gap-2">
+          <div class="flex">
             <button
-              v-for="(_, i) in webSlides"
+              v-for="(slide, i) in webSlides"
               :key="i"
               type="button"
-              :class="[
-                'w-2 h-2 rounded-full transition-colors',
-                i === webSlide ? 'bg-white' : 'bg-white/30',
-              ]"
+              class="w-6 h-11 flex items-center justify-center"
+              :aria-label="`Show ${slide.title}`"
+              :aria-current="i === webSlide"
               @click="webSlide = i"
-            />
+            >
+              <span
+                :class="[
+                  'w-2 h-2 rounded-full transition-colors',
+                  i === webSlide ? 'bg-white' : 'bg-white/30',
+                ]"
+              />
+            </button>
           </div>
           <button
             type="button"
             class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Next slide"
             @click="webSlide = (webSlide + 1) % webSlides.length"
           >
             ›
@@ -107,7 +127,7 @@
             ]"
             @click="webSlide = i"
           >
-            <h4 class="font-semibold text-white mb-2">{{ slide.title }}</h4>
+            <h3 class="font-semibold text-white mb-2">{{ slide.title }}</h3>
             <p class="text-green-100 text-sm">{{ slide.description }}</p>
           </div>
         </div>
@@ -123,15 +143,27 @@
             <div
               class="bg-white rounded-[2.5rem] overflow-hidden relative aspect-[9/19.5]"
             >
-              <img
-                :src="currentIosSlide.src"
-                :alt="currentIosSlide.alt"
-                width="1206"
-                height="2622"
-                class="w-full h-full object-cover object-top transition-opacity duration-300"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture>
+                <source
+                  type="image/avif"
+                  :srcset="slideSrcset(currentIosSlide, 'avif')"
+                  sizes="(min-width: 640px) 384px, 90vw"
+                />
+                <source
+                  type="image/webp"
+                  :srcset="slideSrcset(currentIosSlide, 'webp')"
+                  sizes="(min-width: 640px) 384px, 90vw"
+                />
+                <img
+                  :src="`/images/${currentIosSlide.name}.webp`"
+                  :alt="currentIosSlide.alt"
+                  width="1206"
+                  height="2622"
+                  class="w-full h-full object-cover object-top transition-opacity duration-300"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
         </div>
@@ -140,27 +172,35 @@
           <button
             type="button"
             class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Previous slide"
             @click="
               iosSlide = (iosSlide - 1 + iosSlides.length) % iosSlides.length
             "
           >
             ‹
           </button>
-          <div class="flex gap-2">
+          <div class="flex">
             <button
-              v-for="(_, i) in iosSlides"
+              v-for="(slide, i) in iosSlides"
               :key="i"
               type="button"
-              :class="[
-                'w-2 h-2 rounded-full transition-colors',
-                i === iosSlide ? 'bg-white' : 'bg-white/30',
-              ]"
+              class="w-6 h-11 flex items-center justify-center"
+              :aria-label="`Show ${slide.title}`"
+              :aria-current="i === iosSlide"
               @click="iosSlide = i"
-            />
+            >
+              <span
+                :class="[
+                  'w-2 h-2 rounded-full transition-colors',
+                  i === iosSlide ? 'bg-white' : 'bg-white/30',
+                ]"
+              />
+            </button>
           </div>
           <button
             type="button"
             class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Next slide"
             @click="iosSlide = (iosSlide + 1) % iosSlides.length"
           >
             ›
@@ -178,7 +218,7 @@
             ]"
             @click="iosSlide = i"
           >
-            <h4 class="font-semibold text-white mb-2">{{ slide.title }}</h4>
+            <h3 class="font-semibold text-white mb-2">{{ slide.title }}</h3>
             <p class="text-green-100 text-sm">{{ slide.description }}</p>
           </div>
         </div>
@@ -194,23 +234,39 @@ const appTab = ref<"web" | "ios">("web");
 const webSlide = ref(0);
 const iosSlide = ref(0);
 
-const webSlides = [
+interface Slide {
+  name: string;
+  widths: number[];
+  alt: string;
+  title: string;
+  description: string;
+}
+
+const slideSrcset = (slide: Slide, format: "avif" | "webp") =>
+  slide.widths
+    .map((w) => `/images/${slide.name}-${w}.${format} ${w}w`)
+    .join(", ");
+
+const webSlides: Slide[] = [
   {
-    src: "/images/dashboard-web.webp",
+    name: "dashboard-web",
+    widths: [640, 960, 1266],
     alt: "Recruiting dashboard overview",
     title: "Your Recruiting Command Center",
     description:
       "See your entire recruiting journey at a glance — schools, coaches, interactions, and progress all in one place.",
   },
   {
-    src: "/images/dashboard-schools.webp",
+    name: "dashboard-schools",
+    widths: [640, 960, 1266],
     alt: "Schools list and search",
     title: "Track & Evaluate Target Schools",
     description:
       "Search, filter, and manage your school list with fit scores, division filters, and status tracking.",
   },
   {
-    src: "/images/dashboard-timeline.webp",
+    name: "dashboard-timeline",
+    widths: [640, 960, 1260],
     alt: "Recruiting timeline and milestones",
     title: "Your 4-Year Recruiting Roadmap",
     description:
@@ -218,23 +274,26 @@ const webSlides = [
   },
 ];
 
-const iosSlides = [
+const iosSlides: Slide[] = [
   {
-    src: "/images/dashboard-ios.webp",
+    name: "dashboard-ios",
+    widths: [400, 800],
     alt: "iOS dashboard overview",
     title: "Your Dashboard, Always On Hand",
     description:
       "Check coaches, schools, interactions, and offers at a glance — wherever you are.",
   },
   {
-    src: "/images/ios-timeline.webp",
+    name: "ios-timeline",
+    widths: [400, 800],
     alt: "iOS recruiting timeline",
     title: "Stay On Track, Phase by Phase",
     description:
       "Follow your year-by-year roadmap and check off tasks as you go — right from your phone.",
   },
   {
-    src: "/images/ios-schools.webp",
+    name: "ios-schools",
+    widths: [400, 800],
     alt: "iOS schools list",
     title: "Manage Your School List On the Go",
     description:
