@@ -127,7 +127,7 @@
             ]"
             @click="webSlide = i"
           >
-            <h4 class="font-semibold text-white mb-2">{{ slide.title }}</h4>
+            <h3 class="font-semibold text-white mb-2">{{ slide.title }}</h3>
             <p class="text-green-100 text-sm">{{ slide.description }}</p>
           </div>
         </div>
@@ -218,7 +218,7 @@
             ]"
             @click="iosSlide = i"
           >
-            <h4 class="font-semibold text-white mb-2">{{ slide.title }}</h4>
+            <h3 class="font-semibold text-white mb-2">{{ slide.title }}</h3>
             <p class="text-green-100 text-sm">{{ slide.description }}</p>
           </div>
         </div>
