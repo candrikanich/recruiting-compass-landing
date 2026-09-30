@@ -44,6 +44,14 @@ export default defineNuxtConfig({
     enabled: false,
   },
 
+  // Prod HTML embedded a build ID whose /_payload.json and /_nuxt/builds/meta
+  // files 404'd (NUXT_E5002). Single static page: inline the payload and skip
+  // the build manifest so nothing depends on build-ID-matched side files.
+  experimental: {
+    appManifest: false,
+    payloadExtraction: false,
+  },
+
   // Static site generation
   nitro: {
     prerender: {
