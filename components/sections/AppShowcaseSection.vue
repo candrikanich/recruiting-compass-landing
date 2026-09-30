@@ -81,27 +81,35 @@
           <button
             type="button"
             class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Previous slide"
             @click="
               webSlide = (webSlide - 1 + webSlides.length) % webSlides.length
             "
           >
             ‹
           </button>
-          <div class="flex gap-2">
+          <div class="flex">
             <button
-              v-for="(_, i) in webSlides"
+              v-for="(slide, i) in webSlides"
               :key="i"
               type="button"
-              :class="[
-                'w-2 h-2 rounded-full transition-colors',
-                i === webSlide ? 'bg-white' : 'bg-white/30',
-              ]"
+              class="w-6 h-11 flex items-center justify-center"
+              :aria-label="`Show ${slide.title}`"
+              :aria-current="i === webSlide"
               @click="webSlide = i"
-            />
+            >
+              <span
+                :class="[
+                  'w-2 h-2 rounded-full transition-colors',
+                  i === webSlide ? 'bg-white' : 'bg-white/30',
+                ]"
+              />
+            </button>
           </div>
           <button
             type="button"
             class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Next slide"
             @click="webSlide = (webSlide + 1) % webSlides.length"
           >
             ›
@@ -164,27 +172,35 @@
           <button
             type="button"
             class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Previous slide"
             @click="
               iosSlide = (iosSlide - 1 + iosSlides.length) % iosSlides.length
             "
           >
             ‹
           </button>
-          <div class="flex gap-2">
+          <div class="flex">
             <button
-              v-for="(_, i) in iosSlides"
+              v-for="(slide, i) in iosSlides"
               :key="i"
               type="button"
-              :class="[
-                'w-2 h-2 rounded-full transition-colors',
-                i === iosSlide ? 'bg-white' : 'bg-white/30',
-              ]"
+              class="w-6 h-11 flex items-center justify-center"
+              :aria-label="`Show ${slide.title}`"
+              :aria-current="i === iosSlide"
               @click="iosSlide = i"
-            />
+            >
+              <span
+                :class="[
+                  'w-2 h-2 rounded-full transition-colors',
+                  i === iosSlide ? 'bg-white' : 'bg-white/30',
+                ]"
+              />
+            </button>
           </div>
           <button
             type="button"
             class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Next slide"
             @click="iosSlide = (iosSlide + 1) % iosSlides.length"
           >
             ›
