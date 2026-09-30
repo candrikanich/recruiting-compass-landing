@@ -1,3 +1,11 @@
+import { iosLive } from "~/data/site";
+
+// Follows the `iosLive` launch switch in data/site.ts.
+export const AVAILABILITY_PRE_LAUNCH =
+  "Right now on the web at myrecruitingcompass.com, on any computer, tablet, or phone browser. The iPhone and iPad app is on its way to the App Store.";
+export const AVAILABILITY_LIVE =
+  "On the web at myrecruitingcompass.com and on iPhone and iPad — download it from the App Store. Same account and data everywhere.";
+
 export interface Faq {
   id: string;
   question: string;
@@ -16,8 +24,7 @@ export const faqs: Faq[] = [
   {
     id: "availability",
     question: "Where can I use it?",
-    answer:
-      "Right now on the web at myrecruitingcompass.com, on any computer, tablet, or phone browser. The iPhone and iPad app is on its way to the App Store.",
+    answer: iosLive ? AVAILABILITY_LIVE : AVAILABILITY_PRE_LAUNCH,
   },
   {
     id: "web-vs-ios",

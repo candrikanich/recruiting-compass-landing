@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { faqs } from "../data/faqs";
+import { faqs, AVAILABILITY_LIVE, AVAILABILITY_PRE_LAUNCH } from "../data/faqs";
+import { iosLive } from "../data/site";
 
 // Mirrors the Canonical FAQ (web repo docs/marketing/customer-questions.md);
 // in-app help on web and iOS uses the same ids and text.
@@ -30,5 +31,12 @@ describe("landing FAQ", () => {
     // Contact-window logic swaps templates; it never blocks a send.
     expect(allText).not.toMatch(/prevent[s]? you from sending/i);
     expect(allText).not.toMatch(/launching in fall 2026/i);
+  });
+
+  it("availability answer follows the iosLive launch switch", () => {
+    const availability = faqs.find((f) => f.id === "availability")?.answer;
+    expect(availability).toBe(
+      iosLive ? AVAILABILITY_LIVE : AVAILABILITY_PRE_LAUNCH,
+    );
   });
 });

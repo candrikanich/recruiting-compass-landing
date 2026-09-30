@@ -89,10 +89,10 @@
             <li class="flex items-center gap-2">
               <MailIcon class="w-4 h-4 shrink-0" />
               <a
-                href="mailto:info@therecruitingcompass.com"
+                href="mailto:hello@therecruitingcompass.com"
                 class="hover:text-green-400 transition-colors"
               >
-                info@therecruitingcompass.com
+                hello@therecruitingcompass.com
               </a>
             </li>
           </ul>
