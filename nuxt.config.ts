@@ -24,7 +24,11 @@ export default defineNuxtConfig({
       name: "The Recruiting Compass",
       url: "https://therecruitingcompass.com",
       logo: "/images/logo.svg",
-      sameAs: [],
+      sameAs: [
+        "https://www.facebook.com/TheRecruitingCompass",
+        "https://www.instagram.com/therecruitingcompass",
+        "https://x.com/recruitCompass",
+      ],
     }),
   },
 
@@ -125,10 +129,5 @@ export default defineNuxtConfig({
   runtimeConfig: {
     resendApiKey: "", // injected from NUXT_RESEND_API_KEY
     resendAudienceId: "", // injected from NUXT_RESEND_AUDIENCE_ID
-    // Public keys (exposed to client-side)
-    public: {
-      typeformFormId: process.env.TYPEFORM_FORM_ID,
-      typeformUrl: "https://alphabet.typeform.com/to/",
-    },
   },
 });

@@ -28,25 +28,26 @@
 </template>
 
 <script setup lang="ts">
+// Same 19 sports, same order, as the canonical FAQ in data/faqs.ts (web PR #1056).
 const sports = [
   "Baseball",
   "Softball",
-  "Basketball (M)",
-  "Basketball (W)",
+  "Basketball",
   "Football",
-  "Soccer (M)",
-  "Soccer (W)",
-  "Volleyball (W)",
+  "Soccer",
+  "Volleyball",
   "Beach Volleyball",
-  "Lacrosse (M)",
-  "Lacrosse (W)",
+  "Lacrosse",
   "Field Hockey",
-  "Ice Hockey (M)",
-  "Ice Hockey (W)",
+  "Ice Hockey",
+  "Track & Field",
+  "Cross Country",
+  "Swimming",
+  "Wrestling",
+  "Rowing",
+  "Water Polo",
+  "Gymnastics",
   "Tennis",
   "Golf",
-  "Swimming & Diving",
-  "Track & Field / XC",
-  "Gymnastics",
 ];
 </script>
