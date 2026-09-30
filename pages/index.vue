@@ -29,12 +29,12 @@ import FooterSection from "~/components/sections/FooterSection.vue";
 import { faqs } from "~/data/faqs";
 
 useHead({
-  title: "College Recruiting Platform for Student Athletes & Parents",
+  title: "College Recruiting: Athletes & Parents",
   meta: [
     {
       name: "description",
       content:
-        "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — from first contact to signing day. Built for student athletes and their families.",
+        "Track schools, manage coach relationships and navigate NCAA recruiting. The college recruiting platform for athletes and families in 19 sports.",
     },
   ],
 });

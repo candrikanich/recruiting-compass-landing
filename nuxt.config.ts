@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     url: siteUrl,
     name: "The Recruiting Compass",
     description:
-      "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — built for student athletes and their families.",
+      "Track schools, manage coach relationships and navigate NCAA recruiting. The college recruiting platform for athletes and families in 19 sports.",
     defaultLocale: "en",
   },
 
@@ -66,14 +66,14 @@ export default defineNuxtConfig({
   // App configuration
   app: {
     head: {
-      title: "College Recruiting Platform for 19 Sports",
+      title: "College Recruiting: Athletes & Parents",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "description",
           content:
-            "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — built for student athletes and their families.",
+            "Track schools, manage coach relationships and navigate NCAA recruiting. The college recruiting platform for athletes and families in 19 sports.",
         },
         { name: "author", content: "The Recruiting Compass" },
         {
