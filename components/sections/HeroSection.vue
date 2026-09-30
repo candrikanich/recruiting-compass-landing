@@ -36,33 +36,35 @@
       <p
         class="text-lg sm:text-2xl text-green-100 mb-12 max-w-3xl mx-auto fade-in delay-2"
       >
-        Everything student athletes and their families need to navigate college
-        recruiting&mdash;from finding schools to contacting coaches to tracking
-        every step. For 19 sports. No recruiting service required.
+        Every school, coach, conversation, and NCAA deadline in one place
+        &mdash; shared between parents and athletes. For 19 sports. No
+        recruiting service required.
       </p>
       <div
         class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in delay-3"
       >
-        <button
-          type="button"
-          class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
-          @click="openTypeform"
-        >
-          Take the Survey
-          <ArrowRightIcon class="ml-2 w-5 h-5" />
-        </button>
         <a
-          href="#features"
-          class="inline-flex items-center justify-center border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-green-950 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full transition-all duration-300"
+          :href="webSignupUrl('landing-hero')"
+          class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
         >
-          Learn More
+          Start Free on the Web
+          <ArrowRightIcon class="ml-2 w-5 h-5" />
         </a>
+        <AppStoreBadge campaign="landing-hero" />
       </div>
+      <p class="mt-6 text-green-100 fade-in delay-4">
+        Founding Families get full access
+        <strong class="text-white">free for life</strong>. No card required.
+      </p>
 
       <WaitlistForm class="fade-in delay-4" />
 
       <p class="mt-16 text-green-200 text-sm fade-in delay-5">
-        Available on Web, iPhone &amp; iPad &bull; Coming Fall 2026
+        {{
+          iosLive
+            ? "Available now on Web, iPhone & iPad"
+            : "Live now on the web"
+        }}
       </p>
     </div>
   </section>
@@ -71,12 +73,9 @@
 <script setup lang="ts">
 import BrandHorizontal from "~/components/icons/BrandHorizontal.vue";
 import WaitlistForm from "~/components/WaitlistForm.vue";
+import AppStoreBadge from "~/components/AppStoreBadge.vue";
 import { ArrowRightIcon } from "~/components/landing-icons";
-
-const { typeformFormId, typeformUrl } = useRuntimeConfig().public;
-const openTypeform = () => {
-  window.open(`${typeformUrl}${typeformFormId}`, "_blank");
-};
+import { iosLive, webSignupUrl } from "~/data/site";
 
 const BASE_SPORTS = [
   "Baseball",
@@ -92,9 +91,9 @@ const SPORTS = computed(() => {
   return [...shuffled, "College Athletic"];
 });
 
-// Seed with "Baseball" so prerendered/crawled HTML contains the primary
-// keyword in the H1; the typewriter (onMounted, client-only) takes over after.
-const displayedSport = ref("Baseball ");
+// Seed with the typewriter's final word so prerendered HTML, crawlers and link
+// previews read a sport-neutral H1; the typewriter (client-only) takes over after.
+const displayedSport = ref("College Athletic ");
 // Cursor hidden during SSR so prerendered H1 reads cleanly; enabled on mount.
 const showCursor = ref(false);
 

@@ -5,7 +5,7 @@
       class="bg-white/10 backdrop-blur-sm border border-green-400/50 rounded-2xl px-6 py-4 text-center"
     >
       <p class="text-white font-medium">
-        ✅ You're on the list! We'll email you the moment we launch.
+        ✅ You're in! Watch your inbox for this month's recruiting dates.
       </p>
     </div>
 
@@ -14,7 +14,7 @@
       class="bg-white/10 backdrop-blur-sm border border-green-400/50 rounded-2xl px-6 py-4"
     >
       <p class="text-green-200 text-sm text-center mb-3 font-medium">
-        🔔 Get notified when we launch
+        📅 Get the month's key recruiting dates by email — no spam
       </p>
       <div class="flex gap-2">
         <input
@@ -57,7 +57,7 @@
             </svg>
             Sending...
           </span>
-          <span v-else>Notify Me</span>
+          <span v-else>Subscribe</span>
         </button>
       </div>
       <p v-if="state === 'error'" class="text-red-300 text-xs mt-2 text-center">

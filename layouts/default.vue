@@ -24,18 +24,18 @@
           </p>
           <div class="flex justify-center space-x-6 text-sm text-gray-400">
             <a
-              href="https://myrecruitingcompass.com"
+              :href="`${WEB_APP_URL}/login`"
               class="hover:text-white transition-colors"
             >
-              App Login
+              Log In
             </a>
             <span>•</span>
-            <button
+            <a
+              :href="webSignupUrl('legal-footer')"
               class="hover:text-white transition-colors"
-              @click="openTypeform"
             >
-              Survey
-            </button>
+              Sign Up Free
+            </a>
           </div>
         </div>
       </div>
@@ -45,12 +45,8 @@
 
 <script setup>
 import BrandHorizontal from "~/components/icons/BrandHorizontal.vue";
+import { WEB_APP_URL, webSignupUrl } from "~/data/site";
 
 const route = useRoute();
 const isHomePage = computed(() => route.path === "/");
-
-const openTypeform = () => {
-  const { typeformFormId, typeformUrl } = useRuntimeConfig().public;
-  window.open(`${typeformUrl}${typeformFormId}`, "_blank");
-};
 </script>

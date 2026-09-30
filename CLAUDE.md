@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**TheRecruitingCompass Landing Site** is a static marketing website built with Nuxt 3 and Vue 3. It drives user sign-ups for the main recruiting compass application and collects market research data via Typeform integration. The site targets high school baseball players and their families with family-focused messaging.
+**TheRecruitingCompass Landing Site** is a static marketing website built with Nuxt 3 and Vue 3. It drives sign-ups for the main app (web at myrecruitingcompass.com, iOS via the App Store) and captures emails for the monthly recruiting-dates list via Resend. It targets parents of high school athletes in 19 sports. Launch state (App Store badges, Smart App Banner) is driven by `iosLive` in `data/site.ts`.
 
 **Key Characteristics:**
 
@@ -23,7 +23,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 npm install
 cp .env.example .env
-# Edit .env with Typeform form ID and domain URLs
+# Edit .env with Resend keys and domain URLs
 ```
 
 ### Development

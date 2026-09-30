@@ -58,7 +58,7 @@ const features = [
     icon: MessageSquareIcon,
     title: "Send the Right Message at the Right Time",
     description:
-      "Choose from 33+ coach outreach templates — introduction emails, thank-you notes, campus visit follow-ups, and more. Built-in NCAA contact-window compliance prevents you from sending when rules say you can't.",
+      "Choose from 30+ coach outreach templates — introduction emails, thank-you notes, campus visit follow-ups, and more. Before your sport's NCAA contact window opens, intro templates switch to a pre-window version so your first message fits the rules.",
   },
   {
     icon: CalendarIcon,
