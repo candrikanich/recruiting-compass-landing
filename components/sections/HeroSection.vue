@@ -44,7 +44,7 @@
         class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in delay-3"
       >
         <a
-          :href="webSignupUrl('landing-hero')"
+          :href="signupHref"
           class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
         >
           Start Free on the Web
@@ -75,7 +75,10 @@ import BrandHorizontal from "~/components/icons/BrandHorizontal.vue";
 import WaitlistForm from "~/components/WaitlistForm.vue";
 import AppStoreBadge from "~/components/AppStoreBadge.vue";
 import { ArrowRightIcon } from "~/components/landing-icons";
-import { iosLive, webSignupUrl } from "~/data/site";
+import { iosLive } from "~/data/site";
+import { useSignupUrl } from "~/composables/useSignupUrl";
+
+const signupHref = useSignupUrl("landing-hero");
 
 const BASE_SPORTS = [
   "Baseball",

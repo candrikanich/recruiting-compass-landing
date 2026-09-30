@@ -38,6 +38,15 @@
             >
               <TwitterIcon class="w-5 h-5" />
             </a>
+            <a
+              :href="SOCIAL.tiktok"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-green-400 transition-colors"
+              aria-label="TikTok"
+            >
+              <TikTokIcon class="w-5 h-5" />
+            </a>
           </div>
         </div>
         <div>
@@ -62,7 +71,7 @@
             </li>
             <li>
               <a
-                :href="webSignupUrl('landing-footer')"
+                :href="signupHref"
                 class="hover:text-green-400 transition-colors"
                 >Sign Up Free</a
               >
@@ -127,12 +136,10 @@ import {
   InstagramIcon,
   TwitterIcon,
   FacebookIcon,
+  TikTokIcon,
 } from "~/components/landing-icons";
-import {
-  SOCIAL,
-  WEB_APP_URL,
-  iosLive,
-  appStoreUrl,
-  webSignupUrl,
-} from "~/data/site";
+import { SOCIAL, WEB_APP_URL, iosLive, appStoreUrl } from "~/data/site";
+import { useSignupUrl } from "~/composables/useSignupUrl";
+
+const signupHref = useSignupUrl("landing-footer");
 </script>
