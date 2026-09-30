@@ -26,3 +26,15 @@
     @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-flex items-center justify-center;
   }
 }
+
+/* The brand SVG sets these via font-family attributes, which @nuxt/fonts can't
+   scan; declaring them in CSS is what gets them self-hosted. */
+svg text[font-family^="Poppins"] {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+svg text[font-family^="Source Sans 3"] {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+}
