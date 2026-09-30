@@ -47,7 +47,7 @@ useSchemaOrg([
       "All-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting with tools built for student athletes and their families.",
     applicationCategory: "SportsApplication",
     operatingSystem: "Web, iOS",
-    ...(iosLive && { downloadUrl: appStoreUrl("schema") }),
+    ...(iosLive ? { downloadUrl: appStoreUrl("schema") } : {}),
   }),
   defineWebPage({ "@type": ["WebPage", "FAQPage"] }),
   ...faqs.map((faq) =>
