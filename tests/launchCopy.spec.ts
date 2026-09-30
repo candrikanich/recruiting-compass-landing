@@ -125,4 +125,12 @@ describe("site links", () => {
     expect(url.searchParams.get("utm_campaign")).toBe("landing-cta");
     expect(url.searchParams.has("utm_content")).toBe(false);
   });
+
+  it("App Store badge is self-hosted official artwork", () => {
+    const badge = read("components/AppStoreBadge.vue");
+    expect(badge).toContain('src="/images/app-store-badge.svg"');
+    expect(read("public/images/app-store-badge.svg")).toContain(
+      "Download_on_the_App_Store_Badge",
+    );
+  });
 });

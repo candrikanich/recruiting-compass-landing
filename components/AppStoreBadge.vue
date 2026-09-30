@@ -6,7 +6,7 @@
     aria-label="Download The Recruiting Compass on the App Store"
   >
     <img
-      src="https://tools.applemarketingtools.com/api/badges/download-on-the-app-store/black/en-us"
+      src="/images/app-store-badge.svg"
       alt="Download on the App Store"
       width="180"
       height="60"
