@@ -1,5 +1,9 @@
 import { defineOrganization } from "nuxt-schema-org/schema";
 
+// www is the served host; the apex 30x-redirects to it, so canonical/og URLs must use www.
+const siteUrl =
+  process.env.NUXT_PUBLIC_SITE_URL || "https://www.therecruitingcompass.com";
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
@@ -11,7 +15,7 @@ export default defineNuxtConfig({
 
   // Site-wide SEO foundation — drives canonical URLs, sitemap, robots, schema
   site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || "https://therecruitingcompass.com",
+    url: siteUrl,
     name: "The Recruiting Compass",
     description:
       "The all-in-one college recruiting platform for 19 sports. Track schools, manage coach relationships, and navigate NCAA recruiting — built for student athletes and their families.",
@@ -22,9 +26,13 @@ export default defineNuxtConfig({
   schemaOrg: {
     identity: defineOrganization({
       name: "The Recruiting Compass",
-      url: "https://therecruitingcompass.com",
+      url: siteUrl,
       logo: "/images/logo.svg",
-      sameAs: [],
+      sameAs: [
+        "https://www.facebook.com/TheRecruitingCompass",
+        "https://www.instagram.com/therecruitingcompass",
+        "https://x.com/recruitCompass",
+      ],
     }),
   },
 
@@ -80,7 +88,7 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website" },
         {
           property: "og:image",
-          content: "https://therecruitingcompass.com/og-image.png",
+          content: `${siteUrl}/og-image.png`,
         },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
@@ -92,7 +100,7 @@ export default defineNuxtConfig({
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:image",
-          content: "https://therecruitingcompass.com/og-image.png",
+          content: `${siteUrl}/og-image.png`,
         },
         {
           name: "twitter:title",
@@ -125,10 +133,5 @@ export default defineNuxtConfig({
   runtimeConfig: {
     resendApiKey: "", // injected from NUXT_RESEND_API_KEY
     resendAudienceId: "", // injected from NUXT_RESEND_AUDIENCE_ID
-    // Public keys (exposed to client-side)
-    public: {
-      typeformFormId: process.env.TYPEFORM_FORM_ID,
-      typeformUrl: "https://alphabet.typeform.com/to/",
-    },
   },
 });

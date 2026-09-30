@@ -7,27 +7,36 @@
             <BrandHorizontal light class="h-auto w-56 max-w-full" />
           </div>
           <p class="text-gray-400 mb-4 max-w-md">
-            Navigate your path to college athletic success with confidence,
-            clarity, and expert guidance.
+            Always know where you stand &mdash; and what to do next. The college
+            recruiting organizer for families, in 19 sports.
           </p>
           <div class="flex gap-4">
             <a
-              href="https://x.com/recruitCompass"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:text-green-400 transition-colors"
-              aria-label="Twitter / X"
-            >
-              <TwitterIcon class="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61583735402026"
+              :href="SOCIAL.facebook"
               target="_blank"
               rel="noopener noreferrer"
               class="hover:text-green-400 transition-colors"
               aria-label="Facebook"
             >
               <FacebookIcon class="w-5 h-5" />
+            </a>
+            <a
+              :href="SOCIAL.instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-green-400 transition-colors"
+              aria-label="Instagram"
+            >
+              <InstagramIcon class="w-5 h-5" />
+            </a>
+            <a
+              :href="SOCIAL.x"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-green-400 transition-colors"
+              aria-label="X"
+            >
+              <TwitterIcon class="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -49,6 +58,27 @@
             <li>
               <a href="#faq" class="hover:text-green-400 transition-colors"
                 >FAQ</a
+              >
+            </li>
+            <li>
+              <a
+                :href="webSignupUrl('landing-footer')"
+                class="hover:text-green-400 transition-colors"
+                >Sign Up Free</a
+              >
+            </li>
+            <li>
+              <a
+                :href="`${WEB_APP_URL}/login`"
+                class="hover:text-green-400 transition-colors"
+                >Log In</a
+              >
+            </li>
+            <li v-if="iosLive">
+              <a
+                :href="appStoreUrl('landing-footer')"
+                class="hover:text-green-400 transition-colors"
+                >iPhone &amp; iPad App</a
               >
             </li>
           </ul>
@@ -94,7 +124,15 @@
 import BrandHorizontal from "~/components/icons/BrandHorizontal.vue";
 import {
   MailIcon,
+  InstagramIcon,
   TwitterIcon,
   FacebookIcon,
 } from "~/components/landing-icons";
+import {
+  SOCIAL,
+  WEB_APP_URL,
+  iosLive,
+  appStoreUrl,
+  webSignupUrl,
+} from "~/data/site";
 </script>

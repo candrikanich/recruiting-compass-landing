@@ -14,7 +14,7 @@
       >
         <div v-for="stat in stats" :key="stat.label" class="text-center">
           <div class="text-4xl sm:text-5xl font-bold text-green-600 mb-2">
-            {{ stat.current }}{{ stat.suffix }}
+            {{ stat.value }}
           </div>
           <div class="text-gray-600">{{ stat.label }}</div>
         </div>
@@ -24,37 +24,10 @@
 </template>
 
 <script setup lang="ts">
-interface Stat {
-  target: number;
-  suffix: string;
-  label: string;
-  current: number;
-}
-
-const stats = reactive<Stat[]>([
-  { target: 19, suffix: "", label: "Sports Supported", current: 0 },
-  { target: 33, suffix: "+", label: "Outreach Templates", current: 0 },
-  { target: 22, suffix: "", label: "NCAA Calendars", current: 0 },
-  { target: 66, suffix: "+", label: "Performance Metrics", current: 0 },
-]);
-
-onMounted(() => {
-  const duration = 2000;
-  const steps = 60;
-  const interval = duration / steps;
-
-  stats.forEach((stat) => {
-    let current = 0;
-    const inc = stat.target / steps;
-    const timer = setInterval(() => {
-      current += inc;
-      if (current >= stat.target) {
-        stat.current = stat.target;
-        clearInterval(timer);
-      } else {
-        stat.current = Math.floor(current);
-      }
-    }, interval);
-  });
-});
+const stats = [
+  { value: "19", label: "Sports Supported" },
+  { value: "30+", label: "Outreach Templates" },
+  { value: "22", label: "NCAA D1 Calendars" },
+  { value: "66+", label: "Performance Metrics" },
+];
 </script>
