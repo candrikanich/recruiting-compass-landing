@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2026-01-10",
 
   // SEO modules (@nuxtjs/seo bundles robots, sitemap, og-image, schema-org)
-  modules: ["@nuxtjs/seo", "@nuxt/image"],
+  modules: ["@nuxtjs/seo", "@nuxt/image", "@nuxt/fonts"],
 
   // Site-wide SEO foundation — drives canonical URLs, sitemap, robots, schema
   site: {
@@ -42,6 +42,19 @@ export default defineNuxtConfig({
   // dependency chain, which is the right call for a single landing page.
   ogImage: {
     enabled: false,
+  },
+
+  // Self-hosted at build time. Weights are the ones the templates use
+  // (font-medium/semibold/bold/extrabold plus the 400 body default); Poppins and
+  // Source Sans 3 only appear in the inline brand SVG, so they're declared here
+  // because the font scanner can't see SVG font-family attributes.
+  fonts: {
+    defaults: { styles: ["normal"], weights: [400, 500, 600, 700, 800] },
+    families: [
+      { name: "Inter", provider: "google", weights: [400, 500, 600, 700, 800] },
+      { name: "Poppins", provider: "google", weights: [600] },
+      { name: "Source Sans 3", provider: "google", weights: [400] },
+    ],
   },
 
   // Static site generation
@@ -118,16 +131,6 @@ export default defineNuxtConfig({
         { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
         { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
         { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: "",
-        },
-        {
-          href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600&family=Source+Sans+3:wght@400&display=swap",
-          rel: "stylesheet",
-        },
       ],
     },
   },
