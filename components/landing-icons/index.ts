@@ -156,6 +156,30 @@ export const TwitterIcon = svg([
     "M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z",
   ),
 ]);
+// Brand mark is a filled glyph, unlike the stroked icons above.
+export const TikTokIcon = defineComponent({
+  name: "TikTokIcon",
+  props: { class: { type: String, default: "w-5 h-5" } },
+  setup(props) {
+    return () =>
+      h(
+        "svg",
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          width: 24,
+          height: 24,
+          viewBox: "0 0 24 24",
+          fill: "currentColor",
+          class: props.class,
+        },
+        [
+          h("path", {
+            d: "M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.59-2.6 2.6 2.6 0 0 1 3.4-2.47V9.67a5.68 5.68 0 0 0-6.49 5.63 5.69 5.69 0 0 0 5.69 5.7 5.69 5.69 0 0 0 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.26-1.48z",
+          }),
+        ],
+      );
+  },
+});
 export const FacebookIcon = svg([
   path("M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"),
 ]);
