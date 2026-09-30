@@ -30,10 +30,7 @@
               Log In
             </a>
             <span>•</span>
-            <a
-              :href="webSignupUrl('legal-footer')"
-              class="hover:text-white transition-colors"
-            >
+            <a :href="signupHref" class="hover:text-white transition-colors">
               Sign Up Free
             </a>
           </div>
@@ -45,8 +42,10 @@
 
 <script setup>
 import BrandHorizontal from "~/components/icons/BrandHorizontal.vue";
-import { WEB_APP_URL, webSignupUrl } from "~/data/site";
+import { WEB_APP_URL } from "~/data/site";
+import { useSignupUrl } from "~/composables/useSignupUrl";
 
 const route = useRoute();
 const isHomePage = computed(() => route.path === "/");
+const signupHref = useSignupUrl("legal-footer");
 </script>

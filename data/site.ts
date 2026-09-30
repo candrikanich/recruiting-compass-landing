@@ -15,6 +15,8 @@ export const SOCIAL = {
   facebook: "https://www.facebook.com/TheRecruitingCompass",
   instagram: "https://www.instagram.com/therecruitingcompass",
   x: "https://x.com/recruitCompass",
+  // Planned rename to @therecruitingcompass once TikTok allows it (Oct 30, 2026).
+  tiktok: "https://www.tiktok.com/@the.recruiting.com",
 } as const;
 
 // Campaign names match between App Store `ct` and web `utm_campaign` so iOS
@@ -26,11 +28,26 @@ export function appStoreUrl(campaign: string): string {
   return `https://apps.apple.com/app/id${APP_STORE_ID}?${params.toString()}`;
 }
 
-export function webSignupUrl(campaign: string): string {
-  const params = new URLSearchParams({
-    utm_source: "landing",
-    utm_medium: "website",
-    utm_campaign: campaign,
-  });
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
+
+// A visitor who arrived from a tagged social link keeps that source through to
+// signup; the landing placement they clicked moves to utm_content.
+export function webSignupUrl(campaign: string, inboundSearch = ""): string {
+  const inbound = new URLSearchParams(inboundSearch);
+  const params = inbound.get("utm_source")
+    ? new URLSearchParams({
+        ...Object.fromEntries(
+          UTM_KEYS.flatMap((key) => {
+            const value = inbound.get(key);
+            return value ? [[key, value]] : [];
+          }),
+        ),
+        utm_content: campaign,
+      })
+    : new URLSearchParams({
+        utm_source: "landing",
+        utm_medium: "website",
+        utm_campaign: campaign,
+      });
   return `${WEB_APP_URL}/signup?${params.toString()}`;
 }

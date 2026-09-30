@@ -32,6 +32,7 @@ export default defineNuxtConfig({
         "https://www.facebook.com/TheRecruitingCompass",
         "https://www.instagram.com/therecruitingcompass",
         "https://x.com/recruitCompass",
+        "https://www.tiktok.com/@the.recruiting.com",
       ],
     }),
   },

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { appStoreUrl, webSignupUrl, APP_STORE_ID } from "../data/site";
@@ -32,12 +32,27 @@ describe("launch copy", () => {
     expect(hero).toContain('ref("College Athletic ")');
   });
 
+  it("timeline PDF lead magnet is hosted at /timeline.pdf", () => {
+    expect(existsSync(join(dir, "..", "public/timeline.pdf"))).toBe(true);
+  });
+
+  it("every signup link forwards inbound UTM tags", () => {
+    for (const file of [
+      "components/sections/HeroSection.vue",
+      "components/sections/CtaSection.vue",
+      "components/sections/FooterSection.vue",
+      "layouts/default.vue",
+    ]) {
+      expect(read(file), file).toContain("useSignupUrl(");
+    }
+  });
+
   it("hero and CTA link to web signup", () => {
     expect(read("components/sections/HeroSection.vue")).toContain(
-      "webSignupUrl",
+      'useSignupUrl("landing-hero")',
     );
     expect(read("components/sections/CtaSection.vue")).toContain(
-      "webSignupUrl",
+      'useSignupUrl("landing-cta")',
     );
   });
 
@@ -46,6 +61,7 @@ describe("launch copy", () => {
     expect(footer).toContain("SOCIAL.instagram");
     expect(footer).toContain("SOCIAL.facebook");
     expect(footer).toContain("SOCIAL.x");
+    expect(footer).toContain("SOCIAL.tiktok");
   });
 
   it("sports grid lists the canonical 19 sports", () => {
@@ -87,5 +103,26 @@ describe("site links", () => {
     );
     expect(url.searchParams.get("utm_source")).toBe("landing");
     expect(url.searchParams.get("utm_campaign")).toBe("landing-hero");
+  });
+
+  it("inbound UTM tags win, with the placement kept as utm_content", () => {
+    const url = new URL(
+      webSignupUrl(
+        "landing-hero",
+        "?utm_source=tiktok&utm_medium=social&utm_campaign=bio&x=1",
+      ),
+    );
+    expect(url.searchParams.get("utm_source")).toBe("tiktok");
+    expect(url.searchParams.get("utm_medium")).toBe("social");
+    expect(url.searchParams.get("utm_campaign")).toBe("bio");
+    expect(url.searchParams.get("utm_content")).toBe("landing-hero");
+    expect(url.searchParams.has("x")).toBe(false);
+  });
+
+  it("direct visits keep the landing attribution", () => {
+    const url = new URL(webSignupUrl("landing-cta", ""));
+    expect(url.searchParams.get("utm_source")).toBe("landing");
+    expect(url.searchParams.get("utm_campaign")).toBe("landing-cta");
+    expect(url.searchParams.has("utm_content")).toBe(false);
   });
 });

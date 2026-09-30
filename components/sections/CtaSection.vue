@@ -56,7 +56,7 @@
           class="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
-            :href="webSignupUrl('landing-cta')"
+            :href="signupHref"
             class="inline-flex items-center justify-center bg-white text-green-900 hover:bg-green-50 px-10 py-5 text-xl font-semibold rounded-full shadow-2xl hover:shadow-white/50 transition-all duration-300"
           >
             Start Free on the Web
@@ -81,5 +81,7 @@ import {
   UsersIcon,
 } from "~/components/landing-icons";
 import AppStoreBadge from "~/components/AppStoreBadge.vue";
-import { webSignupUrl } from "~/data/site";
+import { useSignupUrl } from "~/composables/useSignupUrl";
+
+const signupHref = useSignupUrl("landing-cta");
 </script>
