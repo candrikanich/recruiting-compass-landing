@@ -4,6 +4,16 @@ export interface Faq {
   answer: string;
 }
 
+import { iosLive } from "./site";
+
+// Canonical `availability` has Pre-launch and Live wording; the landing page
+// follows the iosLive switch so App Store approval is a one-line change.
+export function availabilityAnswer(live: boolean): string {
+  return live
+    ? "On the web at myrecruitingcompass.com and on iPhone and iPad — download it from the App Store. Same account and data everywhere."
+    : "Right now on the web at myrecruitingcompass.com, on any computer, tablet, or phone browser. The iPhone and iPad app is on its way to the App Store.";
+}
+
 // Canonical copy lives in recruiting-compass-web docs/marketing/customer-questions.md
 // (Canonical FAQ); the in-app help FAQ on web and iOS uses the same ids and text.
 export const faqs: Faq[] = [
@@ -16,8 +26,7 @@ export const faqs: Faq[] = [
   {
     id: "availability",
     question: "Where can I use it?",
-    answer:
-      "Right now on the web at myrecruitingcompass.com, on any computer, tablet, or phone browser. The iPhone and iPad app is on its way to the App Store.",
+    answer: availabilityAnswer(iosLive),
   },
   {
     id: "web-vs-ios",
