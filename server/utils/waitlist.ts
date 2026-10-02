@@ -4,6 +4,13 @@ import { z } from "zod";
 
 const emailSchema = z.string().trim().email();
 
+// The form hides its `fax` field from people, so only bots fill it.
+const honeypotSchema = z.object({ fax: z.string().min(1) });
+
+export function isBotSubmission(body: unknown): boolean {
+  return honeypotSchema.safeParse(body).success;
+}
+
 interface WaitlistConfig {
   resendApiKey: string;
   resendAudienceId: string;
