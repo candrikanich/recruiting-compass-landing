@@ -13,7 +13,7 @@
         <h1 class="text-3xl font-bold text-slate-900 mb-2">Privacy Policy</h1>
         <!-- UPDATE THIS DATE WHENEVER THE PRIVACY POLICY IS MODIFIED -->
         <p class="text-slate-600 mb-8">
-          <strong>Last Updated:</strong> March 1, 2026
+          <strong>Last Updated:</strong> October 2, 2026
         </p>
 
         <section class="mb-8">
@@ -117,14 +117,46 @@
               security alerts)
             </li>
             <li>
-              To send product updates, recruiting tips, and (with consent)
-              promotional information
+              To send marketing emails — recruiting tips, product updates, and
+              offers — to adults who have opted in (see "Marketing Emails"
+              below)
             </li>
             <li>To respond to your inquiries and support requests</li>
             <li>To analyze usage patterns and improve our offerings</li>
             <li>To comply with legal obligations</li>
             <li>To prevent fraud and enhance security</li>
           </ul>
+
+          <h3>Marketing Emails</h3>
+          <p>
+            Marketing emails — recruiting tips, product updates, and offers from
+            us — are optional. Only adult account holders can opt in: parents,
+            and players who are 18 or older. The opt-in checkbox at signup is
+            unchecked by default, and you can turn marketing emails on or off at
+            any time with the <strong>Marketing emails</strong> switch under
+            Settings → Notifications. Users under 18 are not offered marketing
+            email and do not receive it.
+          </p>
+          <p>
+            Every marketing email includes an unsubscribe link. Opting out of
+            marketing emails does not affect emails about your account or your
+            use of the Service, such as email verification, security notices,
+            deadline alerts, and the weekly digest. Deadline alerts and the
+            weekly digest have their own switches under Settings →
+            Notifications.
+          </p>
+          <p>
+            When you opt in or out, we record your choice, when you made it, and
+            where you made it (for example, at signup, in Settings, or through
+            an unsubscribe link).
+          </p>
+          <p>
+            We use <strong>Resend</strong>, an email service provider, to send
+            email and to maintain our marketing email list. We share your email
+            address and subscription status with Resend for that purpose only.
+            We do not sell your personal information or share it for third-party
+            advertising.
+          </p>
         </section>
 
         <section class="mb-8">
@@ -152,7 +184,8 @@
             <li>
               <strong>Service Providers:</strong> Third-party vendors who assist
               in operating our Service (e.g., hosting, email delivery), subject
-              to confidentiality obligations
+              to confidentiality obligations. We use Resend to deliver email and
+              to maintain our marketing email list.
             </li>
             <li>
               <strong>Family Unit Members:</strong> If you are part of a family
@@ -291,6 +324,11 @@
             Family unit accounts may include athletes between the ages of 13 and
             17. Parents and guardians are responsible for supervising their
             minor's use of the Service.
+          </p>
+          <p>
+            We do not send marketing email to users under 18. Only parents, and
+            players who are 18 or older, can opt in (see "Marketing Emails" in
+            Section 3).
           </p>
           <p>
             If you are a parent or guardian and believe your child under 13 has
