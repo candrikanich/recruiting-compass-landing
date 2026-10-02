@@ -28,7 +28,7 @@
             Please read this Privacy Policy carefully. If you do not agree with
             our policies and practices, please do not use our Service. This
             Policy is incorporated by reference into our
-            <NuxtLink to="/legal/terms" class="text-blue-600 hover:underline"
+            <NuxtLink to="/legal/terms" class="text-blue-600 underline"
               >Terms and Conditions</NuxtLink
             >.
           </p>
@@ -66,6 +66,19 @@
               type preferences, and other customization settings
             </li>
           </ul>
+
+          <h3>Sensitive Information</h3>
+          <p>
+            Some of the profile information we collect — such as a minor's date
+            of birth, academic records (GPA, standardized test scores), and
+            graduation year — may be considered sensitive under certain state
+            privacy laws. We use this information solely to operate the Service
+            (for example, to enforce age eligibility and calculate Fit Scores)
+            and we never sell it or use it for targeted advertising. We are not
+            a school or educational agency, and the academic information you
+            enter is not a FERPA "education record"; it is data you voluntarily
+            provide and control.
+          </p>
 
           <h3>Data We Do Not Collect</h3>
           <ul>
@@ -113,8 +126,8 @@
               school information
             </li>
             <li>
-              To send transactional emails (account confirmations, invites,
-              security alerts)
+              To send transactional emails (account confirmations, family
+              invitations, and password resets)
             </li>
             <li>
               To send marketing emails — recruiting tips, product updates, and
@@ -151,6 +164,13 @@
             an unsubscribe link).
           </p>
           <p>
+            Our marketing site (therecruitingcompass.com) also has a form for
+            getting our monthly recruiting-dates email. If you enter your email
+            address there, we add it to our email list and send you that email
+            until you unsubscribe. No account is needed. The form is intended
+            for adults (parents and guardians).
+          </p>
+          <p>
             We use <strong>Resend</strong>, an email service provider, to send
             email and to maintain our marketing email list. We share your email
             address and subscription status with Resend for that purpose only.
@@ -170,7 +190,7 @@
           </p>
           <p>
             <strong>We do not sell or share your personal information</strong>
-            with third parties for advertising or marketing purposes.
+            with third parties for their own advertising or marketing purposes.
           </p>
         </section>
 
@@ -250,8 +270,9 @@
               cancel a deletion request within that 30-day window.
             </li>
             <li>
-              <strong>Audit logs:</strong> Deletion event logs are retained for
-              up to 90 days for fraud prevention and legal compliance purposes
+              <strong>Audit logs:</strong> Security- and account-related audit
+              logs are retained for up to one year for fraud prevention and
+              legal compliance purposes
             </li>
           </ul>
         </section>
@@ -292,14 +313,45 @@
               discriminate against you for exercising your CCPA rights
             </li>
           </ul>
+
+          <h3>Residents of Other States</h3>
+          <p>
+            If you reside in a state with a comprehensive consumer privacy law
+            (for example, Virginia, Colorado, Connecticut, Texas, Oregon, or
+            Utah), you may have rights similar to those above — including the
+            right to access, correct, delete, and obtain a portable copy of your
+            personal data, and to opt out of the sale of your personal data,
+            targeted advertising, and certain profiling. We do not sell personal
+            data or use it for targeted advertising or profiling in furtherance
+            of decisions that produce legal or similarly significant effects.
+          </p>
+
+          <h3>Minors</h3>
+          <p>
+            For any user we know to be a minor (under 18), we do not sell their
+            personal data, share it for cross-context behavioral advertising, or
+            use it for targeted advertising or profiling. We limit our
+            collection and use of a minor's data to what is reasonably necessary
+            to provide the Service.
+          </p>
+
+          <h3>Global Privacy Control (GPC)</h3>
+          <p>
+            We honor the Global Privacy Control (GPC) browser signal. If your
+            browser or extension sends a GPC signal, we treat it as a valid
+            request to opt out of any sale or sharing of your personal data and
+            to disable non-essential analytics for that browser.
+          </p>
+
           <p class="mt-4">
-            To exercise these rights, please contact us at
+            You can export a portable copy of your data and delete your account
+            directly from your account settings (Data &amp; Privacy). To
+            exercise any other right, please contact us at
             <a
               href="mailto:privacy@therecruitingcompass.com"
-              class="text-blue-600 hover:underline"
+              class="text-blue-600 underline"
               >privacy@therecruitingcompass.com</a
-            >
-            or submit a request through your account settings.
+            >.
           </p>
         </section>
 
@@ -310,6 +362,14 @@
             session and enhance your experience. Most web browsers allow you to
             control cookies through their settings. Disabling cookies may affect
             the functionality of our Service.
+          </p>
+          <p>
+            We use the following third-party providers to operate and improve
+            the Service: <strong>Sentry</strong> (error monitoring),
+            <strong>PostHog</strong> (product analytics), and
+            <strong>Vercel Analytics and Speed Insights</strong> (performance
+            measurement). These providers process usage and device data on our
+            behalf and are not permitted to use it for their own purposes.
           </p>
         </section>
 
@@ -336,7 +396,7 @@
             from a minor in error, please contact us at
             <a
               href="mailto:privacy@therecruitingcompass.com"
-              class="text-blue-600 hover:underline"
+              class="text-blue-600 underline"
               >privacy@therecruitingcompass.com</a
             >.
           </p>
@@ -373,17 +433,18 @@
           <div class="bg-slate-50 p-4 rounded mt-4">
             <p>
               <strong>Recruiting Compass</strong><br />
+              <!-- TODO: Replace with registered agent address before public launch -->
               Olmsted Township, OH 44138<br />
               Privacy inquiries:
               <a
                 href="mailto:privacy@therecruitingcompass.com"
-                class="text-blue-600 hover:underline"
+                class="text-blue-600 underline"
                 >privacy@therecruitingcompass.com</a
               ><br />
               General support:
               <a
                 href="mailto:support@therecruitingcompass.com"
-                class="text-blue-600 hover:underline"
+                class="text-blue-600 underline"
                 >support@therecruitingcompass.com</a
               >
             </p>
