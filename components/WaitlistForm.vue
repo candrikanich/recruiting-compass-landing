@@ -16,6 +16,9 @@
       <p class="text-green-200 text-sm text-center mb-3 font-medium">
         📅 Get the month's key recruiting dates by email — no spam
       </p>
+      <p class="text-green-200/80 text-xs text-center -mt-2 mb-3">
+        For parents and guardians of high school athletes
+      </p>
       <div class="flex gap-2">
         <input
           v-model="fax"
