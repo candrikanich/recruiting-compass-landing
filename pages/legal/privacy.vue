@@ -13,7 +13,7 @@
         <h1 class="text-3xl font-bold text-slate-900 mb-2">Privacy Policy</h1>
         <!-- UPDATE THIS DATE WHENEVER THE PRIVACY POLICY IS MODIFIED -->
         <p class="text-slate-600 mb-8">
-          <strong>Last Updated:</strong> March 1, 2026
+          <strong>Last Updated:</strong> October 2, 2026
         </p>
 
         <section class="mb-8">
@@ -28,7 +28,7 @@
             Please read this Privacy Policy carefully. If you do not agree with
             our policies and practices, please do not use our Service. This
             Policy is incorporated by reference into our
-            <NuxtLink to="/legal/terms" class="text-blue-600 hover:underline"
+            <NuxtLink to="/legal/terms" class="text-blue-600 underline"
               >Terms and Conditions</NuxtLink
             >.
           </p>
@@ -66,6 +66,19 @@
               type preferences, and other customization settings
             </li>
           </ul>
+
+          <h3>Sensitive Information</h3>
+          <p>
+            Some of the profile information we collect — such as a minor's date
+            of birth, academic records (GPA, standardized test scores), and
+            graduation year — may be considered sensitive under certain state
+            privacy laws. We use this information solely to operate the Service
+            (for example, to enforce age eligibility and calculate Fit Scores)
+            and we never sell it or use it for targeted advertising. We are not
+            a school or educational agency, and the academic information you
+            enter is not a FERPA "education record"; it is data you voluntarily
+            provide and control.
+          </p>
 
           <h3>Data We Do Not Collect</h3>
           <ul>
@@ -113,18 +126,57 @@
               school information
             </li>
             <li>
-              To send transactional emails (account confirmations, invites,
-              security alerts)
+              To send transactional emails (account confirmations, family
+              invitations, and password resets)
             </li>
             <li>
-              To send product updates, recruiting tips, and (with consent)
-              promotional information
+              To send marketing emails — recruiting tips, product updates, and
+              offers — to adults who have opted in (see "Marketing Emails"
+              below)
             </li>
             <li>To respond to your inquiries and support requests</li>
             <li>To analyze usage patterns and improve our offerings</li>
             <li>To comply with legal obligations</li>
             <li>To prevent fraud and enhance security</li>
           </ul>
+
+          <h3>Marketing Emails</h3>
+          <p>
+            Marketing emails — recruiting tips, product updates, and offers from
+            us — are optional. Only adult account holders can opt in: parents,
+            and players who are 18 or older. The opt-in checkbox at signup is
+            unchecked by default, and you can turn marketing emails on or off at
+            any time with the <strong>Marketing emails</strong> switch under
+            Settings → Notifications. Users under 18 are not offered marketing
+            email and do not receive it.
+          </p>
+          <p>
+            Every marketing email includes an unsubscribe link. Opting out of
+            marketing emails does not affect emails about your account or your
+            use of the Service, such as email verification, security notices,
+            deadline alerts, and the weekly digest. Deadline alerts and the
+            weekly digest have their own switches under Settings →
+            Notifications.
+          </p>
+          <p>
+            When you opt in or out, we record your choice, when you made it, and
+            where you made it (for example, at signup, in Settings, or through
+            an unsubscribe link).
+          </p>
+          <p>
+            Our marketing site (therecruitingcompass.com) also has a form for
+            getting our monthly recruiting-dates email. If you enter your email
+            address there, we add it to our email list and send you that email
+            until you unsubscribe. No account is needed. The form is intended
+            for adults (parents and guardians).
+          </p>
+          <p>
+            We use <strong>Resend</strong>, an email service provider, to send
+            email and to maintain our marketing email list. We share your email
+            address and subscription status with Resend for that purpose only.
+            We do not sell your personal information or share it for third-party
+            advertising.
+          </p>
         </section>
 
         <section class="mb-8">
@@ -138,7 +190,7 @@
           </p>
           <p>
             <strong>We do not sell or share your personal information</strong>
-            with third parties for advertising or marketing purposes.
+            with third parties for their own advertising or marketing purposes.
           </p>
         </section>
 
@@ -152,7 +204,8 @@
             <li>
               <strong>Service Providers:</strong> Third-party vendors who assist
               in operating our Service (e.g., hosting, email delivery), subject
-              to confidentiality obligations
+              to confidentiality obligations. We use Resend to deliver email and
+              to maintain our marketing email list.
             </li>
             <li>
               <strong>Family Unit Members:</strong> If you are part of a family
@@ -217,8 +270,9 @@
               cancel a deletion request within that 30-day window.
             </li>
             <li>
-              <strong>Audit logs:</strong> Deletion event logs are retained for
-              up to 90 days for fraud prevention and legal compliance purposes
+              <strong>Audit logs:</strong> Security- and account-related audit
+              logs are retained for up to one year for fraud prevention and
+              legal compliance purposes
             </li>
           </ul>
         </section>
@@ -259,14 +313,45 @@
               discriminate against you for exercising your CCPA rights
             </li>
           </ul>
+
+          <h3>Residents of Other States</h3>
+          <p>
+            If you reside in a state with a comprehensive consumer privacy law
+            (for example, Virginia, Colorado, Connecticut, Texas, Oregon, or
+            Utah), you may have rights similar to those above — including the
+            right to access, correct, delete, and obtain a portable copy of your
+            personal data, and to opt out of the sale of your personal data,
+            targeted advertising, and certain profiling. We do not sell personal
+            data or use it for targeted advertising or profiling in furtherance
+            of decisions that produce legal or similarly significant effects.
+          </p>
+
+          <h3>Minors</h3>
+          <p>
+            For any user we know to be a minor (under 18), we do not sell their
+            personal data, share it for cross-context behavioral advertising, or
+            use it for targeted advertising or profiling. We limit our
+            collection and use of a minor's data to what is reasonably necessary
+            to provide the Service.
+          </p>
+
+          <h3>Global Privacy Control (GPC)</h3>
+          <p>
+            We honor the Global Privacy Control (GPC) browser signal. If your
+            browser or extension sends a GPC signal, we treat it as a valid
+            request to opt out of any sale or sharing of your personal data and
+            to disable non-essential analytics for that browser.
+          </p>
+
           <p class="mt-4">
-            To exercise these rights, please contact us at
+            You can export a portable copy of your data and delete your account
+            directly from your account settings (Data &amp; Privacy). To
+            exercise any other right, please contact us at
             <a
               href="mailto:privacy@therecruitingcompass.com"
-              class="text-blue-600 hover:underline"
+              class="text-blue-600 underline"
               >privacy@therecruitingcompass.com</a
-            >
-            or submit a request through your account settings.
+            >.
           </p>
         </section>
 
@@ -277,6 +362,14 @@
             session and enhance your experience. Most web browsers allow you to
             control cookies through their settings. Disabling cookies may affect
             the functionality of our Service.
+          </p>
+          <p>
+            We use the following third-party providers to operate and improve
+            the Service: <strong>Sentry</strong> (error monitoring),
+            <strong>PostHog</strong> (product analytics), and
+            <strong>Vercel Analytics and Speed Insights</strong> (performance
+            measurement). These providers process usage and device data on our
+            behalf and are not permitted to use it for their own purposes.
           </p>
         </section>
 
@@ -293,12 +386,17 @@
             minor's use of the Service.
           </p>
           <p>
+            We do not send marketing email to users under 18. Only parents, and
+            players who are 18 or older, can opt in (see "Marketing Emails" in
+            Section 3).
+          </p>
+          <p>
             If you are a parent or guardian and believe your child under 13 has
             registered, or if you wish to request deletion of any data collected
             from a minor in error, please contact us at
             <a
               href="mailto:privacy@therecruitingcompass.com"
-              class="text-blue-600 hover:underline"
+              class="text-blue-600 underline"
               >privacy@therecruitingcompass.com</a
             >.
           </p>
@@ -335,17 +433,18 @@
           <div class="bg-slate-50 p-4 rounded mt-4">
             <p>
               <strong>Recruiting Compass</strong><br />
+              <!-- TODO: Replace with registered agent address before public launch -->
               Olmsted Township, OH 44138<br />
               Privacy inquiries:
               <a
                 href="mailto:privacy@therecruitingcompass.com"
-                class="text-blue-600 hover:underline"
+                class="text-blue-600 underline"
                 >privacy@therecruitingcompass.com</a
               ><br />
               General support:
               <a
                 href="mailto:support@therecruitingcompass.com"
-                class="text-blue-600 hover:underline"
+                class="text-blue-600 underline"
                 >support@therecruitingcompass.com</a
               >
             </p>
