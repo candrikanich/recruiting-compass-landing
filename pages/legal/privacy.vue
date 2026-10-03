@@ -167,8 +167,8 @@
             Our marketing site (therecruitingcompass.com) also has a form for
             getting our monthly recruiting-dates email. If you enter your email
             address there, we add it to our email list and send you that email
-            until you unsubscribe. No account is needed. The form is intended
-            for adults (parents and guardians).
+            until you unsubscribe. No account is needed. The form is for parents
+            and guardians of high school athletes.
           </p>
           <p>
             We use <strong>Resend</strong>, an email service provider, to send
