@@ -151,12 +151,12 @@
             email and do not receive it.
           </p>
           <p>
-            Every marketing email includes an unsubscribe link. Opting out of
-            marketing emails does not affect emails about your account or your
-            use of the Service, such as email verification, security notices,
-            deadline alerts, and the weekly digest. Deadline alerts and the
-            weekly digest have their own switches under Settings →
-            Notifications.
+            Every marketing email includes an unsubscribe link. We do not use
+            open or click tracking in our emails. Opting out of marketing emails
+            does not affect emails about your account or your use of the
+            Service, such as email verification, security notices, deadline
+            alerts, and the weekly digest. Deadline alerts and the weekly digest
+            have their own switches under Settings → Notifications.
           </p>
           <p>
             When you opt in or out, we record your choice, when you made it, and
