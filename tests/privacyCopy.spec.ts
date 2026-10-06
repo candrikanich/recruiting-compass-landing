@@ -40,6 +40,18 @@ describe("privacy policy copy", () => {
   });
 });
 
+describe("privacy policy contact block", () => {
+  it("shows the company mailing address", () => {
+    expect(policyText).toContain(
+      "The Recruiting Compass LLC 34125 Center Ridge Rd #1012 North Ridgeville, OH 44039",
+    );
+  });
+
+  it("no longer shows the placeholder address", () => {
+    expect(source).not.toContain("Olmsted Township");
+  });
+});
+
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
