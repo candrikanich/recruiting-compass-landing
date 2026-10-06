@@ -377,8 +377,9 @@
           </p>
           <div class="bg-slate-50 p-4 rounded mt-4">
             <p>
-              <strong>Recruiting Compass</strong><br />
-              Olmsted Township, OH 44138<br />
+              <strong>The Recruiting Compass LLC</strong><br />
+              34125 Center Ridge Rd #1012<br />
+              North Ridgeville, OH 44039<br />
               Email:
               <a
                 href="mailto:support@therecruitingcompass.com"
