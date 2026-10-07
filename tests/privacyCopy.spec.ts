@@ -36,8 +36,13 @@ describe("privacy policy copy", () => {
     "If you enter your email address there, we add it to our email list and send you that email until you unsubscribe.",
     "We share your email address and subscription status with Resend for that purpose only.",
     "We do not send marketing email to users under 18.",
+    "The form is for parents and guardians of high school athletes.",
   ])("states: %s", (sentence) => {
     expect(policyText).toContain(sentence);
+  });
+
+  it("does not describe the recruiting-dates form as adults-only", () => {
+    expect(policyText).not.toContain("intended for adults");
   });
 });
 
