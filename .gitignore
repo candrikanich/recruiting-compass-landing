@@ -41,3 +41,5 @@ coverage/
 .superpowers/
 .vercel
 CLAUDE.local.md
+.env*
+!.env.example

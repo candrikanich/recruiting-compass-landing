@@ -32,11 +32,29 @@ describe("privacy policy copy", () => {
     "We do not sell or share your personal information with third parties for their own advertising or marketing purposes.",
     "Only adult account holders can opt in: parents, and players who are 18 or older.",
     "Users under 18 are not offered marketing email and do not receive it.",
+    "We do not use open or click tracking in our emails.",
     "If you enter your email address there, we add it to our email list and send you that email until you unsubscribe.",
     "We share your email address and subscription status with Resend for that purpose only.",
     "We do not send marketing email to users under 18.",
+    "The form is for parents and guardians of high school athletes.",
   ])("states: %s", (sentence) => {
     expect(policyText).toContain(sentence);
+  });
+
+  it("does not describe the recruiting-dates form as adults-only", () => {
+    expect(policyText).not.toContain("intended for adults");
+  });
+});
+
+describe("privacy policy contact block", () => {
+  it("shows the company mailing address", () => {
+    expect(policyText).toContain(
+      "The Recruiting Compass LLC 34125 Center Ridge Rd #1012 North Ridgeville, OH 44039",
+    );
+  });
+
+  it("no longer shows the placeholder address", () => {
+    expect(source).not.toContain("Olmsted Township");
   });
 });
 

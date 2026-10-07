@@ -151,12 +151,12 @@
             email and do not receive it.
           </p>
           <p>
-            Every marketing email includes an unsubscribe link. Opting out of
-            marketing emails does not affect emails about your account or your
-            use of the Service, such as email verification, security notices,
-            deadline alerts, and the weekly digest. Deadline alerts and the
-            weekly digest have their own switches under Settings →
-            Notifications.
+            Every marketing email includes an unsubscribe link. We do not use
+            open or click tracking in our emails. Opting out of marketing emails
+            does not affect emails about your account or your use of the
+            Service, such as email verification, security notices, deadline
+            alerts, and the weekly digest. Deadline alerts and the weekly digest
+            have their own switches under Settings → Notifications.
           </p>
           <p>
             When you opt in or out, we record your choice, when you made it, and
@@ -167,8 +167,8 @@
             Our marketing site (therecruitingcompass.com) also has a form for
             getting our monthly recruiting-dates email. If you enter your email
             address there, we add it to our email list and send you that email
-            until you unsubscribe. No account is needed. The form is intended
-            for adults (parents and guardians).
+            until you unsubscribe. No account is needed. The form is for parents
+            and guardians of high school athletes.
           </p>
           <p>
             We use <strong>Resend</strong>, an email service provider, to send
@@ -432,9 +432,9 @@
           </p>
           <div class="bg-slate-50 p-4 rounded mt-4">
             <p>
-              <strong>Recruiting Compass</strong><br />
-              <!-- TODO: Replace with registered agent address before public launch -->
-              Olmsted Township, OH 44138<br />
+              <strong>The Recruiting Compass LLC</strong><br />
+              34125 Center Ridge Rd #1012<br />
+              North Ridgeville, OH 44039<br />
               Privacy inquiries:
               <a
                 href="mailto:privacy@therecruitingcompass.com"
