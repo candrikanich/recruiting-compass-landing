@@ -21,6 +21,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Audit production dependencies
+        # Blocks on high/critical advisories unless covered by an unexpired entry in
+        # .github/audit-accepted-advisories.json (expiry forces periodic re-review).
+        run: |
+          npm audit --omit=dev --audit-level=high --json > audit-prod.json || true
+          jq -r --slurpfile accepted .github/audit-accepted-advisories.json \
+            -f .github/scripts/audit-blocking.jq audit-prod.json > audit-blocking.txt
+          if [ -s audit-blocking.txt ]; then
+            echo "::error::Unaccepted high/critical advisories in production dependencies:"
+            cat audit-blocking.txt
+            exit 1
+          fi
+
       - name: Prepare Nuxt
         run: npx nuxi prepare
 

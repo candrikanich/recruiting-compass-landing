@@ -1,0 +1,38 @@
+[
+  {
+    "id": "GHSA-86w9-cpqp-85rv",
+    "package": "node-forge",
+    "expires": "2026-11-01",
+    "reason": "No patched release exists (latest 1.4.0 is affected). Only consumer is listhen, the Nuxt dev server self-signed HTTPS helper; not traced into the Vercel output and nothing here verifies RSA signatures with node-forge."
+  },
+  {
+    "id": "GHSA-vfj7-8cjw-p6xm",
+    "package": "braces",
+    "expires": "2026-11-01",
+    "reason": "No patched release exists (3.0.3 is latest and affected). Only production-tree path is nuxt -> nitropack -> globby -> fast-glob -> micromatch, i.e. build-time file globbing; never fed user input."
+  },
+  {
+    "id": "GHSA-v5rq-49vh-5v5c",
+    "package": "@simple-git/argv-parser",
+    "expires": "2026-11-01",
+    "reason": "No 3.x patch exists; every fix is simple-git >= 4.0.1, which drops the default export @nuxt/devtools 3.x imports. Only consumer is nuxt -> @nuxt/devtools (dev-only, fixed git args, no user input)."
+  },
+  {
+    "id": "GHSA-x6jw-m9v5-85vh",
+    "package": "simple-git",
+    "expires": "2026-11-01",
+    "reason": "No 3.x patch exists; every fix is simple-git >= 4.0.1, which drops the default export @nuxt/devtools 3.x imports. Only consumer is nuxt -> @nuxt/devtools (dev-only, fixed git args, no user input)."
+  },
+  {
+    "id": "GHSA-g4wm-2vf7-vfgr",
+    "package": "simple-git",
+    "expires": "2026-11-01",
+    "reason": "No 3.x patch exists; every fix is simple-git >= 4.0.1, which drops the default export @nuxt/devtools 3.x imports. Only consumer is nuxt -> @nuxt/devtools (dev-only, fixed git args, no user input)."
+  },
+  {
+    "id": "GHSA-858h-whjf-mvg5",
+    "package": "simple-git",
+    "expires": "2026-11-01",
+    "reason": "No 3.x patch exists; every fix is simple-git >= 4.0.1, which drops the default export @nuxt/devtools 3.x imports. Only consumer is nuxt -> @nuxt/devtools (dev-only, fixed git args, no user input)."
+  }
+]
