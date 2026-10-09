@@ -19,10 +19,10 @@
         <section class="mb-8">
           <h2>1. Introduction</h2>
           <p>
-            Recruiting Compass ("we," "us," "our," or "Company") is committed to
-            protecting your privacy. This Privacy Policy explains how we
-            collect, use, disclose, and safeguard your information when you
-            visit our website and use our services.
+            The Recruiting Compass ("we," "us," "our," or "Company") is
+            committed to protecting your privacy. This Privacy Policy explains
+            how we collect, use, disclose, and safeguard your information when
+            you visit our website and use our services.
           </p>
           <p>
             Please read this Privacy Policy carefully. If you do not agree with

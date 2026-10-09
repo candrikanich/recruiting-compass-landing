@@ -27,7 +27,7 @@
         <section class="mb-8">
           <h2>1. Agreement to Terms</h2>
           <p>
-            By accessing and using the Recruiting Compass website and services
+            By accessing and using The Recruiting Compass website and services
             (the "Service"), you agree to be bound by these Terms and
             Conditions. If you do not agree to abide by the above, please do not
             use this service.
@@ -37,7 +37,7 @@
         <section class="mb-8">
           <h2>2. Use License</h2>
           <p>
-            Subject to your compliance with these Terms, Recruiting Compass
+            Subject to your compliance with these Terms, The Recruiting Compass
             grants you a limited, non-exclusive, non-transferable, revocable
             license to access and use the Service for your personal,
             non-commercial recruiting and college research purposes. This
@@ -63,18 +63,18 @@
             </li>
           </ul>
           <p>
-            Recruiting Compass reserves the right to revoke this license at any
-            time for any reason, including violation of these Terms.
+            The Recruiting Compass reserves the right to revoke this license at
+            any time for any reason, including violation of these Terms.
           </p>
         </section>
 
         <section class="mb-8">
           <h2>3. Disclaimer</h2>
           <p>
-            The materials on Recruiting Compass are provided on an "as is"
-            basis. Recruiting Compass makes no warranties, expressed or implied,
-            and hereby disclaims and negates all other warranties including,
-            without limitation, implied warranties or conditions of
+            The materials on The Recruiting Compass are provided on an "as is"
+            basis. The Recruiting Compass makes no warranties, expressed or
+            implied, and hereby disclaims and negates all other warranties
+            including, without limitation, implied warranties or conditions of
             merchantability, fitness for a particular purpose, or
             non-infringement of intellectual property or other violation of
             rights.
@@ -85,49 +85,49 @@
           <h2>4. Limitations of Liability</h2>
           <p>
             To the fullest extent permitted by applicable law, in no event shall
-            Recruiting Compass or its suppliers be liable for any indirect,
+            The Recruiting Compass or its suppliers be liable for any indirect,
             incidental, special, consequential, or punitive damages (including,
             without limitation, damages for loss of data or profit, or due to
             business interruption) arising out of the use or inability to use
-            the Service, even if Recruiting Compass has been notified of the
+            the Service, even if The Recruiting Compass has been notified of the
             possibility of such damage.
           </p>
           <p>
-            In all cases, Recruiting Compass's total liability to you for any
-            claim arising from or relating to these Terms or the Service shall
-            not exceed the greater of (a) $100.00 USD or (b) the total amount
-            you paid to Recruiting Compass in the twelve (12) months preceding
-            the claim.
+            In all cases, The Recruiting Compass's total liability to you for
+            any claim arising from or relating to these Terms or the Service
+            shall not exceed the greater of (a) $100.00 USD or (b) the total
+            amount you paid to The Recruiting Compass in the twelve (12) months
+            preceding the claim.
           </p>
         </section>
 
         <section class="mb-8">
           <h2>5. Accuracy of Materials</h2>
           <p>
-            The materials appearing on Recruiting Compass could include
-            technical, typographical, or photographic errors. Recruiting Compass
-            does not warrant that any of the materials on the website are
-            accurate, complete, or current. Recruiting Compass may make changes
-            to the materials contained on its website at any time without
-            notice.
+            The materials appearing on The Recruiting Compass could include
+            technical, typographical, or photographic errors. The Recruiting
+            Compass does not warrant that any of the materials on the website
+            are accurate, complete, or current. The Recruiting Compass may make
+            changes to the materials contained on its website at any time
+            without notice.
           </p>
         </section>
 
         <section class="mb-8">
           <h2>6. Links</h2>
           <p>
-            Recruiting Compass has not reviewed all of the sites linked to its
-            website and is not responsible for the contents of any such linked
-            site. The inclusion of any link does not imply endorsement by
-            Recruiting Compass of the site. Use of any such linked website is at
-            the user's own risk.
+            The Recruiting Compass has not reviewed all of the sites linked to
+            its website and is not responsible for the contents of any such
+            linked site. The inclusion of any link does not imply endorsement by
+            The Recruiting Compass of the site. Use of any such linked website
+            is at the user's own risk.
           </p>
         </section>
 
         <section class="mb-8">
           <h2>7. Modifications to Terms</h2>
           <p>
-            Recruiting Compass may revise these Terms at any time. For
+            The Recruiting Compass may revise these Terms at any time. For
             <strong>material changes</strong> — including changes to pricing,
             data practices, arbitration terms, or core Service features — we
             will provide at least 14 days' advance notice via an in-app
@@ -156,7 +156,9 @@
 
         <section class="mb-8">
           <h2>9. User Accounts</h2>
-          <p>When you create an account on Recruiting Compass, you agree to:</p>
+          <p>
+            When you create an account on The Recruiting Compass, you agree to:
+          </p>
           <ul>
             <li>Provide accurate and complete information</li>
             <li>Maintain the confidentiality of your password</li>
@@ -174,8 +176,8 @@
           <ul>
             <li>Violating any applicable laws or regulations</li>
             <li>
-              Infringing upon intellectual property rights of Recruiting Compass
-              or others
+              Infringing upon intellectual property rights of The Recruiting
+              Compass or others
             </li>
             <li>Harassing, threatening, or defaming any person or entity</li>
             <li>
@@ -248,11 +250,11 @@
         <section class="mb-8">
           <h2>13. Account Termination</h2>
           <p>
-            Recruiting Compass reserves the right to suspend or terminate your
-            account and access to the Service at any time, with or without
+            The Recruiting Compass reserves the right to suspend or terminate
+            your account and access to the Service at any time, with or without
             notice, for conduct that we believe violates these Terms or is
-            harmful to other users, Recruiting Compass, or third parties, or for
-            any other reason at our sole discretion.
+            harmful to other users, The Recruiting Compass, or third parties, or
+            for any other reason at our sole discretion.
           </p>
           <p>
             Upon termination, your right to use the Service will immediately
@@ -270,7 +272,7 @@
           <p>
             You retain ownership of all data and content you enter into the
             Service, including schools, coaches, interaction notes, and academic
-            information ("User Content"). By using the Service, you grant
+            information ("User Content"). By using the Service, you grant The
             Recruiting Compass a limited, non-exclusive license to store,
             display, and process your User Content solely to provide and improve
             the Service.
@@ -278,14 +280,14 @@
           <p>
             School, program, and institutional data sourced from the U.S.
             Department of Education College Scorecard API or other third-party
-            sources is provided by Recruiting Compass as a reference resource.
-            You may not export, redistribute, or commercially exploit this
-            third-party data.
+            sources is provided by The Recruiting Compass as a reference
+            resource. You may not export, redistribute, or commercially exploit
+            this third-party data.
           </p>
           <p>
-            Recruiting Compass may use aggregated, anonymized, non-personally
-            identifiable data derived from Service usage for product
-            improvement, analytics, and research.
+            The Recruiting Compass may use aggregated, anonymized,
+            non-personally identifiable data derived from Service usage for
+            product improvement, analytics, and research.
           </p>
         </section>
 
@@ -297,7 +299,7 @@
             and other publicly available sources. This data is provided for
             <strong>reference purposes only</strong> and may not reflect current
             institutional policies, admissions requirements, program offerings,
-            or other statistics. Recruiting Compass makes no representations
+            or other statistics. The Recruiting Compass makes no representations
             about the accuracy, completeness, or timeliness of third-party data
             and is not responsible for any decisions made based on it.
           </p>
@@ -306,7 +308,7 @@
         <section class="mb-8">
           <h2>16. Fit Score Disclaimer</h2>
           <p>
-            Recruiting Compass calculates a "Fit Score" as an algorithmic
+            The Recruiting Compass calculates a "Fit Score" as an algorithmic
             estimate to help athletes gauge potential compatibility with
             schools. Fit Scores are based on user-entered data and publicly
             available school information.
@@ -345,13 +347,14 @@
         <section class="mb-8">
           <h2>18. Indemnification</h2>
           <p>
-            You agree to indemnify, defend, and hold harmless Recruiting Compass
-            and its officers, directors, employees, contractors, and agents from
-            and against any and all claims, liabilities, damages, losses, and
-            expenses (including reasonable attorneys' fees) arising out of or in
-            any way connected with: (a) your access to or use of the Service;
-            (b) your violation of these Terms; or (c) your infringement of any
-            intellectual property or other rights of any third party.
+            You agree to indemnify, defend, and hold harmless The Recruiting
+            Compass and its officers, directors, employees, contractors, and
+            agents from and against any and all claims, liabilities, damages,
+            losses, and expenses (including reasonable attorneys' fees) arising
+            out of or in any way connected with: (a) your access to or use of
+            the Service; (b) your violation of these Terms; or (c) your
+            infringement of any intellectual property or other rights of any
+            third party.
           </p>
         </section>
 
@@ -363,7 +366,7 @@
             and effect. These Terms, together with the
             <NuxtLink to="/legal/privacy" class="text-blue-600 hover:underline"
               >Privacy Policy</NuxtLink
-            >, constitute the entire agreement between you and Recruiting
+            >, constitute the entire agreement between you and The Recruiting
             Compass with respect to the Service and supersede all prior
             agreements and understandings.
           </p>
