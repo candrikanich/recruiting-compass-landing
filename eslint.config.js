@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
 import eslintConfigPrettier from "eslint-config-prettier";
 import tsParser from "@typescript-eslint/parser";
+import globals from "globals";
 
 export default [
   js.configs.recommended,
@@ -23,6 +24,7 @@ export default [
     files: ["**/*.{js,mjs,cjs,vue}"],
     languageOptions: {
       globals: {
+        ...globals.browser,
         useHead: true,
         useRouter: true,
         useRoute: true,
@@ -52,6 +54,12 @@ export default [
     },
     rules: {
       "vue/multi-word-component-names": "off",
+    },
+  },
+  {
+    files: ["scripts/**/*.mjs"],
+    languageOptions: {
+      globals: globals.node,
     },
   },
   {
