@@ -1,6 +1,6 @@
 // Single switch for launch state. Flip `iosLive` to true the day Apple approves
 // the app: App Store badges, the Smart App Banner and footer copy all follow it.
-export const iosLive = false;
+export const iosLive = true;
 
 export const APP_STORE_ID = "6758562332";
 
