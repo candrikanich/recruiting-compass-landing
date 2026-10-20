@@ -65,6 +65,12 @@ export const faqs: Faq[] = [
       "Yes. Parents and athletes join one family account — by email invite or Family Code — and see the same schools, coaches, interactions, and timeline. One family account can also track more than one athlete; switch between them from the header.",
   },
   {
+    id: "family-required",
+    question: "Why am I asked to create or join a family?",
+    answer:
+      "Every account belongs to a family, which is created for you at signup. If you were invited, you join that family instead. If you're removed from your only family or it is deleted, you'll be asked to create a new one or join one with a Family Code. Invited but still asked to create or join? Open the invite link from your email, or join with the family code.",
+  },
+  {
     id: "privacy",
     question: "Is my data private?",
     answer:

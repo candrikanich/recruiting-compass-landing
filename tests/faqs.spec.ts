@@ -18,6 +18,7 @@ const canonicalIds = [
   "templates",
   "recruiting-service",
   "family",
+  "family-required",
   "privacy",
   "too-early",
   "different",
