@@ -14,8 +14,8 @@ export function availabilityAnswer(live: boolean): string {
     : "Right now on the web at myrecruitingcompass.com, on any computer, tablet, or phone browser. The iPhone and iPad app is on its way to the App Store.";
 }
 
-// Canonical copy lives in recruiting-compass-web docs/marketing/customer-questions.md
-// (Canonical FAQ); the in-app help FAQ on web and iOS uses the same ids and text.
+// Mirrors the canonical FAQ in recruiting-compass-web components/Help/faqEntries.ts;
+// the in-app help FAQ on web and iOS uses the same ids and text.
 export const faqs: Faq[] = [
   {
     id: "cost",
