@@ -21,7 +21,7 @@ export const faqs: Faq[] = [
     id: "cost",
     question: "How much does The Recruiting Compass cost?",
     answer:
-      "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. After the founding window closes, new families get a 30-day free trial, then $99/year or $12.99/month for the whole family.",
+      "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families you add to a founding family are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for the first player, and $49/year or $6.49/month for each additional sibling.",
   },
   {
     id: "availability",
@@ -62,7 +62,7 @@ export const faqs: Faq[] = [
     id: "family",
     question: "Can parents and athletes share an account?",
     answer:
-      "Yes. Parents and athletes join one family account — by email invite or Family Code — and see the same schools, coaches, interactions, and timeline. One family account can also track more than one athlete; switch between them from the header.",
+      "Yes. Parents and athletes join one family account — by email invite or Family Code — and see the same schools, coaches, interactions, and timeline. Each family is built around one athlete; a parent with more than one athlete joins each athlete's family and switches between them from the header.",
   },
   {
     id: "privacy",

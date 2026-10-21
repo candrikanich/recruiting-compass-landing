@@ -71,8 +71,9 @@
               One Account per Family
             </h3>
             <p class="text-green-100 text-sm">
-              Parents and athletes share one workspace &mdash; and it can track
-              more than one athlete.
+              Parents and athletes share one workspace built around one athlete &mdash;
+              a parent with more than one athlete joins each athlete&rsquo;s family
+              and switches between them.
             </p>
           </div>
           <div
@@ -99,7 +100,8 @@
         </div>
         <p class="mt-6 text-green-200 text-sm">
           After the founding period: 30-day free trial, then $99/year or
-          $12.99/month for the whole family.
+          $12.99/month for the first player, $49/year or $6.49/month for each
+          additional sibling.
         </p>
       </div>
     </div>

@@ -8,7 +8,7 @@ const read = (p: string) => readFileSync(join(dir, "..", p), "utf8");
 
 describe("pricing copy is consistent", () => {
   const faqAnswer =
-    "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. After the founding window closes, new families get a 30-day free trial, then $99/year or $12.99/month for the whole family.";
+    "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families you add to a founding family are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for the first player, and $49/year or $6.49/month for each additional sibling.";
 
   it("FAQ answer is the shared canonical copy", () => {
     expect(read("data/faqs.ts")).toContain(faqAnswer);
@@ -27,6 +27,14 @@ describe("pricing copy is consistent", () => {
         "Special pricing for early survey participants",
       );
       expect(src).not.toContain('price: "0"');
+    }
+  });
+
+  it("pricing is per player and no copy says one account tracks several athletes", () => {
+    for (const file of ["data/faqs.ts", "components/sections/CtaSection.vue"]) {
+      const src = read(file);
+      expect(src).not.toContain("for the whole family");
+      expect(src).not.toMatch(/more than one athlete\.|can also track more than one athlete/);
     }
   });
 
