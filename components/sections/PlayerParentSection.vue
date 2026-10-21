@@ -84,7 +84,7 @@ const playerBullets = [
 
 const parentBullets = [
   "Full shared access to your athlete's recruiting dashboard — same data, same view",
-  "COPPA-compliant family accounts with parent and player roles",
+  "For ages 13 and up. Teens 13-17 can sign up, and a parent or guardian confirms the account to unlock messaging coaches and publishing a profile",
   "See which coaches have responded, which schools are in play, and what's next",
   'Help your athlete stay on track without needing to ask "did you email that coach?"',
   "Action items tell both of you what needs attention right now",
