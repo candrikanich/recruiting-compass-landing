@@ -14,8 +14,8 @@ export function availabilityAnswer(live: boolean): string {
     : "Right now on the web at myrecruitingcompass.com, on any computer, tablet, or phone browser. The iPhone and iPad app is on its way to the App Store.";
 }
 
-// Canonical copy lives in recruiting-compass-web docs/marketing/customer-questions.md
-// (Canonical FAQ); the in-app help FAQ on web and iOS uses the same ids and text.
+// Mirrors the canonical FAQ in recruiting-compass-web components/Help/faqEntries.ts;
+// the in-app help FAQ on web and iOS uses the same ids and text.
 export const faqs: Faq[] = [
   {
     id: "cost",
@@ -63,6 +63,12 @@ export const faqs: Faq[] = [
     question: "Can parents and athletes share an account?",
     answer:
       "Yes. Parents and athletes join one family account — by email invite or Family Code — and see the same schools, coaches, interactions, and timeline. One family account can also track more than one athlete; switch between them from the header.",
+  },
+  {
+    id: "family-required",
+    question: "Why am I asked to create or join a family?",
+    answer:
+      "Every account belongs to a family, which is created for you at signup. If you were invited, you join that family instead. If you're removed from your only family or it is deleted, you'll be asked to create a new one or join one with a Family Code. Invited but still asked to create or join? Open the invite link from your email, or join with the family code.",
   },
   {
     id: "privacy",
