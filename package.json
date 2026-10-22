@@ -20,7 +20,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@nuxt/fonts": "^0.14.0",
+    "@nuxt/fonts": "^1.0.1",
     "@nuxt/image": "^2.1.0",
     "@nuxtjs/robots": "^6.2.4",
     "@nuxtjs/seo": "^5.3.16",
