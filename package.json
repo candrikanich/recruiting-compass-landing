@@ -56,7 +56,7 @@
     "globals": "^16.5.0",
     "happy-dom": "^20.14.5",
     "prettier": "^3.9.9",
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.2",
     "vitest": "^4.1.11",
     "vue-eslint-parser": "^10.4.1",
     "vue-tsc": "^2.2.10"
