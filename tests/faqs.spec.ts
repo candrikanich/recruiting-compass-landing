@@ -64,3 +64,16 @@ describe("contact email", () => {
     expect(footer).not.toContain("info@therecruitingcompass.com");
   });
 });
+
+describe("Family Code terminology", () => {
+  it("spells Family Code as a proper noun in every FAQ answer", () => {
+    for (const { answer } of faqs) {
+      expect(answer).not.toMatch(/family code/);
+    }
+  });
+
+  it("family-required matches the web canonical wording", () => {
+    const answer = faqs.find((f) => f.id === "family-required")?.answer ?? "";
+    expect(answer).toContain("or join with a Family Code.");
+  });
+});
