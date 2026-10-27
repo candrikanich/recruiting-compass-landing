@@ -6,6 +6,14 @@ import { dirname, join } from "node:path";
 const dir = dirname(fileURLToPath(import.meta.url));
 const read = (p: string) => readFileSync(join(dir, "..", p), "utf8");
 
+const forbidden = [
+  /sibling players?/i,
+  /first player/i,
+  /additional sibling/i,
+  /every member/i,
+  /billed per family/i,
+];
+
 describe("pricing copy is consistent", () => {
   const faqAnswer =
     "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families added to a founding family before December 31, 2026 are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.";
@@ -27,20 +35,19 @@ describe("pricing copy is consistent", () => {
       "components/sections/HeroSection.vue",
     ]) {
       expect(read(file)).not.toContain(stale);
-      expect(read(file)).not.toContain("Sibling players added");
+      expect(read(file)).not.toMatch(/sibling players?/i);
     }
     expect(read("data/faqs.ts")).toContain(dated);
   });
 
-  it("price sentence is per family and never says first player or additional sibling", () => {
+  it("price copy is per family and free of forbidden wording in FAQ data and CTA", () => {
     const price =
       "$99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.";
     expect(read("data/faqs.ts")).toContain(price);
     const cta = read("components/sections/CtaSection.vue").replace(/\s+/g, " ");
     expect(cta).toContain(price);
-    for (const file of ["data/faqs.ts", "components/sections/CtaSection.vue"]) {
-      expect(read(file)).not.toMatch(/first player/i);
-      expect(read(file)).not.toMatch(/additional sibling/i);
+    for (const text of [read("data/faqs.ts"), cta]) {
+      for (const pattern of forbidden) expect(text).not.toMatch(pattern);
     }
   });
 
