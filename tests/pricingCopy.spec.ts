@@ -6,12 +6,49 @@ import { dirname, join } from "node:path";
 const dir = dirname(fileURLToPath(import.meta.url));
 const read = (p: string) => readFileSync(join(dir, "..", p), "utf8");
 
+const forbidden = [
+  /sibling players?/i,
+  /first player/i,
+  /additional sibling/i,
+  /every member/i,
+  /billed per family/i,
+];
+
 describe("pricing copy is consistent", () => {
   const faqAnswer =
-    "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families you add to a founding family are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for the first player, and $49/year or $6.49/month for each additional sibling.";
+    "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families added to a founding family before December 31, 2026 are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.";
 
   it("FAQ answer is the shared canonical copy", () => {
     expect(read("data/faqs.ts")).toContain(faqAnswer);
+  });
+
+  it("founding-sibling promise is dated and the undated wording is gone", () => {
+    const stale =
+      "Sibling families you add to a founding family are free for life too.";
+    const dated =
+      "Sibling families added to a founding family before December 31, 2026 are free for life too.";
+    for (const file of [
+      "data/faqs.ts",
+      "pages/index.vue",
+      "components/sections/CtaSection.vue",
+      "components/sections/FaqSection.vue",
+      "components/sections/HeroSection.vue",
+    ]) {
+      expect(read(file)).not.toContain(stale);
+      expect(read(file)).not.toMatch(/sibling players?/i);
+    }
+    expect(read("data/faqs.ts")).toContain(dated);
+  });
+
+  it("price copy is per family and free of forbidden wording in FAQ data and CTA", () => {
+    const price =
+      "$99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.";
+    expect(read("data/faqs.ts")).toContain(price);
+    const cta = read("components/sections/CtaSection.vue").replace(/\s+/g, " ");
+    expect(cta).toContain(price);
+    for (const text of [read("data/faqs.ts"), cta]) {
+      for (const pattern of forbidden) expect(text).not.toMatch(pattern);
+    }
   });
 
   it("no stale pricing lines remain", () => {
