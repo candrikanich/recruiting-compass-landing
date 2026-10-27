@@ -8,7 +8,7 @@ const read = (p: string) => readFileSync(join(dir, "..", p), "utf8");
 
 describe("pricing copy is consistent", () => {
   const faqAnswer =
-    "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families added to a founding family before December 31, 2026 are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for the first player, and $49/year or $6.49/month for each additional sibling.";
+    "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families added to a founding family before December 31, 2026 are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.";
 
   it("FAQ answer is the shared canonical copy", () => {
     expect(read("data/faqs.ts")).toContain(faqAnswer);
@@ -30,6 +30,18 @@ describe("pricing copy is consistent", () => {
       expect(read(file)).not.toContain("Sibling players added");
     }
     expect(read("data/faqs.ts")).toContain(dated);
+  });
+
+  it("price sentence is per family and never says first player or additional sibling", () => {
+    const price =
+      "$99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.";
+    expect(read("data/faqs.ts")).toContain(price);
+    const cta = read("components/sections/CtaSection.vue").replace(/\s+/g, " ");
+    expect(cta).toContain(price);
+    for (const file of ["data/faqs.ts", "components/sections/CtaSection.vue"]) {
+      expect(read(file)).not.toMatch(/first player/i);
+      expect(read(file)).not.toMatch(/additional sibling/i);
+    }
   });
 
   it("no stale pricing lines remain", () => {

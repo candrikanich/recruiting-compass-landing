@@ -21,7 +21,7 @@ export const faqs: Faq[] = [
     id: "cost",
     question: "How much does The Recruiting Compass cost?",
     answer:
-      "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families added to a founding family before December 31, 2026 are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for the first player, and $49/year or $6.49/month for each additional sibling.",
+      "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families added to a founding family before December 31, 2026 are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.",
   },
   {
     id: "availability",

@@ -34,6 +34,14 @@ describe("prerendered FAQPage JSON-LD", () => {
     expect(jsonLd).toContain(dated);
   });
 
+  it("has the per-family price sentence and no first-player/additional-sibling wording", () => {
+    expect(jsonLd).toContain(
+      "$99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.",
+    );
+    expect(jsonLd).not.toMatch(/first player/i);
+    expect(jsonLd).not.toMatch(/additional sibling/i);
+  });
+
   it("does not contain the undated or 'players' wording", () => {
     expect(jsonLd).not.toContain("Sibling families you add to a founding family");
     expect(jsonLd).not.toContain("Sibling players added");
