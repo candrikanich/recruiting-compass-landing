@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* global process */
 /**
  * Prunes old Vercel deployments for a project, keeping the N most recent
  * per git branch and never touching anything with a live alias (custom

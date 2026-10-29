@@ -9,7 +9,8 @@ vi.mock("resend", () => ({
   }),
 }));
 
-const { addToWaitlist } = await import("../../server/utils/waitlist");
+const { addToWaitlist, isBotSubmission } =
+  await import("../../server/utils/waitlist");
 
 const validConfig = {
   resendApiKey: "test-key",
@@ -112,5 +113,22 @@ describe("addToWaitlist", () => {
       statusCode: 500,
       data: { error: "Something went wrong. Please try again." },
     });
+  });
+});
+
+describe("isBotSubmission", () => {
+  it("flags a body whose honeypot field is filled", () => {
+    expect(
+      isBotSubmission({ email: "user@example.com", fax: "555-0100" }),
+    ).toBe(true);
+  });
+
+  it.each([
+    ["an empty honeypot", { email: "user@example.com", fax: "" }],
+    ["no honeypot field", { email: "user@example.com" }],
+    ["a missing body", undefined],
+    ["a non-object body", "user@example.com"],
+  ])("does not flag %s", (_label, body) => {
+    expect(isBotSubmission(body)).toBe(false);
   });
 });

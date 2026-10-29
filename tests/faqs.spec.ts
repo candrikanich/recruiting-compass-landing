@@ -7,7 +7,7 @@ import { iosLive } from "../data/site";
 
 const dir = dirname(fileURLToPath(import.meta.url));
 
-// Mirrors the Canonical FAQ (web repo docs/marketing/customer-questions.md);
+// Mirrors the canonical FAQ in recruiting-compass-web components/Help/faqEntries.ts;
 // in-app help on web and iOS uses the same ids and text.
 const canonicalIds = [
   "cost",
@@ -18,6 +18,7 @@ const canonicalIds = [
   "templates",
   "recruiting-service",
   "family",
+  "family-required",
   "privacy",
   "too-early",
   "different",
@@ -61,5 +62,18 @@ describe("contact email", () => {
     );
     expect(footer).toContain("hello@therecruitingcompass.com");
     expect(footer).not.toContain("info@therecruitingcompass.com");
+  });
+});
+
+describe("Family Code terminology", () => {
+  it("spells Family Code as a proper noun in every FAQ answer", () => {
+    for (const { answer } of faqs) {
+      expect(answer).not.toMatch(/family code/);
+    }
+  });
+
+  it("family-required matches the web canonical wording", () => {
+    const answer = faqs.find((f) => f.id === "family-required")?.answer ?? "";
+    expect(answer).toContain("or join with a Family Code.");
   });
 });

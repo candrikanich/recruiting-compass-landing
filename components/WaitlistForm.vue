@@ -16,7 +16,19 @@
       <p class="text-green-200 text-sm text-center mb-3 font-medium">
         📅 Get the month's key recruiting dates by email — no spam
       </p>
+      <p class="text-green-200/80 text-xs text-center -mt-2 mb-3">
+        For parents and guardians of high school athletes
+      </p>
       <div class="flex gap-2">
+        <input
+          v-model="fax"
+          type="text"
+          name="fax"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+          class="absolute -left-[9999px] h-px w-px opacity-0"
+        />
         <input
           v-model="email"
           type="email"
@@ -73,6 +85,8 @@ import type { FetchError } from "ofetch";
 type State = "idle" | "loading" | "success" | "error";
 
 const email = ref("");
+// Honeypot: hidden from people, so a value here means a bot filled the form.
+const fax = ref("");
 const state = ref<State>("idle");
 const errorMessage = ref("");
 
@@ -88,7 +102,7 @@ async function submit() {
   try {
     await $fetch("/api/waitlist", {
       method: "POST",
-      body: { email: email.value.trim() },
+      body: { email: email.value.trim(), fax: fax.value },
     });
     state.value = "success";
   } catch (err) {

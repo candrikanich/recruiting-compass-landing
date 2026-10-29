@@ -14,14 +14,14 @@ export function availabilityAnswer(live: boolean): string {
     : "Right now on the web at myrecruitingcompass.com, on any computer, tablet, or phone browser. The iPhone and iPad app is on its way to the App Store.";
 }
 
-// Canonical copy lives in recruiting-compass-web docs/marketing/customer-questions.md
-// (Canonical FAQ); the in-app help FAQ on web and iOS uses the same ids and text.
+// Mirrors the canonical FAQ in recruiting-compass-web components/Help/faqEntries.ts;
+// the in-app help FAQ on web and iOS uses the same ids and text.
 export const faqs: Faq[] = [
   {
     id: "cost",
     question: "How much does The Recruiting Compass cost?",
     answer:
-      "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. After the founding window closes, new families get a 30-day free trial, then $99/year or $12.99/month for the whole family.",
+      "It's free right now. Every family that signs up during our founding period keeps full access free for life — no card, no catch. Sibling families added to a founding family before December 31, 2026 are free for life too. After the founding window closes, new families get a 30-day free trial, then pricing is per player: $99/year or $12.99/month for a player's family, and $49/year or $6.49/month for each sibling's family.",
   },
   {
     id: "availability",
@@ -62,7 +62,13 @@ export const faqs: Faq[] = [
     id: "family",
     question: "Can parents and athletes share an account?",
     answer:
-      "Yes. Parents and athletes join one family account — by email invite or Family Code — and see the same schools, coaches, interactions, and timeline. One family account can also track more than one athlete; switch between them from the header.",
+      "Yes. Parents and athletes join one family account — by email invite or Family Code — and see the same schools, coaches, interactions, and timeline. Each family is built around one athlete; a parent with more than one athlete joins each athlete's family and switches between them from the header.",
+  },
+  {
+    id: "family-required",
+    question: "Why am I asked to create or join a family?",
+    answer:
+      "Every account belongs to a family, which is created for you at signup. If you were invited, you join that family instead. If you're removed from your only family or it is deleted, you'll be asked to create a new one or join one with a Family Code. Invited but still asked to create or join? Open the invite link from your email, or join with a Family Code.",
   },
   {
     id: "privacy",

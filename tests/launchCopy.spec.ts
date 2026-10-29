@@ -133,4 +133,10 @@ describe("site links", () => {
       "Download_on_the_App_Store_Badge",
     );
   });
+
+  it("recruiting-dates form says who it is for", () => {
+    expect(read("components/WaitlistForm.vue")).toContain(
+      "For parents and guardians of high school athletes",
+    );
+  });
 });
