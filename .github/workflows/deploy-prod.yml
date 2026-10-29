@@ -43,13 +43,19 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
+      # --force skips Vercel's restored build cache: a cached Nuxt buildDir
+      # (node_modules/.cache/nuxt/.nuxt) left the server renderer linking
+      # stale entry CSS/JS hashes, shipping the site with no styles.
       - name: Deploy to Vercel
         run: |
-          vercel deploy --prod \
+          vercel deploy --prod --force \
             --token="${{ secrets.VERCEL_TOKEN }}"
         env:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PROD }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Verify deployed assets
+        run: node scripts/check-deployed-assets.mjs https://www.therecruitingcompass.com
 
       - name: Slack Notification - Success
         if: success()
