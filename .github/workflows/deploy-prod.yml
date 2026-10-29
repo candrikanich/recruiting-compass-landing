@@ -37,20 +37,20 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build
-        run: npm run build
-
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      # --force skips Vercel's restored build cache: a cached Nuxt buildDir
-      # (node_modules/.cache/nuxt/.nuxt) left the server renderer linking
-      # stale entry CSS/JS hashes, shipping the site with no styles.
-      - name: Deploy to Vercel
+      # Build exactly once and upload that output. A plain `vercel deploy`
+      # uploaded this runner's .output/ and rebuilt remotely, and the two
+      # builds' hashes got mixed: pages linked entry CSS/JS the deployment
+      # didn't contain, so the site rendered with no styles (Oct 2026).
+      - name: Build and deploy to Vercel (prebuilt)
         run: |
-          vercel deploy --prod --force \
-            --token="${{ secrets.VERCEL_TOKEN }}"
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+          vercel build --prod --token="$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
         env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PROD }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
