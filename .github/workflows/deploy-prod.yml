@@ -53,6 +53,10 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PROD }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          # Nitro only auto-detects Vercel when VERCEL is set, which a GitHub
+          # runner doesn't do; without this it builds node-server into .output/
+          # and `vercel build` fails looking for the project's "dist" directory.
+          NITRO_PRESET: vercel
 
       - name: Verify deployed assets
         run: node scripts/check-deployed-assets.mjs https://www.therecruitingcompass.com
