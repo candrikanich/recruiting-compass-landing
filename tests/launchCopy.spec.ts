@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { appStoreUrl, webSignupUrl, APP_STORE_ID } from "../data/site";
+import { appStoreUrl, webSignupUrl, APP_STORE_ID, SOCIAL } from "../data/site";
 
 const dir = dirname(fileURLToPath(import.meta.url));
 const read = (p: string) => readFileSync(join(dir, "..", p), "utf8");
@@ -62,6 +62,15 @@ describe("launch copy", () => {
     expect(footer).toContain("SOCIAL.facebook");
     expect(footer).toContain("SOCIAL.x");
     expect(footer).toContain("SOCIAL.tiktok");
+  });
+
+  it("TikTok handle is @therecruitingcompass in the footer link and Organization sameAs", () => {
+    const newUrl = "https://www.tiktok.com/@therecruitingcompass";
+    expect(SOCIAL.tiktok).toBe(newUrl);
+    expect(read("data/site.ts")).not.toContain("the.recruiting.com");
+    const config = read("nuxt.config.ts");
+    expect(config).toContain(`"${newUrl}"`);
+    expect(config).not.toContain("the.recruiting.com");
   });
 
   it("sports grid lists the canonical 19 sports", () => {

@@ -15,8 +15,7 @@ export const SOCIAL = {
   facebook: "https://www.facebook.com/TheRecruitingCompass",
   instagram: "https://www.instagram.com/therecruitingcompass",
   x: "https://x.com/recruitCompass",
-  // Planned rename to @therecruitingcompass once TikTok allows it (Oct 30, 2026).
-  tiktok: "https://www.tiktok.com/@the.recruiting.com",
+  tiktok: "https://www.tiktok.com/@therecruitingcompass",
 } as const;
 
 // Campaign names match between App Store `ct` and web `utm_campaign` so iOS
