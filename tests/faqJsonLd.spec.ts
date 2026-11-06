@@ -7,7 +7,7 @@ import { dirname, join } from "node:path";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dated =
-  "Sibling families added to a founding family before December 31, 2026 are free for life too.";
+  "Sibling families added to a founding family by January 31, 2027 are free for life too.";
 
 const forbidden = [
   /sibling players?/i,
