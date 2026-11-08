@@ -64,6 +64,12 @@ describe("launch copy", () => {
     expect(footer).toContain("SOCIAL.tiktok");
   });
 
+  it("footer carries the Logo.dev free-plan attribution link", () => {
+    const footer = read("components/sections/FooterSection.vue");
+    expect(footer).toContain('href="https://logo.dev"');
+    expect(footer).toContain("Logos provided by Logo.dev");
+  });
+
   it("TikTok handle is @therecruitingcompass in the footer link and Organization sameAs", () => {
     const newUrl = "https://www.tiktok.com/@therecruitingcompass";
     expect(SOCIAL.tiktok).toBe(newUrl);
