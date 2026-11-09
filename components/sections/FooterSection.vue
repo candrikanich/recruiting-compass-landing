@@ -124,6 +124,15 @@
             >Terms of Service</NuxtLink
           >
         </p>
+        <p class="mt-2">
+          <a
+            href="https://logo.dev"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-green-400 transition-colors"
+            >Logos provided by Logo.dev</a
+          >
+        </p>
       </div>
     </div>
   </footer>
