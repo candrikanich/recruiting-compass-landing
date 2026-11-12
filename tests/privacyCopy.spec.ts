@@ -37,6 +37,8 @@ describe("privacy policy copy", () => {
     "We share your email address and subscription status with Resend for that purpose only.",
     "We do not send marketing email to users under 18.",
     "The form is for parents and guardians of high school athletes.",
+    "Resend also receives the emails you forward to your family's Recruiting Compass address and passes them to us.",
+    "Our email provider, Resend, also keeps a copy of each email it receives for 30 days, and that copy cannot be deleted sooner.",
   ])("states: %s", (sentence) => {
     expect(policyText).toContain(sentence);
   });

@@ -13,7 +13,7 @@
         <h1 class="text-3xl font-bold text-slate-900 mb-2">Privacy Policy</h1>
         <!-- UPDATE THIS DATE WHENEVER THE PRIVACY POLICY IS MODIFIED -->
         <p class="text-slate-600 mb-8">
-          <strong>Last Updated:</strong> October 2, 2026
+          <strong>Last Updated:</strong> November 12, 2026
         </p>
 
         <section class="mb-8">
@@ -55,6 +55,12 @@
               <strong>Recruiting Activity:</strong> Schools and college programs
               you track, coach contact information you enter, and interaction
               notes and communication logs you create
+            </li>
+            <li>
+              <strong>Forwarded Emails:</strong> Emails you or a family member
+              forward to your family's Recruiting Compass address, including the
+              sender, subject, message text, and attachments, which we turn into
+              drafts for you to review
             </li>
             <li>
               <strong>Family Unit Data:</strong> Email addresses of family
@@ -174,8 +180,9 @@
             We use <strong>Resend</strong>, an email service provider, to send
             email and to maintain our marketing email list. We share your email
             address and subscription status with Resend for that purpose only.
-            We do not sell your personal information or share it for third-party
-            advertising.
+            Resend also receives the emails you forward to your family's
+            Recruiting Compass address and passes them to us. We do not sell
+            your personal information or share it for third-party advertising.
           </p>
         </section>
 
@@ -204,8 +211,9 @@
             <li>
               <strong>Service Providers:</strong> Third-party vendors who assist
               in operating our Service (e.g., hosting, email delivery), subject
-              to confidentiality obligations. We use Resend to deliver email and
-              to maintain our marketing email list.
+              to confidentiality obligations. We use Resend to deliver email, to
+              receive forwarded emails, and to maintain our marketing email
+              list.
             </li>
             <li>
               <strong>Family Unit Members:</strong> If you are part of a family
@@ -268,6 +276,14 @@
               <strong>Deleted accounts:</strong> Following an account deletion
               request, your personal data is purged within 30 days. You may
               cancel a deletion request within that 30-day window.
+            </li>
+            <li>
+              <strong>Forwarded emails:</strong> We keep the full original email
+              for up to two weeks so we can process it, then delete it. The
+              draft made from it, and anything you save from it, stays in your
+              account like the rest of your data. Our email provider, Resend,
+              also keeps a copy of each email it receives for 30 days, and that
+              copy cannot be deleted sooner.
             </li>
             <li>
               <strong>Audit logs:</strong> Security- and account-related audit
