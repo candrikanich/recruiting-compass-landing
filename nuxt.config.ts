@@ -69,8 +69,14 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ["/", "/legal/privacy", "/legal/terms"],
+      routes: ["/", "/links", "/legal/privacy", "/legal/terms"],
     },
+  },
+
+  // /links is a link-in-bio hub: keep it out of search and the sitemap so it
+  // never competes with the home page.
+  routeRules: {
+    "/links": { robots: false },
   },
 
   // CSS configuration

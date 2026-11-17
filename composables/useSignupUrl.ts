@@ -1,23 +1,9 @@
 import { webSignupUrl } from "~/data/site";
+import { useInboundQuery } from "~/composables/useInboundQuery";
 
-// Prerendered HTML can't know the visitor's query string, so the link starts
-// with landing attribution. During hydration the router briefly rewrites the
-// URL to the bare path before restoring the query, so read it from the route
-// and follow changes rather than sampling window.location once.
+// Starts with landing attribution in the prerendered HTML, then picks up the
+// visitor's inbound UTM tags once mounted (see useInboundQuery).
 export function useSignupUrl(campaign: string) {
-  const route = useRoute();
-  const href = ref(webSignupUrl(campaign));
-  const sync = () => {
-    const search = new URLSearchParams(
-      Object.entries(route.query).flatMap(([key, value]) =>
-        typeof value === "string" ? [[key, value]] : [],
-      ),
-    ).toString();
-    href.value = webSignupUrl(campaign, search);
-  };
-  onMounted(() => {
-    sync();
-    watch(() => route.query, sync);
-  });
-  return href;
+  const search = useInboundQuery();
+  return computed(() => webSignupUrl(campaign, search.value));
 }
