@@ -32,6 +32,7 @@ export default [
         useFetch: true,
         useAsyncData: true,
         useRuntimeConfig: true,
+        useNuxtApp: true,
         navigateTo: true,
         definePageMeta: true,
         defineNuxtConfig: true,

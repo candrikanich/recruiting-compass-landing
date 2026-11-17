@@ -89,6 +89,8 @@ const email = ref("");
 const fax = ref("");
 const state = ref<State>("idle");
 const errorMessage = ref("");
+// Client-only plugin: absent while prerendering, present by the time a visitor submits.
+const { $analytics } = useNuxtApp();
 
 const canSubmit = computed(
   () => state.value !== "loading" && email.value.trim().length > 0,
@@ -105,6 +107,7 @@ async function submit() {
       body: { email: email.value.trim(), fax: fax.value },
     });
     state.value = "success";
+    $analytics?.capture("waitlist_subscribed");
   } catch (err) {
     state.value = "error";
     const fetchErr = err as FetchError;
