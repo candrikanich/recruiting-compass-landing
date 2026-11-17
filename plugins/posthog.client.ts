@@ -2,6 +2,7 @@ import type { PostHog } from "posthog-js";
 import {
   classifyCtaHref,
   earlyCtaEvent,
+  isLocalHost,
   POSTHOG_HOST,
   shouldEnableAnalytics,
 } from "~/utils/landingAnalytics";
@@ -16,7 +17,8 @@ export default defineNuxtPlugin(() => {
   );
   const noop: Capture = () => {};
 
-  if (!shouldEnableAnalytics({ key, gpc, dev: import.meta.dev })) {
+  const local = isLocalHost(location.hostname);
+  if (!shouldEnableAnalytics({ key, gpc, dev: import.meta.dev, local })) {
     return { provide: { analytics: { capture: noop } } };
   }
 
