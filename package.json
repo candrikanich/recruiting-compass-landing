@@ -34,7 +34,7 @@
     "nuxt-site-config": "^4.2.3",
     "posthog-js": "^1.450.0",
     "resend": "^6.34.1",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.3.5",
     "unhead": "^3.4.0",
     "vue": "^3.5.25",
     "zod": "^4.6.7"
