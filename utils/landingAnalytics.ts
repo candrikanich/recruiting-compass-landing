@@ -69,10 +69,20 @@ export function earlyCtaEvent(input: {
   };
 }
 
+// A production build served locally (`npm run preview`, Playwright) is not
+// `dev`, yet must never send to the live project: two test page-leaves did.
+export function isLocalHost(hostname: string): boolean {
+  return (
+    ["localhost", "127.0.0.1", "[::1]"].includes(hostname) ||
+    hostname.endsWith(".local")
+  );
+}
+
 export function shouldEnableAnalytics(env: {
   key: string;
   gpc: boolean;
   dev: boolean;
+  local: boolean;
 }): boolean {
-  return Boolean(env.key) && !env.gpc && !env.dev;
+  return Boolean(env.key) && !env.gpc && !env.dev && !env.local;
 }

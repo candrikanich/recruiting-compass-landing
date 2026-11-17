@@ -3,6 +3,7 @@ import { appStoreUrl, webSignupUrl, WEB_APP_URL } from "../data/site";
 import {
   classifyCtaHref,
   earlyCtaEvent,
+  isLocalHost,
   shouldEnableAnalytics,
 } from "../utils/landingAnalytics";
 
@@ -81,7 +82,7 @@ describe("classifyCtaHref", () => {
 });
 
 describe("shouldEnableAnalytics", () => {
-  const on = { key: "phc_test", gpc: false, dev: false };
+  const on = { key: "phc_test", gpc: false, dev: false, local: false };
 
   it("is on in production with a key", () => {
     expect(shouldEnableAnalytics(on)).toBe(true);
@@ -97,5 +98,22 @@ describe("shouldEnableAnalytics", () => {
 
   it("stays off in local dev so test traffic never reaches the project", () => {
     expect(shouldEnableAnalytics({ ...on, dev: true })).toBe(false);
+  });
+
+  it("stays off on a local production preview", () => {
+    expect(shouldEnableAnalytics({ ...on, local: true })).toBe(false);
+  });
+});
+
+describe("isLocalHost", () => {
+  it("recognises loopback and .local hosts", () => {
+    for (const host of ["localhost", "127.0.0.1", "[::1]", "chris-mac.local"]) {
+      expect(isLocalHost(host)).toBe(true);
+    }
+  });
+
+  it("does not flag the real site or a lookalike", () => {
+    expect(isLocalHost("www.therecruitingcompass.com")).toBe(false);
+    expect(isLocalHost("localhost.evil.test")).toBe(false);
   });
 });
