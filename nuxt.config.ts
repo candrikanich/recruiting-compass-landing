@@ -147,5 +147,11 @@ export default defineNuxtConfig({
   runtimeConfig: {
     resendApiKey: "", // injected from NUXT_RESEND_API_KEY
     resendAudienceId: "", // injected from NUXT_RESEND_AUDIENCE_ID
+    public: {
+      // PostHog project tokens are write-only and public by design (the web
+      // app ships the same one in its HTML). Committed so the static build
+      // never depends on a CI secret; NUXT_PUBLIC_POSTHOG_KEY overrides it.
+      posthogKey: "phc_wRXw7PHY9TzplJjZPHbxgu5y0BdUNlKsTfMOrWhUQZT",
+    },
   },
 });
