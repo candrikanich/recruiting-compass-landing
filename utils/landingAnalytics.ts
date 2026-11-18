@@ -42,6 +42,24 @@ export function classifyCtaHref(href: string): CtaClick | null {
   return { destination: "web_app", placement: null };
 }
 
+// The web app is on another domain, so PostHog there would start a new
+// anonymous id. Passing this one lets web bootstrap it, and the identify at
+// signup then ties the landing visit and the CTA click to the new account.
+// A fragment, because it never reaches a server log; web reads and strips it.
+export const SIGNUP_HANDOFF_PARAM = "ph_did";
+
+export function withSignupHandoff(href: string, distinctId: string): string {
+  try {
+    const url = new URL(href);
+    url.hash = new URLSearchParams({
+      [SIGNUP_HANDOFF_PARAM]: distinctId,
+    }).toString();
+    return url.toString();
+  } catch {
+    return href;
+  }
+}
+
 export const POSTHOG_HOST = "https://us.i.posthog.com";
 
 // A tap that lands before the lazy SDK chunk loads (slow mobile, which is most

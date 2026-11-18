@@ -29,6 +29,10 @@ example `utm_campaign=c4-first-email`.
   a campaign once it has 5 or more downloads.
 - **Clicks**: PostHog event `landing_cta_clicked` with `placement` = the
   `utm_content`/`ct` value above.
+- **Visit → signup**: a web signup click carries the visitor's PostHog ID
+  (`#ph_did=…`) to the web app, so the PostHog funnel landing `$pageview` →
+  `landing_cta_clicked` → `signup_completed` follows the same person. Clicks
+  made before PostHog finishes loading, and App Store installs, are not linked.
 
 Set `APP_STORE_PROVIDER_TOKEN` in `data/site.ts` (the `pt` value from any
 campaign link App Store Connect generates) so App Store links are attributed.
