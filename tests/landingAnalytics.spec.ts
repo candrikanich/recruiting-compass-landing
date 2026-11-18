@@ -5,6 +5,7 @@ import {
   earlyCtaEvent,
   isLocalHost,
   shouldEnableAnalytics,
+  withSignupHandoff,
 } from "../utils/landingAnalytics";
 
 describe("earlyCtaEvent", () => {
@@ -115,5 +116,26 @@ describe("isLocalHost", () => {
   it("does not flag the real site or a lookalike", () => {
     expect(isLocalHost("www.therecruitingcompass.com")).toBe(false);
     expect(isLocalHost("localhost.evil.test")).toBe(false);
+  });
+});
+
+describe("withSignupHandoff", () => {
+  const id = "019a2b3c-4d5e-7f60-8a1b-2c3d4e5f6a7b";
+
+  it("puts the visitor's PostHog id in the fragment so web signup can continue it", () => {
+    const href = webSignupUrl("landing-hero");
+    const out = new URL(withSignupHandoff(href, id));
+    expect(out.hash).toBe(`#ph_did=${id}`);
+    expect(out.search).toBe(new URL(href).search);
+    expect(out.pathname).toBe("/signup");
+  });
+
+  it("replaces an id left over from an earlier click", () => {
+    const first = withSignupHandoff(webSignupUrl("landing-cta"), "old");
+    expect(withSignupHandoff(first, id)).toMatch(new RegExp(`#ph_did=${id}$`));
+  });
+
+  it("leaves an unparseable href alone", () => {
+    expect(withSignupHandoff("not a url", id)).toBe("not a url");
   });
 });
