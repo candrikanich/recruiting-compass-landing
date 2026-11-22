@@ -35,7 +35,7 @@
           aria-label="Email address"
           placeholder="your@email.com"
           :disabled="state === 'loading'"
-          class="flex-1 bg-white/15 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/40 text-sm focus:outline-none focus:border-green-400/70 disabled:opacity-50"
+          class="flex-1 min-w-0 bg-white/15 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/40 text-sm focus:outline-none focus:border-green-400/70 disabled:opacity-50"
           @keydown.enter="submit"
         />
         <button
