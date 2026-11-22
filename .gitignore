@@ -5,7 +5,7 @@ pnpm-lock.yaml
 
 # Build output
 .output/
-dist/
+dist
 .nuxt/
 .vite/
 .next/
@@ -43,3 +43,6 @@ coverage/
 CLAUDE.local.md
 .env*
 !.env.example
+
+# Playwright MCP screenshots/snapshots
+.playwright-mcp/

@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         "https://www.facebook.com/TheRecruitingCompass",
         "https://www.instagram.com/therecruitingcompass",
         "https://x.com/recruitCompass",
-        "https://www.tiktok.com/@the.recruiting.com",
+        "https://www.tiktok.com/@therecruitingcompass",
       ],
     }),
   },
@@ -69,8 +69,14 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ["/", "/legal/privacy", "/legal/terms"],
+      routes: ["/", "/links", "/legal/privacy", "/legal/terms"],
     },
+  },
+
+  // /links is a link-in-bio hub: keep it out of search and the sitemap so it
+  // never competes with the home page.
+  routeRules: {
+    "/links": { robots: false },
   },
 
   // CSS configuration
@@ -147,5 +153,11 @@ export default defineNuxtConfig({
   runtimeConfig: {
     resendApiKey: "", // injected from NUXT_RESEND_API_KEY
     resendAudienceId: "", // injected from NUXT_RESEND_AUDIENCE_ID
+    public: {
+      // PostHog project tokens are write-only and public by design (the web
+      // app ships the same one in its HTML). Committed so the static build
+      // never depends on a CI secret; NUXT_PUBLIC_POSTHOG_KEY overrides it.
+      posthogKey: "phc_wRXw7PHY9TzplJjZPHbxgu5y0BdUNlKsTfMOrWhUQZT",
+    },
   },
 });

@@ -1,6 +1,6 @@
 // Single switch for launch state. Flip `iosLive` to true the day Apple approves
 // the app: App Store badges, the Smart App Banner and footer copy all follow it.
-export const iosLive = false;
+export const iosLive = true;
 
 export const APP_STORE_ID = "6758562332";
 
@@ -15,8 +15,7 @@ export const SOCIAL = {
   facebook: "https://www.facebook.com/TheRecruitingCompass",
   instagram: "https://www.instagram.com/therecruitingcompass",
   x: "https://x.com/recruitCompass",
-  // Planned rename to @therecruitingcompass once TikTok allows it (Oct 30, 2026).
-  tiktok: "https://www.tiktok.com/@the.recruiting.com",
+  tiktok: "https://www.tiktok.com/@therecruitingcompass",
 } as const;
 
 // Campaign names match between App Store `ct` and web `utm_campaign` so iOS
@@ -50,4 +49,29 @@ export function webSignupUrl(campaign: string, inboundSearch = ""): string {
         utm_campaign: campaign,
       });
   return `${WEB_APP_URL}/signup?${params.toString()}`;
+}
+
+// App Store `ct` for a placement, split by the inbound utm_source when there is
+// one (links-instagram, links-facebook) so App Store Connect shows installs per
+// channel. Apple allows letters, digits and dashes; anything else is dropped.
+export function appStoreCampaign(
+  placement: string,
+  inboundSearch = "",
+): string {
+  const source = (new URLSearchParams(inboundSearch).get("utm_source") ?? "")
+    .toLowerCase()
+    .replace(/[^a-z0-9-]/g, "");
+  return source ? `${placement}-${source}` : placement;
+}
+
+// iPadOS reports itself as a Mac, so a touch screen on "MacIntel" counts too.
+export function isAppleMobile(device: {
+  userAgent: string;
+  platform?: string;
+  maxTouchPoints?: number;
+}): boolean {
+  return (
+    /iPhone|iPad|iPod/.test(device.userAgent) ||
+    (device.platform === "MacIntel" && (device.maxTouchPoints ?? 0) > 1)
+  );
 }

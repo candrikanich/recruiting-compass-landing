@@ -35,7 +35,7 @@
           aria-label="Email address"
           placeholder="your@email.com"
           :disabled="state === 'loading'"
-          class="flex-1 bg-white/15 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/40 text-sm focus:outline-none focus:border-green-400/70 disabled:opacity-50"
+          class="flex-1 min-w-0 bg-white/15 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/40 text-sm focus:outline-none focus:border-green-400/70 disabled:opacity-50"
           @keydown.enter="submit"
         />
         <button
@@ -89,6 +89,8 @@ const email = ref("");
 const fax = ref("");
 const state = ref<State>("idle");
 const errorMessage = ref("");
+// Client-only plugin: absent while prerendering, present by the time a visitor submits.
+const { $analytics } = useNuxtApp();
 
 const canSubmit = computed(
   () => state.value !== "loading" && email.value.trim().length > 0,
@@ -105,6 +107,7 @@ async function submit() {
       body: { email: email.value.trim(), fax: fax.value },
     });
     state.value = "success";
+    $analytics?.capture("waitlist_subscribed");
   } catch (err) {
     state.value = "error";
     const fetchErr = err as FetchError;

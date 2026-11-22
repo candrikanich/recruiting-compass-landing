@@ -37,19 +37,29 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build
-        run: npm run build
-
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Deploy to Vercel
+      # Build exactly once and upload that output. A plain `vercel deploy`
+      # uploaded this runner's .output/ and rebuilt remotely, and the two
+      # builds' hashes got mixed: pages linked entry CSS/JS the deployment
+      # didn't contain, so the site rendered with no styles (Oct 2026).
+      - name: Build and deploy to Vercel (prebuilt)
         run: |
-          vercel deploy --prod \
-            --token="${{ secrets.VERCEL_TOKEN }}"
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+          vercel build --prod --token="$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
         env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PROD }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          # Nitro only auto-detects Vercel when VERCEL is set, which a GitHub
+          # runner doesn't do; without this it builds node-server into .output/
+          # and `vercel build` fails looking for the project's "dist" directory.
+          NITRO_PRESET: vercel
+
+      - name: Verify deployed assets
+        run: node scripts/check-deployed-assets.mjs https://www.therecruitingcompass.com
 
       - name: Slack Notification - Success
         if: success()

@@ -100,8 +100,8 @@
         </div>
         <p class="mt-6 text-green-200 text-sm">
           After the founding period: 30-day free trial, then $99/year or
-          $12.99/month for the first player, $49/year or $6.49/month for each
-          additional sibling.
+          $12.99/month for a player's family, and $49/year or $6.49/month for
+          each sibling's family.
         </p>
       </div>
     </div>
