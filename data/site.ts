@@ -50,3 +50,28 @@ export function webSignupUrl(campaign: string, inboundSearch = ""): string {
       });
   return `${WEB_APP_URL}/signup?${params.toString()}`;
 }
+
+// App Store `ct` for a placement, split by the inbound utm_source when there is
+// one (links-instagram, links-facebook) so App Store Connect shows installs per
+// channel. Apple allows letters, digits and dashes; anything else is dropped.
+export function appStoreCampaign(
+  placement: string,
+  inboundSearch = "",
+): string {
+  const source = (new URLSearchParams(inboundSearch).get("utm_source") ?? "")
+    .toLowerCase()
+    .replace(/[^a-z0-9-]/g, "");
+  return source ? `${placement}-${source}` : placement;
+}
+
+// iPadOS reports itself as a Mac, so a touch screen on "MacIntel" counts too.
+export function isAppleMobile(device: {
+  userAgent: string;
+  platform?: string;
+  maxTouchPoints?: number;
+}): boolean {
+  return (
+    /iPhone|iPad|iPod/.test(device.userAgent) ||
+    (device.platform === "MacIntel" && (device.maxTouchPoints ?? 0) > 1)
+  );
+}

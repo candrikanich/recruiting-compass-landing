@@ -3,7 +3,9 @@ import { appStoreUrl, webSignupUrl, WEB_APP_URL } from "../data/site";
 import {
   classifyCtaHref,
   earlyCtaEvent,
+  isLocalHost,
   shouldEnableAnalytics,
+  withSignupHandoff,
 } from "../utils/landingAnalytics";
 
 describe("earlyCtaEvent", () => {
@@ -81,7 +83,7 @@ describe("classifyCtaHref", () => {
 });
 
 describe("shouldEnableAnalytics", () => {
-  const on = { key: "phc_test", gpc: false, dev: false };
+  const on = { key: "phc_test", gpc: false, dev: false, local: false };
 
   it("is on in production with a key", () => {
     expect(shouldEnableAnalytics(on)).toBe(true);
@@ -97,5 +99,43 @@ describe("shouldEnableAnalytics", () => {
 
   it("stays off in local dev so test traffic never reaches the project", () => {
     expect(shouldEnableAnalytics({ ...on, dev: true })).toBe(false);
+  });
+
+  it("stays off on a local production preview", () => {
+    expect(shouldEnableAnalytics({ ...on, local: true })).toBe(false);
+  });
+});
+
+describe("isLocalHost", () => {
+  it("recognises loopback and .local hosts", () => {
+    for (const host of ["localhost", "127.0.0.1", "[::1]", "chris-mac.local"]) {
+      expect(isLocalHost(host)).toBe(true);
+    }
+  });
+
+  it("does not flag the real site or a lookalike", () => {
+    expect(isLocalHost("www.therecruitingcompass.com")).toBe(false);
+    expect(isLocalHost("localhost.evil.test")).toBe(false);
+  });
+});
+
+describe("withSignupHandoff", () => {
+  const id = "019a2b3c-4d5e-7f60-8a1b-2c3d4e5f6a7b";
+
+  it("puts the visitor's PostHog id in the fragment so web signup can continue it", () => {
+    const href = webSignupUrl("landing-hero");
+    const out = new URL(withSignupHandoff(href, id));
+    expect(out.hash).toBe(`#ph_did=${id}`);
+    expect(out.search).toBe(new URL(href).search);
+    expect(out.pathname).toBe("/signup");
+  });
+
+  it("replaces an id left over from an earlier click", () => {
+    const first = withSignupHandoff(webSignupUrl("landing-cta"), "old");
+    expect(withSignupHandoff(first, id)).toMatch(new RegExp(`#ph_did=${id}$`));
+  });
+
+  it("leaves an unparseable href alone", () => {
+    expect(withSignupHandoff("not a url", id)).toBe("not a url");
   });
 });

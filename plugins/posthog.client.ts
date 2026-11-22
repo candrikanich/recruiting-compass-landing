@@ -2,8 +2,10 @@ import type { PostHog } from "posthog-js";
 import {
   classifyCtaHref,
   earlyCtaEvent,
+  isLocalHost,
   POSTHOG_HOST,
   shouldEnableAnalytics,
+  withSignupHandoff,
 } from "~/utils/landingAnalytics";
 
 type Capture = (event: string, properties?: Record<string, unknown>) => void;
@@ -16,7 +18,8 @@ export default defineNuxtPlugin(() => {
   );
   const noop: Capture = () => {};
 
-  if (!shouldEnableAnalytics({ key, gpc, dev: import.meta.dev })) {
+  const local = isLocalHost(location.hostname);
+  if (!shouldEnableAnalytics({ key, gpc, dev: import.meta.dev, local })) {
     return { provide: { analytics: { capture: noop } } };
   }
 
@@ -67,6 +70,12 @@ export default defineNuxtPlugin(() => {
         anchor && classifyCtaHref((anchor as HTMLAnchorElement).href);
       if (!click) return;
       if (loaded) {
+        // Rewritten in the capture phase, before the browser follows the link.
+        // Early clicks skip this: their id is throwaway (see earlyCtaEvent).
+        if (click.destination === "web_signup") {
+          const link = anchor as HTMLAnchorElement;
+          link.href = withSignupHandoff(link.href, loaded.get_distinct_id());
+        }
         loaded.capture(
           "landing_cta_clicked",
           { ...click },
